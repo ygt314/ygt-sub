@@ -1,36 +1,64 @@
-# 学科ter
+# Subject-ter: Termux Subject Resources
 
-#### Description
-termux是Android端的Linux终端模拟器。这个库提供学科有关的资源程序
+![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray) ![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
 
-#### Software Architecture
-Software architecture description
+## Project Introduction
 
-#### Installation
+Subject-ter is a collection of subject-related resource programs for Termux, a Linux terminal emulator for Android devices. Termux allows users to run a complete Linux environment on Android devices, and this project provides learning assistance tools and resources for multiple subjects on this basis.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Main Features
 
-#### Instructions
+- **Multi-subject Support**: Includes learning resources for mathematics, English, geography and other subjects
+- **Shell Script Tools**: Provides convenient command-line tools for various subjects
+- **Configuration Management**: Personalized configuration solutions for different subjects
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## Directory Structure
 
-#### Contribution
+```
+.
+├── bcrc/            # Subject-related configurations
+├── cmstrc/          # Subject-related configurations
+├── en/              # English learning resources
+├── enrc/            # English configurations
+├── mapyrc/          # Geography-related configurations
+├── mathrc/          # Mathematics-related configurations
+├── zbashfile/       # Bash script files
+├── zchinese/        # Chinese learning resources
+├── .bashrc          # Termux environment configuration
+├── .gitignore       # Git ignore rules
+├── LICENSE          # EPL-1.0 open source license
+├── README.md        # Project description (Chinese)
+├── README.en.md     # Project description (English)
+└── nbter.sh         # Main program script
+```
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+## Quick Start
 
+1. Install the Termux app
+2. Clone this project:
+   ```bash
+   git clone https://gitee.com/ygt314159/subject-ter.git
+   ```
+3. Run the initialization script:
+   ```bash
+   cd subject-ter
+   bash nbter.sh
+   ```
 
-#### Gitee Feature
+## License
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+This project is licensed under the **EPL-1.0** open source license.
+
+## Contribution Guide
+
+Welcome to contribute through Pull Requests or Issues:
+1. Fork this repository
+2. Create a new branch (Feat_xxx/Fix_xxx)
+3. Submit code changes
+4. Create a Pull Request
+
+## Related Resources
+
+- [Termux Official Website](https://termux.com/)
+- [Gitee Help Documentation](https://gitee.com/help)
+- [Open Source License Explanation](https://www.eclipse.org/legal/epl-v10.html)
