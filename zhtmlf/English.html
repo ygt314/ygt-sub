@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>位置:../英语网站</title>
+    <meta name="description" content="我的英语网站，包含多种实用工具和资源">
+    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <script>
+        function myget()
+        {
+    alert(document.getElementById('resweb').src);
+    getweb("resweb","vares");
+        }
+    </script>
+</head>
+<body>
+    <h1>英语</h1>
+    <div class="djs">
+        <span id=gkcountdown></span>
+        <span id=zkcountdown></span>
+    </div>
+    <h3>画中画</h3>
+    <p>网址:<br><textarea id="varweb" rows=3 cols=40 style="color:#48ACEF"></textarea></p> <button onclick="myweb('varweb',0,'resweb')">开始</button> <button onclick="myweb('varweb',1,1)">跳转</button>
+    <p>搜索:<br><textarea id="varso" rows=3 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1. 百度翻译: <button onclick="trans('varso',0,'resweb')">开始</button> <button onclick="trans('varso',1,1)">跳转</button>
+    <p>2. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
+    <p>3. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button><br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘
+    <h3>网站</h3>
+    <p>1. <a href="./ygtweb.html">我的主页</a></p>
+    <p>2. <a href="http://m.1010jiajiao.com/diandu/book/1731.html">九全电子课本</a></p>
+    <p>3. <a href="https://bb.basic.smartedu.cn/copy/pdf/viewer.html?file=https://v2.ykt.cbern.com.cn/65/document/bd1c4408237d4c6b985b07d6455dc04f/pdf.pdf">高一必修一电子课本</a></p>
+    <h3><a href="./subject/en">英语资料</a></h3>
+    <h3>其它科目</h3>
+    <p>1. <a href="./Chinese.html">语文</a></p>
+    <p>2. <a href="./Math.html">数学</a></p>
+    <p>3. <a href="./Chemistry.html">化学</a></p>
+    <p>4. <a href="./M_and_C.html">数化</a></p>
+    <p>5. <a href="./History.html">历史</a></p>
+    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script type="text/javascript" src="myweb.js" defer></script>
+</body>
+</html>

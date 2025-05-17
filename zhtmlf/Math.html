@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>位置:../数学网站</title>
+    <meta name="description" content="我的个人网站，包含多种实用工具和资源">
+    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script>
+        function myget()
+        {
+    alert(document.getElementById('resweb').src);
+    getweb("resweb","vares");
+        }
+        function reget()
+        {
+    alert("重置画面");
+    dra_rep(".",0,"resweb");
+    document.getElementById("vares").innerHTML="[网页]";
+        }
+        function rundes()
+        {
+            dra_rep('mymathf',0,'resweb');
+            getweb("resweb","vares");
+        }
+    </script>
+    <script>
+        document.getElementById('vatex').addEventListener('input', function() {
+        const preview = document.getElementById('retex');
+        preview.innerHTML = `$$${this.value}$$`;
+        if(window.MathJax)
+        {MathJax.typesetPromise([preview]).catch(err => console.log(err));}
+        });
+    </script>
+</head>
+<body>
+    <h1>数学</h1>
+    METAMORPHOSIS(锐变)<audio id="myplay" autoplay>
+        <source src="music/player/mp3/METAMORPHOSIS - INTERWORLD.mp3" type="audio/mpeg">
+    </audio>
+    <div class="djs">
+        <span id=gkcountdown></span>
+        <span id=zkcountdown></span>
+    </div>
+    <button onclick="mplay('myplay','remu')">停止or播放</button>
+    <div id="remu" style="color:#48ACEF">[无状态]</div>
+    <h3>数学计算:</h3>
+    <p><input type="text" id="varX"></p> <button onclick="mathjs()">计算</button> <br>114514专区:<button onclick="homojs()">191980</button><br>结果: <br> +----------------------------------------+
+    <div id="resx" style="color:#48ACEF">
+        [未开始]
+    </div> +----------------------------------------+
+    <h3>latex公式查看</h3>
+    <p><textarea id="vatex" rows=3 cols=40 style="color:#48ACEF"></textarea></p> <button onclick="gettex()">tex</button><br>结果: <br> +----------------------------------------+
+    <div id="retex" style="color:#48ACEF">
+        $...[e^{i\pi}+1=0]...$
+    </div> +----------------------------------------+
+    <h3>画中画</h3>
+    <p>网址:<br><textarea id="varweb" rows=2 cols=40 style="color:#48ACEF"></textarea></p> <button onclick="myweb('varweb',0,'resweb')">开始</button> <button onclick="myweb('varweb',1,1)">跳转</button>
+    <p>搜索:<br><textarea id="varso" rows=2 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
+    <p>2. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>
+    <p>3. 秘塔AI: <button onclick="meta('varso',0,'resweb')">开始</button> <button onclick="meta('varso',1,1)">跳转</button></p>
+    <p>4.沃尔夫勒姆(wolframalpha): <button onclick="woal('varso',0,'resweb')">开始</button> <button onclick="woal('varso',1,1)">跳转</button></p>
+    <p>数字帝国:<br><textarea id="varnu" rows=2 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1.计算: <button onclick="nujs('varnu',0,'resweb')">开始</button> <button onclick="nujs('varnu',1,1)">跳转</button></p>
+    <p>2.化简: <button onclick="nusi('varnu',0,'resweb')">开始</button> <button onclick="nusi('varnu',1,1)">跳转</button></p>
+    <p>3.分解: <button onclick="nufa('varnu',0,'resweb')">开始</button> <button onclick="nufa('varnu',1,1)">跳转</button></p>
+    <p>4.一元方程式: <button onclick="nueq_x('varnu',0,'resweb')">开始</button> <button onclick="nueq_x('varnu',1,1)">跳转</button></p>
+    网页结果:<div id="vares" style="color:#48ACEF">[网址]</div>
+    <button onclick="reget()">重置</button> <button onclick="myget()">获取</button> <button onclick="rundes()">desmos</button>启动<br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘
+    <h3>工具</h3>
+    1. <a href="math/sum.html">加法</a>
+    <p>2. <a href="math/sqrt.html">算术平方根</a></p>
+    3. <a href="math/yf.html">约分</a>
+    <p>4. <a href="jzjd.html">加载</a></p>
+    5. <a href="math/xshfs.html">小数化分数</a>
+    <p>6. <a href="math/sct3nd.html">三角函数n*3°公式</a></p>
+    7. <a href="math/bisec.html">二分法</a>
+    <p>8. <a href="funcimg.html">函数图像</a></p>
+    <h3><a href="ygtweb.html">我的主页</a></h3>
+    <h3><a href="subject/ma/zlma.html">数学资料</a></h3>
+    1. <a href="subject/ma/zl/zlxs.html">小学数学资料</a>
+    <p>2. <a href="subject/ma/zl/zlcz.html">初中数学资料</a></p>
+    3. <a href="subject/ma/zl/zlgz.html">高中数学资料</a>
+    <p>4. <a href="subject/ma/zl/zldx.html">大学数学资料</a></p>
+    <h3>其它科目</h3>
+    <p>1. <a href="Chinese.html">语文</a></p>
+    <p>2. <a href="English.html">英语</a></p>
+    <p>3. <a href="Chemistry.html">化学</a></p>
+    <p>4. <a href="M_and_C.html">数化</a></p>
+    <p>5. <a href="History.html">历史</a></p>
+    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script type="text/javascript" src="myweb.js" defer></script>
+    <script type="text/javascript" src="myai/omai.js" defer></script>
+    <script type="text/javascript" src="math/math-d.js" defer></script>
+    <script type="text/javascript" src="math/homo-master/homo.js" defer></script>
+    <script type="text/javascript" src="math/mhomo.js" defer></script>
+    <script type="text/javascript" src="myplay.js" defer></script>
+</body>
+</html>

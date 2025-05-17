@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>位置:math/算术平方根</title>
+    <meta name="description" content="算术平方根计算">
+    <script>
+    function sqrt()
+    {
+        var x,y;                
+x=document.getElementById('varX').value;
+        if(x<0)
+        {
+            x=-x;
+            y=x**0.5;
+            document.getElementById('res').innerHTML=y+"·i";
+            sqrthj(x);
+document.getElementById('x').innerHTML=document.getElementById('x').innerHTML+"·i";
+            
+        }
+        else
+        {
+            y=x**0.5;
+document.getElementById('res').innerHTML=y;
+            sqrthj(x);
+        }
+    }
+    function sqrthj(y)
+    {
+        var x,i,s;
+        x=y;
+        s=parseInt(x**0.5)+1;
+        if((s-1)**2==x)
+        {
+document.getElementById('x').innerHTML=s-1
+        }
+        else
+        {
+            for(i=s;i>0;i--)
+            {
+                if(x%(i**2)==0)
+                {
+                x=x/(i**2);
+                break;
+                }
+            }
+            document.getElementById('x').innerHTML=i+"√"+x
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>算术平方根计算</h1>
+    <p>&nbsp;&nbsp;&nbsp;_____________________________<br>√ 
+    <input type="text" id="varX"></p> 
+    <button onclick="sqrt()">计算</button> <br>结果:<br> 
+    <textarea id="res" rows="2" cols="40" style="color:#48ACEF"></textarea> <br>
+    <textarea id="x" rows="2" cols="40" style="color:#48ACEF"></textarea>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的音乐</title>
+<script type="text/javascript" src="../myweb.js"></script>
+<script>
+function xmsj(n)
+{
+    var mutext=document.getElementById('mutext').value;
+    var varweb="http://www.xmsj.org/?name="+mutext+"&type=netease";
+    if(n==1)
+    {
+    window.alert("即将跳转");
+    window.location.replace(varweb);
+    }
+    else
+    {document.getElementById('resweb').src=varweb;}
+}
+</script>
+</head>
+<body>
+<h1>音乐</h1>
+<h3>画中画</h3>
+<p>方式一</p>
+<p>网址: <input type="text" id="varweb"></p> <button onclick="myweb(0)">开始</button> <button onclick="myweb(1)">跳转</button>
+<p>方式二</p>
+<p>名称: <input type="text" id="mutext"></p>
+<p>1.http://www.xmsj.org/</p> <button onclick="xmsj(0)">开始</button> <button onclick="xmsj(1)">跳转</button>
+<br>网页结果: <br>
+────────────────────────────────────────────┐
+<br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe>
+<br>────────────────────────────────────────────┘
+<h3>链接</h3>
+<p>1. <a href="http://www.xmsj.org/">音乐搜索器 - 多站合一音乐搜索,音乐在线试听</a></p>
+</body>
+</html>

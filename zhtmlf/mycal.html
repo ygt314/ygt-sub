@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<h3>计算器</h3>
+<script type="text/javascript" src="math/math-d.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="output" id="output">输入表达式</div>
+    <button class="button" onclick="clearstr()" id="clear">C</button>
+    <button class="button" onclick="rmstr()">DEL</button>
+    <button class="button" onclick="addstr('**')">^</button>
+    <button class="button" onclick="addstr('%')">mod</button>
+    <button class="button" onclick="addstr('(')">(</button>
+    <button class="button" onclick="addstr(')')">)</button>
+    <button class="button" onclick="addstr('sqrt(')">√</button>
+    <button class="button" onclick="addstr('*')">*</button>
+    <button class="button" onclick="addstr('7')">7</button>
+    <button class="button" onclick="addstr('8')">8</button>
+    <button class="button" onclick="addstr('9')">9</button>
+    <button class="button" onclick="addstr('/')">/</button>
+    <button class="button" onclick="addstr('4')">4</button>
+    <button class="button" onclick="addstr('5')">5</button>
+    <button class="button" onclick="addstr('6')">6</button>
+    <button class="button" onclick="addstr('-')">-</button>
+    <button class="button" onclick="addstr('1')">1</button>
+    <button class="button" onclick="addstr('2')">2</button>
+    <button class="button" onclick="addstr('3')">3</button>
+    <button class="button" onclick="addstr('+')">+</button>
+    <button class="button" onclick="addstr('0')">0</button>
+    <button class="button" onclick="addstr('.')">.</button>
+    <button class="button" onclick="addstr('e')">E</button>
+    <button class="button" onclick="addstr('ans')">Ans</button>
+    <button class="button" onclick="addstr('pi')">π</button>
+    <button class="button equals" onclick="calculate()">=</button>
+</div>
+<style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      margin: auto;
+      margin-top: 100px;
+      width: 500px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px #ccc;
+    }
+    
+    .output {
+      font-size: 2em;
+      text-align: right;
+      padding: 10px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+    
+    .button {
+      font-size: 1.5em;
+      margin: 5px;
+      width: 100px;
+      height: 50px;
+      border: none;
+      background-color: #ccc;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .button:hover {
+      background-color: #999;
+    }
+    
+    .clear {
+      background-color: #ff6666;
+    }
+    
+    .equals {
+      background-color: #66cc66;
+    }
+</style>
+<script>
+outstr=document.getElementById("output");
+    function addstr(value)
+    {
+        strx=outstr.innerHTML;
+        if(strx==="0"|strx==="输入表达式")
+        {
+        outstr.innerHTML=value;
+        }
+        else
+        {
+        outstr.innerHTML+=value;
+        }
+    }
+    function rmstr()
+    {
+        strx=outstr.innerHTML;
+        if(strx.length==1|strx==="输入表达式")
+        {
+        outstr.innerHTML=0;
+        }
+        else
+        {
+        outstr.innerHTML=strx.slice(0,-1);
+        }
+    }
+    function clearstr()
+    {
+        outstr.innerHTML=0;
+    }
+    function calculate()
+    {
+        strx=outstr.innerHTML;
+        if(strx==="输入表达式")
+        {
+        window.alert("请输入表达式");ans=0;
+        }
+        else
+        {
+        ans=eval(strx);outstr.innerHTML=ans;
+        }
+    }
+</script>
+</body>
+</html>

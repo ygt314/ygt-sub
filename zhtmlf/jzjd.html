@@ -1,0 +1,15 @@
+<progress id='progress1' value=0 max=100>
+</progress>
+<button onclick=start_run(100)>下载</button>
+<script>
+function start_run(n)
+{
+    if(n==0){alert("下载完成");}
+    var progress1=document.getElementById("progress1");
+    n=n-1;
+    cur_task=100-n;
+    progress1.value=cur_task;
+    setTimeout("start_run("+n+")",100);
+    
+}
+</script>

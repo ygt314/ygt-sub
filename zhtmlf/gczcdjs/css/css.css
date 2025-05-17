@@ -1,0 +1,50 @@
+.djs {
+    width: 400px;height: 500px;
+    text-align: center;
+    display: inline-block;
+    color: #0000ff;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+    left: 50%;
+}
+/*    
+.gkdjs {
+    width: 200px;height: 68px;
+    background: url(../img/hbdjs_01.jpg) left center no-repeat;
+    text-align: center;
+    padding-top: 50px;
+    color: #ffffff !important;
+    display: inline-block;
+}
+.gkdjs1 {
+    width: 200px;height: 13px;
+    background: url(../img/hbdjs_03.jpg) left center no-repeat;
+    text-align: center;
+    display: inline-block;
+}
+.zkdjs {
+    width: 200px;height: 112px;
+    background: url(../img/hbdjs_02.jpg) left center no-repeat;
+    display: inline-block;
+    padding-top: 20px;
+    color: #ffffff !important;
+}
+*/
+.sz {
+    color: #ff0000 !important;
+    font-size: 50px !important;
+    margin: 0px 5px 0px 5px;
+}
+.zkdjs font, .gkdjs font {
+    font-size: 30px;
+}
+jljl {
+    color: #ff8800;
+}
+jlzc {
+    color: #ff0000;
+}
+jlgc {
+    color: #ff0000;
+}

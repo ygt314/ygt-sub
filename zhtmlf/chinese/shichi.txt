@@ -1,0 +1,2 @@
+https://v1.jinrishici.com/all
+https://open.saintic.com/api/sentence/.txt

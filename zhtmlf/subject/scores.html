@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学科分数</title>
+<script>
+    async function get_data(file)
+    {
+    var response = await fetch(file);
+    var text = await response.text();
+    return text;
+    }
+    async function w_data(n)
+    {
+    var txt = await get_data("scor_data.txt");
+    var datas=(txt.split("/"))[n];
+    var data=datas.split(",");
+    var ti=data[0],sb=data[1],re=data[2],su=data[3];
+    var str=ti+" ";
+    str+=sb+" ";
+    str+=re+" ";
+    str+=su+"<br>";
+    return str;
+    }
+</script>
+</head>
+<body>
+<script>
+var ti="时间";
+var sb="学科";
+var re="分数";
+var su="总分";
+document.write(ti+" ");
+document.write(sb+" ");
+document.write(re+" ");
+document.write(su+"<br>");
+document.write(w_data(5));
+window.alert(w_data(4));
+</script>
+</body>
+</html>

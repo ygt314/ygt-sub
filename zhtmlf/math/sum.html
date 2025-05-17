@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>位置:math/加法</title>
+<script>
+function myFunction()
+{
+var x,y;
+x = document.getElementById('varX').value;
+y = document.getElementById('varY').value;
+document.getElementById('res').innerHTML = parseInt(x) + parseInt(y);
+}
+</script>
+</head>
+<body>
+   <p>请输入两个数：</p>
+   <p>x: 
+   <input type='number' id='varX'></p>
+   <p>y: 
+   <input type='number' id='varY'></p>
+   <button onclick='myFunction()'>get</button>
+   <p id='res'>结果：</p>
+<!-- <input type='text' id='res'></p> -->
+
+</body>
+</html>

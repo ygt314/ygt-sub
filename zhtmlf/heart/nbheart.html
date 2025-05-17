@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style type="text/css">
+		#MyCanvas {
+			border: 1px solid lightblue;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function() {
+			var ctx = document.getElementById("MyCanvas").getContext("2d");
+			ctx.width = document.documentElement.clientWidth-20;
+			ctx.height = document.documentElement.clientHeight-20;
+			var r = 4;
+
+			function drawHeart() {
+				var num = 40; //分割为360个点绘制
+				var redian;
+				var startRedian = Math.PI;
+				var redianDecrement;
+				var i = 0;
+				var time = 100;
+				ctx.strokeStyle = "red";
+				ctx.lineWidth = 2;
+				redian = startRedian;
+				redianDecrement = 2 * Math.PI / num;
+				ctx.moveTo(getX(redian), getY(redian));
+				var intervalId = setInterval(function(){
+					redian += redianDecrement;
+					ctx.lineTo(getX(redian), getY(redian));
+					i++;
+					ctx.stroke();
+					if (i >= num) {
+						clearInterval(intervalId);
+					}
+				}, time);
+				ctx.font = "30px 宋体";
+				ctx.strokeText("子寒", 120, 222);
+				ctx.strokeText("芳芳", 600, 222);
+			}
+		
+			function getX(t) {
+				return 400 + r * (16 * Math.pow(Math.sin(t), 3));
+			}
+			
+			function getY(t) {
+				return 200 - r * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+			}
+			drawHeart();
+		}
+		
+	</script>
+
+</head>
+<body>
+	<canvas id="MyCanvas" width="800" height="800"></canvas>
+</body>
+</html>

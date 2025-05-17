@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>位置:../语文网站</title>
+    <meta name="description" content="我的语文网站，包含多种实用工具和资源">
+    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <script>
+        function myget()
+        {
+    alert(document.getElementById('resweb').src);
+    getweb("resweb","vares");
+        }
+    </script>
+</head>
+<body>
+    <h1>语文</h1>
+    <span id="jinrishici-sentence" style="color:#48ACEF">正在加载今日诗词....</span>
+    <br>总想要透过你的眼睛 - nlone<audio id="myplay" autoplay>
+        <source src="music/player/mp3/总想要透过你的眼睛 - nlone.mp3" type="audio/mpeg">
+    </audio>
+    <div class="djs">
+        <span id=gkcountdown></span>
+        <span id=zkcountdown></span>
+    </div>
+    <button onclick="mplay('myplay','remu')">停止or播放</button>
+    <div id="remu" style="color:#48ACEF">[无状态]</div>
+    <h3>画中画</h3>
+    <p>网址:<br><textarea id="varweb" rows=3 cols=40 style="color:#48ACEF"></textarea></p> <button onclick="myweb('varweb',0,'resweb')">开始</button> <button onclick="myweb('varweb',1,1)">跳转</button>
+    <p>搜索:<br><textarea id="varso" rows=3 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1. 百度汉语搜索:</p>
+    综合搜索结果:> <button onclick="dhzh('varso',0,'resweb')">开始</button> 或 <button onclick="dhzh('varso',1,1)">跳转</button><br>
+    全部句子页面:==> <button onclick="myhan('varso',0,'resweb')">开始</button> 或 <button onclick="myhan('varso',1,1)">跳转</button>
+    <p>第一个句子结果:> <button onclick="duhan1('varso',0,'resweb')">开始</button> 或 <button onclick="duhan1('varso',1,1)">跳转</button></p>
+    <p>2. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
+    <p>3. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button><br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘
+    <h3>网站</h3>
+    <p>1. <a href="./ygtweb.html">我的主页</a></p>
+    <p>2. <a href="./chinese/minzu.html">名著</a></p>
+    <p>3. <a href="./chinese/xiaoshuo.html">小说</a></p>
+    <p>4. <a href="./chinese/mytxt.html">作文</a></p>
+    <p>5. <a href="./subject/cn/">语文资料</a></p>
+    <h3>其它科目</h3>
+    <p>1. <a href="./Math.html">数学</a></p>
+    <p>2. <a href="./Chemistry.html">化学</a></p>
+    <p>3. <a href="./M_and_C.html">数化</a></p>
+    <p>4. <a href="./English.html">英语</a></p>
+    <p>5. <a href="./History.html">历史</a></p>
+    <script type="text/javascript" src="myweb.js" defer></script>
+    <script type="text/javascript" src="myplay.js" defer></script>
+    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8" defer></script>
+</body>
+</html>

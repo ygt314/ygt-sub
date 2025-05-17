@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta charset="utf-8"> 
+    <title>名著阅读</title>
+    <script>
+        function myweb()
+        {
+            var varweb=document.getElementById('varweb').value;
+            document.getElementById('resweb').src=varweb;
+        }
+        function jianai()
+        {
+            var num=document.getElementById('num').value;
+            var varweb="http://www.mingzhuxiaoshuo.com/waiguo/14/"+wg14(num);
+            document.getElementById('resweb').src=varweb;
+        }
+        function shijianjs()
+        {
+            var num=document.getElementById('num').value;
+            var varweb="http://www.mingzhuxiaoshuo.com/waiguo/120/"+wg120(num);
+            document.getElementById('resweb').src=varweb;
+        }
+    </script>
+    <script type="text/javascript" src="wg14.js"></script>
+    <script type="text/javascript" src="wg120.js"></script>
+</head>
+<body>
+    <h1>名著阅读</h1>
+    <h3>画中画</h3>
+    <p>方式一</p>
+    <p>网址: <input type="text" id="varweb"></p> <button onclick="myweb()">开始</button>
+    <p>方式二</p>
+    <p>章节: <input type="number" id="num" value="0" ></p>
+    <p>1.简·爱 (夏洛蒂·勃朗特)</p> <button onclick="jianai()">开始</button>
+    <p>2.时间简史 (史蒂芬·霍金)</p> <button onclick="shijianjs()">开始</button> <button onclick="wg120yzx()">译者序</button> <button onclick="wg120gx()">感谢</button> <button onclick="wg120dy()">导言</button>
+    <p>网页结果: </p>
+    ────────────────────────────────────────────┐
+    <br><iframe id="resweb" src="" height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe>
+    <br>────────────────────────────────────────────┘<br>
+    <h3>链接</h3>
+    <a href="http://www.mingzhuxiaoshuo.com/">名著小说网</a>
+    <a href="http://www.mingzhuxiaoshuo.com/waiguo/14/">简·爱章节目录</a>
+    <a href="http://www.mingzhuxiaoshuo.com/waiguo/120/">时间简史章节目录</a>
+</body>
+</html>

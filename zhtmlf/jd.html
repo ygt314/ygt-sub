@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>加载中</title>
+<script>
+function nbabc()
+{
+    var n;
+    for(n=1;n<1000;n++)
+    {
+        setTimeout("start_run(10)",100);
+    }
+}
+</script>
+</head>
+<body>
+<script>
+function start_run(a)
+{
+    if(a==100)
+    {
+        alert("下载完成");
+    }
+    var progress1=document.getElementById(progress1);
+    progress1.value=a;
+    document.getElementById('nbres').innerHTML=a+"%";
+}
+</script>
+<progress id='progress1' value="0" max="100">
+</progress>
+<div id="nbres">0%</div>
+<button onclick="nbabc()">下载</button>
+</body>
+</html>

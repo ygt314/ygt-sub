@@ -1,0 +1,206 @@
+*{
+	padding:0;
+	margin:0;
+}
+html{
+	font-size:62.5%;
+}
+/*PC端样式*/
+@media screen and (min-width:641px){
+	
+}
+/*平板端样式*/
+@media screen and (min-width:561px){
+	
+}
+/*手机端样式*/
+@media screen and (min-width:481px){
+	
+}
+body{
+	font-family:"PingFangSC-Regular",Verdana,Arial,"微软雅黑","宋体";
+	font-size:1.4rem;
+}
+.clear{
+	clear:both;
+}
+/*header部分样式设置*/
+header{
+	width:80%;
+	margin:0 auto;
+	background:#36404F;
+}
+
+header h1{
+	color:#FFFFFF;
+	padding:20px 25px;
+}
+/*main部分样式设置*/
+main{
+	width:80%;
+	margin:0 auto;
+	background:#F9F9F9;
+	overflow:hidden;
+}
+main #periodTable{
+	width:85%;
+	background:#F9F9F9;
+	float:left;
+}
+main h3{
+	padding:5px 20px;
+	background:#E0E0E0;
+}
+main #chemElement{
+	width:100%;
+	margin:10px 17px;
+	float:left;
+}
+main #periodTable .row{
+	width:100%;
+	margin:1px 0;/*设置不同行之间的间距*/
+	display:flex;
+}
+main #periodTable .row .col-1{
+	width:5%;
+}
+main #periodTable .row .col-3{
+	width:15%;
+}
+main #periodTable .row .col-4{
+	width:20%;
+}
+main #periodTable .row .col-5{
+	width:25%;
+}
+main #periodTable .row .col-7{
+	width:35%;
+}
+main #periodTable .row .col-10{
+	width:50%;
+}
+main #periodTable .row .col-16{
+	width:80%;
+}
+.otherNonmetal,.alkalis,.alkalisEarth,.transitionMetal,
+.lanthanide,.actinide,.lateTransition,.nonmetal,.halogen,.nobleGas{
+	box-sizing:border-box;
+	width:95%;
+	height:0;
+	padding-bottom:95%;
+	border:1px solid #030303;
+	border-radius:5px;
+	text-align:center;
+}
+.otherNonmetal{
+	background:#89C348;	
+}
+.alkalis{
+	background:#FD9800;
+}
+.alkalisEarth{
+	background:#FBC30A;
+}
+.transitionMetal{
+	background:#C58988;
+}
+.lanthanide{
+	background:#FB9788;
+}
+.actinide{
+	background:#B0A1DC;
+}
+.lateTransition{
+	background:#90A4AD;
+}
+.nonmetal{
+	background:#49B7AA;
+}
+.halogen{
+	background:#21C9D4;
+}
+.nobleGas{
+	background:#01A9F2;
+}
+.group{
+	box-sizing:border-box;
+	display:block;
+	width:100%;
+	height:0;
+	padding-bottom:50%;
+	line-height:20px;
+	background:#E0E0E0;
+	border:1px solid #E0E0E0;
+	border-radius:5px;
+	text-align:center;
+	margin-top:15px;
+}
+.period{
+	box-sizing:border-box;	
+	width:50%;
+	height:0;
+	padding:30% 0 65% 0;
+	float:right;
+	text-align:center;
+	background:#E0E0E0;
+	border:1px solid #E0E0E0;
+	border-radius:5px;
+}
+main #periodTable .chemElement-wrapper{
+	margin:10px 0;
+}
+
+/*计算器显示屏样式设置*/
+main #periodTable #inputbox{
+	width:90%;
+	height:80%;
+	display:inline-block;
+	vertical-align:middle;
+}
+main #periodTable #extra{
+	height:100%;
+	display:inline-block;
+	vertical-align:middle;
+}
+main #periodTable #calcu{
+	width:90%;
+	height:50%;
+}
+main #num{
+	width:15%;
+	background:#F9F9F9;
+	float:left;
+}
+main #num .num_row{
+	width:100%;
+	display:flex;
+	margin:3px 0;
+}
+main #num .num_row .num_col-1{
+	width:25%;
+}
+.num_box{
+	box-sizing:border-box;
+	display:block;
+	width:95%;
+	height:0;
+	padding:35% 0 60% 0;
+	background:#E6E6E6;
+	border:1px solid #000000;
+	border-radius:5px;
+	text-align:center;
+}
+main #num .num_row:first-of-type{
+	margin-top:50%;
+}
+/*footer部分样式设置*/
+footer{
+	width:80%;
+	height:30px;
+	margin:0 auto;
+	background:#36404F;
+	color:#FFFFFF;
+	text-align:center;
+	line-height:30px;
+}
+

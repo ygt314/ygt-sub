@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>位置:../化学网站</title>
+    <meta name="description" content="我的化学网站，包含多种实用工具和资源">
+    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <script>
+        function myget()
+        {
+    alert(document.getElementById('resweb').src);
+    getweb("resweb","vares");
+        }
+    </script>
+</head>
+<body>
+    <h1>化学(Chemistry)</h1>
+    <div class="djs">
+        <span id=gkcountdown></span>
+        <span id=zkcountdown></span>
+    </div>
+    <script>
+        function myelement()
+        {
+    var vare=document.getElementById('vare').value;
+    var y=eval(vare);
+    document.getElementById('rese').innerHTML=y;
+        }
+        ysb=ysb();
+    </script>
+    <script>
+        function mycompound()
+        {
+    var varc=document.getElementById('varc').value;
+    var y=hhw(varc);
+    document.getElementById('resc').innerHTML=y;
+        }
+    </script>
+    <h3>元素(element)</h3>
+    <p><input type="text" id="vare"></p> <button onclick="myelement()">开始</button> <br>结果: <br> +----------------------------------------+
+    <div id="rese" style="color:#48ACEF">
+        [未开始]
+    </div> +----------------------------------------+
+    <h3>化合物(compound)</h3>
+    <p><input type="text" id="varc"></p> <button onclick="mycompound()">开始</button> <br>结果: <br> +----------------------------------------+
+    <div id="resc" style="color:#48ACEF">
+        [未开始]
+    </div> +----------------------------------------+
+    <p>知识点</p>
+    <p>1. <a href="https://mp.weixin.qq.com/s/GUDYwXs4SE27GTEGojBp6w?scene=25#wechat_redirect">高一化学</a></p>
+    <p>2. <a href="chemistry/chezs.html">化学知识点总结</a></p>
+    <h3>画中画</h3>
+    <p>网址:<br><textarea id="varweb" rows=2 cols=40 style="color:#48ACEF"></textarea></p> <button onclick="myweb('varweb',0,'resweb')">开始</button> <button onclick="myweb('varweb',1,1)">跳转</button>
+    <p>搜索:<br><textarea id="varso" rows=2 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
+    <p>2. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>
+    <p>3. 秘塔AI: <button onclick="meta('varso',0,'resweb')">开始</button> <button onclick="meta('varso',1,1)">跳转</button></p>
+    <p>分子量计算:</p><button onclick="checal(0,'resweb')">开始</button> <button onclick="checal(1,1)">跳转</button>
+    <p>WebQC网搜索<br><textarea id="varqc" rows=2 cols=40 style="color:#48ACEF"></textarea></p>
+    <p>1. 化学式:<button onclick="qcemb('varqc',0,'resweb')">开始</button> <button onclick="qcemb('varqc',1,1)">跳转</button></p>
+    <p>2. 方程式:<button onclick="qcequ('varqc',0,'resweb')">开始</button> <button onclick="qcequ('varqc',1,1)">跳转</button></p>
+    网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button><br>
+    ────────────────────────────────────────────┐
+    <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe>
+    <br>────────────────────────────────────────────┘
+    <h3>网站</h3>
+    <p>1. <a href="ygtweb.html">我的主页</a></p>
+    <p>2. <a href="subject/ch/">化学资料</a></p>
+    <p>3. <a href="subject/ch/mind.html">化学思维导图</a></p>
+    <p>4. <a href="http://m.1010jiajiao.com/diandu/book/1743.html">九上电子课本</a></p>
+    <p>5. <a href="http://m.1010jiajiao.com/diandu/book/2258.html">九下电子课本</a></p>
+    <p>6. <a href="subject/ch/mind_m.html">初中化学思维导图</a></p>
+    <p>7. <a href="subject/ch/mind_h.html">高中化学思维导图</a></p>
+    <p>8. <a href="https://hx.nobook.com/index.html#/console/templates">NB化学实验</a></p>
+    <h3>其它科目</h3>
+    <p>1. <a href="Chinese.html">语文</a></p>
+    <p>2. <a href="Math.html">数学</a></p>
+    <p>3. <a href="English.html">英语</a></p>
+    <p>4. <a href="M_and_C.html">数化</a></p>
+    <p>5. <a href="History.html">历史</a></p>
+    <script type="text/javascript" src="yszq.js" defer></script>
+    <script type="text/javascript" src="yscx.js" defer></script>
+    <script type="text/javascript" src="hhwb.js" defer></script>
+    <script type="text/javascript" src="hhwcx.js" defer></script>
+    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script type="text/javascript" src="myweb.js" defer></script>
+</body>
+</html>
