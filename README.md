@@ -1,37 +1,62 @@
-# 学科ter
+![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray) ![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
 
-#### 介绍
-termux是Android端的Linux终端模拟器。这个库提供学科有关的资源程序
+## 项目简介
 
-#### 软件架构
-软件架构说明
+学科ter是一个为Termux（Android端的Linux终端模拟器）提供的学科相关资源程序集合。Termux允许用户在Android设备上运行完整的Linux环境，本项目则在此基础上提供了多个学科的学习辅助工具和资源。
 
+## 主要功能
 
-#### 安装教程
+- **多学科支持**：包含数学、英语、地理等多个学科的学习资源
+- **Shell脚本工具**：提供便捷的学科相关命令行工具
+- **配置文件管理**：各学科的个性化配置方案
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 目录结构
 
-#### 使用说明
+```
+.
+├── bcrc/            # 学科相关配置
+├── cmstrc/          # 学科相关配置
+├── en/              # 英语学习资源
+├── enrc/            # 英语配置
+├── mapyrc/          # 地理相关配置
+├── mathrc/          # 数学相关配置
+├── zbashfile/       # Bash脚本文件
+├── zchinese/        # 中文学习资源
+├── .bashrc          # Termux环境配置
+├── .gitignore       # Git忽略规则
+├── LICENSE          # EPL-1.0开源协议
+├── README.md        # 项目说明(中文)
+├── README.en.md     # 项目说明(英文)
+└── nbter.sh         # 主程序脚本
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 快速开始
 
-#### 参与贡献
+1. 安装Termux应用
+2. 克隆本项目：
+   ```bash
+   git clone https://gitee.com/ygt314159/subject-ter.git
+   ```
+3. 运行初始化脚本：
+   ```bash
+   cd subject-ter
+   bash nbter.sh
+   ```
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 许可证
 
+本项目采用 **EPL-1.0** 开源许可证。
 
-#### 特技
+## 贡献指南
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+欢迎通过Pull Request或Issue参与项目贡献：
+1. Fork本仓库
+2. 创建新分支（Feat_xxx/Fix_xxx）
+3. 提交代码变更
+4. 发起Pull Request
+
+## 相关资源
+
+- [Termux官网](https://termux.com/)
+- [Gitee帮助文档](https://gitee.com/help)
+- [开源协议说明](https://www.eclipse.org/legal/epl-v10.html)
