@@ -1,0 +1,11 @@
+zhtmlf=/sdcard/zhtmlf/
+hh()
+{
+echo -e "是否建立http-server\n或执行jupyter notebook?(h/j/n)\n(可回车跳过)"
+read a
+if [ "$a"x = "h"x ];then
+	python -m http.server 2222 -d $zhtmlf
+elif [ "$a"x = "j"x ];then
+	jupyter notebook
+fi
+}

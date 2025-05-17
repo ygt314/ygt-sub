@@ -1,0 +1,19 @@
+pn()
+{
+i=$1
+echo "$i--${yse[$i]}--${ysc[$i]}"
+pne="${yse[$i]}"
+pnc="${ysc[$i]}"
+}
+pne()
+{
+i=$1
+echo "$i--${yse[$i]}"
+pne="${yse[$i]}"
+}
+pnc()
+{
+i=$1
+echo "$i--${ysc[$i]}"
+pnc="${ysc[$i]}"
+}

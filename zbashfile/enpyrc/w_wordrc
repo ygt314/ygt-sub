@@ -1,0 +1,47 @@
+w_w()
+{
+res_f="$enf/$(date +%y%m%d%H%M)_w.txt"
+word_file="$enf/$1.w";echo $(date)>$res_f
+if [ -z $1 ];then
+    ls $enf/*.w;echo -n "word_file:>>";read w_f;word_file="$enf/$w_f.w"
+elif [ $1 = -i ];then
+    word_file="$enf/$2.w";str=$(cat $word_file)
+    result=$(python $enf/word_write.py $str)
+    echo "$result";echo "$result">>"$res_f";return 0
+fi
+j=$(cat $word_file|wc -l);j=$((j+1))
+for k in $(seq 1 $j)
+do
+    lw=$(head -$k $word_file|tail -n 1)
+    result=$(python $enf/word_write_s.py "$lw")
+    echo "$result";echo "$result">>"$res_f";sleep 0.5
+done
+}
+w_wc()
+{
+yn=y
+if [ "$1"x = -ix ] || [ "$2"x = -ix ];then
+    echo "Clear the write history of word."
+    echo "Yes,or no?";read -n 1 yn;echo
+fi
+if [ -z $@ ];then
+    w_wc_all -i
+fi
+for w_t_f in $@
+do
+    if [ "$w_t_f"x = -ix ];then
+        continue
+    fi
+    if [ "$yn"x = yx ];then
+        rm $enf/$w_t_f
+    fi
+done
+}
+w_wc_all()
+{
+if [ "$1"x = -ix ];then
+    rm  -i $enf/*_w.txt
+else
+    rm $enf/*_w.txt
+fi
+}

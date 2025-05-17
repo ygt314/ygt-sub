@@ -1,0 +1,25 @@
+tan_sym()
+{
+ans2=$(echo "from sympy import tan,pi,pprint;pprint(tan($1))"|python)
+}
+tan_py()
+{
+if [ -z $1 ];then
+    echo "tan_py [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    tand_py $1
+elif [ $dd = rad ];then
+    tanr_py $1
+fi
+}
+tand_py()
+{
+ans=$(pym "tan($1,deg)");ans
+tan_sym "($1)*pi/180";ans2
+}
+tanr_py()
+{
+ans=$(pym "tan($1)");ans
+tan_sym "$1";ans2
+}

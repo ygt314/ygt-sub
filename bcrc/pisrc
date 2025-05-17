@@ -1,0 +1,7 @@
+pis()
+{
+echo "$(date)">>$bcrcf/.pis_history;s=$1
+echo "The pi of $1 scales is">>$bcrcf/.pis_history
+ans=$(echo "scale=$s;a(1)*4"|bc -l)
+ans;echo $ans>>$bcrcf/.pis_history
+}

@@ -1,0 +1,14 @@
+pws()
+{
+str="$(head -1 $myf/.pwdata)";i=1;j=0;n="${str:7}"
+while [ $i -le $n ]
+do
+    i=$((i+1));str="$(head -$i $myf/.pwdata|tail -n 1)"
+    if [ "$str"x = "$1"x ];then
+        echo "true";j=1;break
+    fi
+done
+if [ $j -eq 0 ];then
+    echo "false"
+fi
+}

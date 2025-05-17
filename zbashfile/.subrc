@@ -1,0 +1,2 @@
+msub=$myf/subject
+source $msub/subrc

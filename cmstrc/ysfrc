@@ -1,0 +1,32 @@
+cmst="~/cmstrc"
+ysbf()
+{
+echo "#--begin--"
+echo "#--begin--">>"$cmst/ysb.txt"
+for i in $(seq 0 20)
+do
+    echo "$i--${yse[$i]}--${ysc[$i]}">>"$cmst/ysb.txt"
+done
+echo "#--end--">>"$cmst/ysb.txt"
+echo "pwd:$cmst/ysb.txt"
+echo "#--end--"
+}
+yscf()
+{
+nb1=$(($1))
+nb2=$(($2))
+echo "#--begin--"
+echo "#--begin--">>"$cmst/ysc.txt"
+for i in $(seq $nb1 $nb2)
+do
+    echo -n "${ysc[$i]}">>"$cmst/ysc.txt"
+    if [ $i -ne $nb2 ];then
+        echo -n " ">>"$cmst/ysc.txt"
+    else
+        echo "">>"$cmst/ysc.txt"
+    fi
+done
+echo "#--end--">>"$cmst/ysc.txt"
+echo "pwd:$cmst/ysc.txt"
+echo "#--end--"
+}

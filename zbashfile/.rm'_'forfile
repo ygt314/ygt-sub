@@ -1,0 +1,26 @@
+#echo "123456">3140.txt #start
+for i in $(seq 2 1176)
+do
+    str=$(head -$i 3141.txt|tail -n 1)
+    if [ -z $str ];then
+        continue
+    fi
+    echo $str>>name
+done
+for i in $(seq 1177 n-1)
+do
+    str=$(head -$i 3141.txt|tail -n 1)
+    if [ -z $str ];then
+        continue
+    fi
+    echo $str>>name
+done
+#echo '******'>>3140.txt #n
+for i in $(seq n+1 ~~~)
+do
+    str=$(head -$i 3141.txt|tail -n 1)
+    if [ -z $str ];then
+        continue
+    fi
+    echo $str>>name
+done

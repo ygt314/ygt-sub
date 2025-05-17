@@ -1,0 +1,12 @@
+sin()
+{
+if [ -z $1 ];then
+    list sin
+fi
+}
+cos()
+{
+if [ -z $1 ];then
+    list cos
+fi
+}

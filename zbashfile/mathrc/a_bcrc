@@ -1,0 +1,69 @@
+a_bc()
+{
+echo "$1÷$2"
+echo -n "="
+if [[ "$1"x != *.* ]] && [[ "$2"x != *.* ]];then
+    a_b $@;return 0
+fi
+if [[ "$1"x == *.* ]];then
+    a=$1
+else
+    a="$1.0"
+fi
+if [[ "$2"x == *.* ]];then
+    b=$2
+else
+    b="$2.0"
+fi
+stra=$(echo "$a"|cut -d "." -f 2)
+lena=${#stra}
+a1=$(echo "$a"|cut -d "." -f 1)
+a2=$stra
+nbs=$3
+strb=$(echo "$b"|cut -d "." -f 2)
+lenb=${#strb}
+b1=$(echo "$b"|cut -d "." -f 1)
+b2=$strb
+if [ $lena -ge $lenb ];then
+    nba=$lena
+else
+    nba=$lenb
+fi;if [ $lena -eq $nba ];then
+    a="$a1$a2"
+else
+    sa=$((nba-lena))
+    p0 $sa;a=$(echo "$a1$a2$str")
+fi;if [ $lenb -eq $nba ];then
+    b="$b1$b2"
+else
+    sb=$((nba-lenb))
+    p0 $sb;b=$(echo "$b1$b2$str")
+fi;a_b $a $b $nbs
+}
+a_br()
+{
+a=$1;b=$2;s=$3
+if [ $b -eq 0 ];then
+    echo -n "divide error:Divide by zero."
+fi;yfz $a $b;c1=$((a1/b1))
+if [ $aa -lt 0 ];then
+    echo -n "-$c1"
+    ans="-$c1"
+else
+    echo -n "+$c1"
+    ans="+$c1"
+fi;if [ $bb -eq 1 ];then
+    s=0
+fi;if [ $s -gt 0 ];then
+    echo -n "."
+    ans="$ans."
+    for j in $(seq 1 $s)
+    do
+        a1=$((a1-b1*c1))
+        a1=$((a1*10))
+        c1=$((a1/b1))
+        echo -n "$c1"
+        ans="$ans$c1"
+    done
+fi
+}

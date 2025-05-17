@@ -1,0 +1,53 @@
+s5f=$(pwd);hedf=$s5f/.hxeqdata;cxn=6
+eqfh()
+{
+eqfhj=0;case $1 in
+    =)eq="═══";;
+    -)eq="⇆⇆⇆";;
+    ~)eq="——→";;
+    *)eq="═══";eqfhj=1;;
+esac
+}
+hxeq()
+{
+str=$1;hcgl="";hcgr="";cg="——→"
+heql="";heqr="";for i in $(seq 1 ${#str})
+do
+    eqfh ${str:$i:1};if [ $eqfhj -eq 0 ];then
+        he_l="${str:0:$i}";he_r="${str:$((i+1))}";break
+    fi
+done;jsl="";for hi in $(echo $he_l|grep -ov "+")
+do
+    hxs $hi;hcgl="$hcgl+$hxs";if ((hxn==1));then
+        heql="$heql+$hxs"
+    else
+        heql="$heql+$hxn$hxs"
+    fi;jsl="$jsl $hxn"
+done;hcgl="${hcgl:1}";heql="${heql:1}";jsl="${jsl:1}"
+jsr="";for hi in $(echo $he_r|grep -ov "+")
+do
+    hxs $hi;hcgr="$hcgr+$hxs";if ((hxn==1));then
+        heqr="$heqr+$hxs"
+    else
+        heqr="$heqr+$hxn$hxs"
+    fi;jsr="$jsr $hxn"
+done;hcgr="${hcgr:1}";heqr="${heqr:1}";jsr="${jsr:1}"
+hxcg="$hcgl$cg$hcgr";hxjs="$jsl$cg$jsr";hxeq="$heql$eq$heqr"
+}
+cxeq()
+{
+str="$(head -1 $hedf|tail -n 1)";j=0;fn="${str:9}";pei=1
+if [ -z $1 ];then
+    echo null;return 0
+fi;if [ $((cxn)) = 0 ];then
+    echo The searchable times is 0;return 0
+fi;for eq in $(tail -n $fn $hedf|grep "$1")
+do
+    if ((pei>$cxn));then
+        break
+    fi;echo "$pei. $eq";hxeq $eq
+    echo "==>$hxeq";j=1;pei=$((pei+j))
+done;if [ $j -eq 0 ];then
+    echo not found
+fi
+}

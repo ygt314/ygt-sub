@@ -1,0 +1,6 @@
+enpyf=$myf/enpyrc;men=$myf/en
+source $enpyf/w_wordrc
+source $enpyf/l_wordrc
+source $enpyf/m_wordrc
+source $enpyf/w_meanrc
+source $enpyf/read_senrc

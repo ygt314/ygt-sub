@@ -1,0 +1,35 @@
+jc_n()
+{
+n=0
+if [ -z $1 ];then
+    return 0
+fi
+j=$(cat $mpip/.update_error|wc -l);j=$((j+1))
+for n_e in $(seq 2 $j)
+do
+    e_n="$(head -$n_e $mpip/.update_error|tail -n 1)"
+    if [ $1 = $e_n ];then
+        n=1;break
+    fi
+done
+}
+pipup()
+{
+echo "#used: pip install --upgrade [i]"
+j=$(cat $mpip/.update_data|wc -l);j=$((j+1))
+for i in $(seq 2 $j)
+do
+    read -s -n 1 -t 0.4 a &>/dev/null;m=$((j-i))
+    name="$(head -$i $mpip/.update_data|tail -n 1)";jc_n $name
+    if [ "$a"x = qx ];then
+        echo quit;break
+    elif [ $n -eq 0 ];then
+        echo "pip3:>$name";pip install --upgrade $name
+    fi
+done
+if [ $m -gt 0 ];then
+    echo "[noties]:You have $m package no update."
+else
+    echo "[noties]:You have finished updating."
+fi
+}

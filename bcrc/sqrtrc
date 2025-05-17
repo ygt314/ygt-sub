@@ -1,0 +1,12 @@
+sqrtbc()
+{
+if [ -z $1 ];then
+    echo 'sqrt [n] [s]';return 0
+fi;s=$2;sqrt_s $1;ans2
+if [ -z $2 ];then
+    s=6
+fi;ans=$(echo "sqrt($1)"|bc -l)
+if ((s>20));then
+    s=20
+fi;ans=$(printf %.${s}g $ans);ans
+}

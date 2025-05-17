@@ -1,0 +1,48 @@
+pe()
+{
+for i in $(seq 1 118)
+do
+    if [ "${yse[$i]}"x = "$1"x ];then
+        j=1;break
+    else
+        j="不是元素"
+    fi
+done;if [ "$j" = "1" ];then
+    echo "$i--$1--${ysc[$i]}"
+    pen="$1";pec="${ysc[$i]}"
+else
+    echo "$1$j"
+fi
+}
+pen()
+{
+for i in $(seq 1 118)
+do
+    if [ "${yse[$i]}"x = "$1"x ];then
+        j=1;break
+    else
+        j="不是元素"
+    fi
+done;if [ "$j" = "1" ];then
+    echo "$i--$1";pen="$1"
+else
+    echo "$1$j"
+fi
+}
+pec()
+{
+for i in $(seq 1 118)
+do
+    if [ "${yse[$i]}"x = "$1"x ];then
+        j=1;break
+    else
+        j="不是元素"
+    fi
+done
+if [ "$j" = "1" ];then
+    echo "$1--${ysc[$i]}"
+    pec="${ysc[$i]}"
+else
+    echo "$1$j"
+fi
+}

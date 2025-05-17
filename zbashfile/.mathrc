@@ -1,0 +1,151 @@
+mathf=$myf/mathrc
+loadm()
+{
+source $mathf/$1
+}
+loadm a_brc;loadm a_bcrc
+loadm zmrc;loadm mapyrc
+loadm absrc;loadm yfrc
+loadm sinrc;loadm cosrc
+loadm tanrc;loadm powrc
+loadm sqrtrc;loadm curtrc
+loadm logrc;loadm baserc
+loadm numrc;loadm num_chrc
+loadm fabcrc
+loadm cngtrc;loadm cnmtrc
+loadm listrc;loadm timerc
+loadm p24rc;loadm degrc
+try()
+{
+(($1))&>/dev/null;ans=$?;if $1&>/dev/null;then
+    echo true
+elif [ "$ans"x = 0x ];then
+    echo $(($1))
+else
+    echo false
+fi
+}
+deta()
+{
+if [ ! -z $1 ];then
+    a=$1
+fi;if [ ! -z $2 ];then
+    b=$2
+fi;if [ ! -z $3 ];then
+    c=$3
+fi;d=$(echo "($b)^2-4*($a)*($c)"|bc -l);j=$(echo "$d>=0"|bc -l)
+case $4 in
+    -j)echo $j;;
+    -a)echo $d;;
+    *)echo "Δ=$d>=0?$j";;
+esac
+}
+loadam()
+{
+loadm $1.data
+}
+mathhis()
+{
+name=$1;if [ -z $1 ];then
+    echo "mathhis [name]|math [-l]";return 0
+elif [ $1 = math ];then
+    cat $myf/.matho_history;return 0
+fi;if [ "$2"x = -lx ];then
+    file=${name}.txt
+else
+    file=.${name}_history
+fi;if [ -f $mathf/$file ];then
+    cat $mathf/$file
+else
+    cat $mapyf/$file
+fi
+}
+math_c()
+{
+echo "Clear history of math."
+echo "#The history of math_py">$mapyf/.pym_history
+echo "#The history of sum_py">$mapyf/.sum_history
+echo "#mathomatic history">$myf/.matho_history
+echo "help">>$myf/.matho_history
+#echo -n "">$mathf/dsh.txt
+echo "Finish to clear."
+}
+input_int()
+{
+int="";put=""
+echo -n "$1";while [ -z $put ]
+do
+    read -n 1 put
+    if [ "$put"x = rx ] || [ "$put"x = ''x ];then
+        if [ -z $int ];then
+            int=r
+        fi;len=${#int};act=$((len-1))
+        echo;int="${int:0:$act}";echo -n "$1$int"
+    elif [ "$put"x != qx ] && [ "$put"x != .x ];then
+        int="$int$put"
+    fi;if [ "$put"x != qx ];then
+        put=""
+    fi
+done;clear;echo "$2=$int"
+if [ ! -z $2 ];then
+    eval "$2=$int"
+fi
+}
+math()
+{
+source $myf/math.sh $1
+}
+ans()
+{
+if [ "$1"x = "2"x ];then
+    ans2
+else
+    if [ "$1"x = "-l"x ];then
+        echo "$ans2"
+    fi;echo "$ans"
+fi
+}
+ans2()
+{
+echo "$ans2"
+}
+func()
+{
+echo "$func"
+}
+ran()
+{
+n=$1;if [ -z $1 ];then
+    n=10
+fi;ans=$((RANDOM%n));ans
+}
+put_tm()
+{
+put="";while [ -z $put ]
+do
+    echo "提示:没有题目"
+    echo -n "";read put
+done;if [ -z $1 ];then
+    tm=$put
+else
+    eval "$1=$put"
+fi
+}
+fx()
+{
+if [ ! -z $1 ];then
+    f=$1
+fi;if [ ! -z $2 ];then
+    x=$2
+fi;if [ -z $x ];then
+    x=0
+fi;func="";for i in $(seq 0 $((${#f}-1)))
+do
+    s="${f:$i:1}";if [ "$s"x = xx ];then
+        func="$func($x)"
+    else
+        func="$func$s"
+    fi
+done
+}
+echo 数学之门已开启

@@ -1,0 +1,67 @@
+3414394513
+2022郴州市初中学业水平质量监测
+http://love.wazf.top/S63/
+送给最好的TA
+19988205286
+微信号fygfygr528
+Termux linux
+screenfetch
+2252919885
+─
+mkdir touch
+pkg upgrade
+apt list --upgradable
+termux-change-repo
+termux-battery-status
+pkg install crul
+apt install freetype
+apt install libzmq
+pkg install numpy scipy
+pkg install openssh
+jupyter notebook
+pip install jupyter
+apt update
+python --version python-dev
+pip install --upgrade pip
+notebook_cookie_secret
+nbserver-27562-open.html
+/data/user/0/com.cjclandemo.egvnavxp/files
+/data/user/0/com.cjclandemo.egvnavxp
+3497373312
+&nbsp
+http://www.numberempire.com
+pkg install tsu
+pip list --outdated
+http://127.0.0.1:8080
+http://192.168.1.9:8080
+source .bashrc
+/storage/emulated/0/zexe_exe/
+13423531098
+/storage/emulated/0/zchinese/
+python -m py_compile test.py
+pip install --upgrade
+site-packages
+exec("
+source ~/mathrc/
+declare -A
+source ~/cmstrc/
+13204498575
+--version
+code
+window.alert()
+/storage/emulated/0/zhtmlf/
+pkg install python-pip
+pace.js
+NProcess
+https://s43.aconvert.com/convert/p3r68-cdx67/y43c1-9921s.pdf
+if [ "$str"x = "l"x ];then
+            echo -n "-->"
+            read str
+            echo "$($str)"
+            ans2=$($str)
+        else
+202303111134.15
+202306180900.00
+初数一木源
+echo $((16#CC))
+ln -s /data/data/com.termux/files/home/storage/shared/tencent/QQfile_recv QQ

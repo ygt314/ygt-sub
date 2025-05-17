@@ -1,0 +1,20 @@
+bchf=$bcrcf/.bcm_history;bmf=$bcrcf/math.bc
+setcale()
+{
+cale=$1;if [ -z $1 ];then
+    cale=6
+fi
+}
+bcm()
+{
+if [ -z $1 ];then
+    bc -l $bmf;return 0
+elif [ "$1" = "-h" ] || [ "$1" = "--help" ];then
+    cat $bcrcf/bchelp;echo;return 0
+fi;ans2="scale=$2;$1";cale=$2
+if [ -z $2 ];then
+    ans2="$1"
+fi;echo -e "$(date)\n$ans2">>$bchf
+ans=$(echo "$ans2"|bc -l $bmf)
+echo $ans;echo "The answer is $ans">>$bchf
+}

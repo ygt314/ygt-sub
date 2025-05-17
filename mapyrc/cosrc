@@ -1,0 +1,25 @@
+cos_sym()
+{
+ans2=$(echo "from sympy import cos,pi,pprint;pprint(cos($1))"|python)
+}
+cos_py()
+{
+if [ -z $1 ];then
+    echo "cos_py [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    cosd_py $1
+elif [ $dd = rad ];then
+    cosr_py $1
+fi
+}
+cosd_py()
+{
+ans=$(pym "cos($1,deg)");ans
+cos_sym "($1)*pi/180";ans2
+}
+cosr_py()
+{
+ans=$(pym "cos($1)");ans
+cos_sym "$1";ans2
+}

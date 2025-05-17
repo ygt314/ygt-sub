@@ -1,0 +1,69 @@
+echo "hxs [hxs]发现化学式之美"
+# enadd()
+# for
+# do
+# elen()
+# for
+# do
+# done
+addele()
+{
+case $1 in
+    2)elem+=($ele2);;
+    1)elem+=($ele1);;
+esac
+}
+hxn()
+{
+hxs=$1
+for i in $(seq 0 ${#hxs})
+do
+    if [ "$(numint ${hxs:$i:1})" = false ];then
+        break
+    fi
+done;hx_n="${hxs:0:$i}";hx_s="${hxs:$i}"
+}
+hxsfh()
+{
+fh=$1;fhj=0
+case $fh in
+    '(')hxs="$hxs(";hxs1="$hxs1(";hxs0="$hxs0(";;
+    ')')hxs="$hxs)";hxs1="$hxs1)";hxs0="$hxs0)";;
+    '[')hxs="$hxs[";hxs1="$hxs[";hxs0="$hxs0[";;
+    ']')hxs="$hxs]";hxs1="$hxs]";hxs0="$hxs0]";;
+    .)hxs="${hxs}·";;
+    ·)hxs="${hxs}·";;
+    '#')hxm="${hx_s:$i}";fhj=-1;;
+    *)fhj=1;;
+esac
+}
+hxs()
+{
+hxs=$1;hxn $hxs;hxm="";hxsj=0
+hxn=$hx_n;if [ -z $hx_n ];then
+    hxn=1
+fi;hxs="";i=0;hxsn=${#hx_s};hxs0="";hxs1=""
+elen=();elem=();en=""
+while true
+do
+    if ((i>=hxsn));then
+        break
+    fi;ele1="${hx_s:$i:1}";ele2="${hx_s:$i:2}"
+    hxsfh $ele1;if [ $fhj -eq 0 ];then
+        i=$((i+1));continue
+    elif [ $fhj -eq -1 ];then
+        break
+    fi;if [[ $(pe $ele2) != *不是元素* ]] && ((i+1<hxsn));then
+        hxs="$hxs$ele2";hxs0="$hxs0$ele2"
+        hxs1="$hxs1$ele2";addele 2;i=$((i+2))
+    elif [ $(numint $ele1) = true ];then
+        hxs="$hxs$(p_nd $ele1)";hxs0="$hxs0$ele1"
+        hxs1="$hxs1$(p_nd $ele1)";addele 0;i=$((i+1))
+    elif [[ $(pe $ele1) != *不是元素* ]];then
+        hxs="$hxs$ele1";hxs0="$hxs0$ele1"
+        hxs1="$hxs1$ele1";addele 1;i=$((i+1))
+    else
+        echo 化学式错误;hxsj=1;break
+    fi
+done
+}

@@ -1,0 +1,5 @@
+powpy()
+{
+ans2="($1)^($2)";ans2
+ans=$(echo "print(($1)**($2))"|python);ans
+}

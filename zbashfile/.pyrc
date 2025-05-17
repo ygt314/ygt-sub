@@ -1,0 +1,7 @@
+mpy="$myf/python"
+mqpy="/sdcard/qpython/scripts3/"
+source $mpy/.piprc
+qpy()
+{
+    /data/user/0/org.qpython.qpy/files/bin/python3.sh $@
+}

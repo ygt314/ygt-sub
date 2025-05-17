@@ -1,0 +1,18 @@
+ph()
+{
+if [ -z $1 ];then
+    echo "value error:no string";return 1
+fi
+j=$(echo "print($1>1)"|python)
+j2=$(echo "print($1<1e-14)"|python)
+if [ "$j" = "True" ];then
+    echo "error:$1>1--->the concentration not more than 1"
+    return 1
+elif [ "$j2" = "True" ];then
+    echo "error:$1<10⁻¹⁴--->the pH of H₂O solution less than 14 or equal 14"
+    return 1
+else
+    h3o=$(log $1);h3o=$(abs $h3o)
+    echo "pH=$h3o";return 0
+fi
+}

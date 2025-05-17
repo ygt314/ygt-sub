@@ -1,0 +1,76 @@
+logn()
+{
+if [ -z $1 ];then
+    echo "use:logn [base number] [times number]";return 0
+elif [ -z $2 ];then
+    log $@;return 0
+fi
+ln $1>/dev/null;lna=$ans
+ln $2>/dev/null;lnb=$ans
+if [ "$v1"x = 0x ];then
+    ans="-inf";ans2="-∞";ans -l;return 0
+fi
+ans=$(echo "print($lnb/$lna)"|python)
+echo "$ans"
+ans2="log($1)($2)"
+if [[ "$v1"x == *j* ]];then
+    ans2="log($1)($z2)/2${j}arctan($b/$a)/ln($1)·i"
+elif [ ${v1:0:1}x = -x ];then
+    ans2="log($1)(${v1:1})+iπ/ln($1)"
+fi
+}
+lg()
+{
+log $1
+}
+log()
+{
+if [ -z $1 ];then
+    echo "use:log [base number] [times number]";return 0
+elif [ ! -z $2 ];then
+    logn $@;return 0
+fi
+lna=$(ln $1)
+if [ "$v1"x = 0x ];then
+    ans="-inf";ans2="-∞";ans -l;return 0
+fi
+ans=$(echo "import math as m;print($lna/m.log(10))"|python)
+echo "$ans"
+ans2="log($1)"
+if [[ "$v1"x == *j* ]];then
+    ans2="log($z2)/2${j}arctan($b/$a)/ln(10)·i"
+elif [ ${v1:0:1}x = -x ];then
+    ans2="log(${v1:1})+iπ/ln(10)"
+fi
+}
+ln()
+{
+if [ -z $1 ];then
+    echo "use:ln [number]";return 0
+fi
+v1=$(pym $1)
+if [ "$v1"x = 0x ];then
+    ans="-inf";ans2="-∞";ans -l;return 0
+fi
+ans=$(echo "import cmath as m;print(m.log($v1))"|python)
+a=$(echo "a=$v1;print(a.real)"|python)
+b=$(echo "b=$v1;print(b.imag)"|python)
+z2=$(pym "($a)**2+($b)**2")
+j="+"
+if [ ${b:0:1}x = -x ];then
+    j="-"
+fi
+if [ ${a:0:1}x = -x ];then
+    j="$j(π-";a="$a)"
+fi
+a=$(abs "$a");b=$(abs $b)
+ans2="ln($v1)"
+if [[ "$v1"x == *j* ]];then
+    ans2="ln($z2)/2${j}arctan($b/$a)·i"
+elif [ ${v1:0:1}x = -x ];then
+    ans2="ln(${v1:1})+iπ"
+else
+    ans=$(echo "import math as m;print(m.log($v1))"|python)
+fi
+echo "$ans"
+}

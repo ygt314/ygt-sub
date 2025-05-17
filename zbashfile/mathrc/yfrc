@@ -1,0 +1,37 @@
+yf1()
+{
+aa=$1
+aa=$(abs $aa)
+bb=$2
+bb=$(abs $bb)
+if [ $aa -le $bb ]; then
+    jj=$aa
+else
+    jj=$bb
+fi
+for i in $(seq $jj -1 1)
+do
+    f=$(($aa%$i))
+    d=$(($bb%$i))
+    if [ $f -eq 0 ] && [ $d -eq 0 ]; then
+        aa=$(($aa/$i))
+        bb=$(($bb/$i))
+        break
+    fi
+done
+ans2="$aa/$bb"
+}
+yfz()
+{
+a1=$(abs $1)
+b1=$(abs $2)
+yf1 $a1 $b1
+if [ $1 -gt 0 ] && [ $2 -lt 0 ];then
+    aa="-$aa"
+elif [ $1 -lt 0 ] && [ $2 -gt 0 ];then
+    aa="-$aa"
+else
+    aa="+$aa"
+fi
+ans2="$aa/$bb"
+}

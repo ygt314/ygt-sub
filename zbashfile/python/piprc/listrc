@@ -1,0 +1,26 @@
+up_txt="$mpip/piplist.txt"
+up_data="$mpip/.update_data"
+datapip()
+{
+cat $up_data
+}
+uptxt()
+{
+piplist>"$up_txt"
+}
+pipdata()
+{
+echo "#pip_update_data">"$up_data"
+j=$(cat $up_txt|wc -l)
+for k in $(seq 3 $j)
+do
+    astr=$(head -$k $up_txt|tail -n 1)
+    for i in $(seq 0 ${#astr})
+    do
+        if [ -z ${astr:$i:1} ];then
+            break
+        fi
+    done
+    echo "${astr:0:$i}">>"$up_data"
+done
+}

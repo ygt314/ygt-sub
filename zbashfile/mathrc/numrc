@@ -1,0 +1,155 @@
+numint()
+{
+if [ "$1"x = "-h"x ] || [ "$1"x = "--help"x ];then
+    echo -e "use:num [str|num|...]\neg:numint 5.8"
+else
+    expr $1 "+" 10 &>/dev/null
+    if [ $? -eq 0 ];then
+        nvar="true"
+    else
+        nvar="false"
+    fi;echo "$nvar"
+fi
+}
+jf()
+{
+if [ ! -z $1 ];then
+    str=$1
+fi;lstr=${#str};an=0
+for i in $(seq 1 $lstr)
+do
+    if [ "${str:0:1}"x = -x ];then
+        an=$((an+1));str=${str:1}
+    elif [ "${str:0:1}"x = +x ];then
+        str=${str:1}
+    else
+        break
+    fi;if [ -z $str ];then
+        str=0
+    fi
+done
+}
+s_i()
+{
+if [ ! -z $1 ];then
+    str=$1
+fi;jf;ans=$(echo $str|tr -d -c '0-9')
+if [ $((an%2)) -eq 1 ];then
+    ans="-$ans"
+fi;ans
+}
+p_nd()
+{
+n_d="₀₁₂₃₄₅₆₇₈₉";s_1="";s_0=$1
+for i in $(seq 0 $((${#s_0}-1)))
+do
+    n=${s_0:$i:1};s_1="$s_1${n_d:$n:1}"
+done;echo $s_1
+}
+p_nu()
+{
+n_u="⁰¹²³⁴⁵⁶⁷⁸⁹";s_1="";s_0=$1
+for i in $(seq 0 $((${#s_0}-1)))
+do
+    n=${s_0:$i:1};s_1="$s_1${n_u:$n:1}"
+done;echo $s_1
+}
+s_f()
+{
+if [ ! -z $1 ];then
+    str=$1
+fi;jf;ans=$(echo $str|tr -d -c '0-9.')
+if [ $((an%2)) -eq 1 ];then
+    ans="-$ans"
+fi
+ans
+}
+p0()
+{
+p0s=$(abs $(int $1))
+for i in $(seq 0 $p0s)
+do
+    if ((i==0));then
+        str=""
+    else
+        str="${str}0"
+    fi
+done
+}
+a0()
+{
+ans=$(abs $(int $1));fh=""
+jf $1;if ((an%2==1));then
+    fh=-
+fi;a0s=$(abs $(int $2));jf $2;p0 $a0s
+if ((an%2==1));then
+    ans=$fh$ans$str
+else
+    ans=$fh$str$ans
+fi
+}
+r0()
+{
+ans=$(abs $(int $1));fh="";ln=${#ans}
+jf $1;if ((an%2==1));then
+    fh=-
+fi;r0s=$2;if [ -z $2 ];then
+    r0s=$ln
+fi;r0s=$(abs $r0s);jf $2
+for i in $(seq 1 $r0s)
+do
+    a1="${ans:0:1}";i1=$((ln-1));a2="${ans:$i1}"
+    if [ "$a1"x = 0x ] && ((an%2==1));then
+        ans="${ans:1}"
+    elif [ "$a2"x = 0x ] && ((an%2==0));then
+        ans="${ans:0:$i1}"
+    else
+        break
+    fi;if [ -z $ans ];then
+        ans=0
+    fi;ln=${#ans}
+done;ans=$fh$ans
+}
+f_xs()
+{
+ans=$(echo $1|cut -d "." -f 2)
+if [[ $1 != *.* ]];then
+    ans=0
+fi;if [ -z $ans ];then
+    ans=0
+fi;ans
+}
+int()
+{
+ans=$(echo $1|cut -d "." -f 1)
+if [ -z $ans ];then
+    ans=0
+fi;ans
+}
+nem()
+{
+n=$(echo $1|cut -d e -f 1);m=$(echo $1|cut -d e -f 2)
+if [[ $1 != *e* ]];then
+    m=0
+fi;if [ -z $m ];then
+    m=0
+fi;if [ -z $n ];then
+    n=0
+fi;ans2=$1
+}
+floor()
+{
+i=$(int ${1:-0})
+ans=$((i<0?i-1:i));ans
+}
+ceil()
+{
+i=$(int ${1:-0})
+ans=$((i>0?i+1:i));ans
+}
+pi=3.14159265358979323846
+pi5=3.1416
+e=2.71828182845904523536
+e5=2.7183
+sqrt2=1.414213562373095
+s25=1.4142

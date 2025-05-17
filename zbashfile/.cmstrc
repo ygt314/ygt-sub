@@ -1,0 +1,11 @@
+cmstf=$myf/cmstrc
+source $cmstf/yszqrc
+source $cmstf/ysrc
+source $cmstf/pnrc
+source $cmstf/phrc
+source $cmstf/perc
+source $cmstf/dzrc
+source $cmstf/ysfrc
+source $cmstf/ryrc
+source $cmstf/ps_nrc
+echo 化学之门已开启

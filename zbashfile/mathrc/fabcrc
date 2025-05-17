@@ -1,0 +1,212 @@
+put_abc()
+{
+var=(a b c);varn=0
+while true
+do
+    vart=("$a" "$b" "$c")
+    clear;echo "二次函数(一般式)输入"
+    echo "type：有限小数和整数"
+    echo "- - - - - - - - - - - - - -"
+    fabc ${vart[@]};echo "预览:$func";
+    echo "- - - - - - - - - - - - - -"
+    read -n 1 str;echo
+    if [ -z $str ] || [ $str = q ];then
+        clear;echo "your function:$func";break
+    fi
+    if [ $str = w ];then
+        varn=$(((varn+2)%3));continue
+    elif [ $str = s ];then
+        varn=$(((varn+1)%3));continue
+    fi
+    eval "int=${vart[$varn]}"
+    if [ $str = r ];then
+        if [ -z $int ];then
+            int=r
+        fi
+        len=${#int};act=$((len-1))
+        int="${int:0:$act}";echo "${var[$varn]}:>$int"
+    elif [ $str = - ];then
+        int="-$int";int=$(s_f $int)
+    else
+        int="$int$(s_f $str)"
+    fi
+    eval "${var[$varn]}=$int"
+done
+}
+fabc()
+{
+if [[ "$2"x == *"."* ]];then
+    b1=$(echo "$2"|cut -d "." -f 1)
+    if ((b1==0));then
+        b2=$(echo "$2"|cut -d "." -f 2);b1="$b1$b2"
+    fi
+else
+    b1=$2
+fi
+if [[ "$3"x == *"."* ]];then
+    c1=$(echo "$3"|cut -d "." -f 1)
+    if ((c1==0));then 
+        c2=$(echo "$3"|cut -d "." -f 2);c1="$c1$c2"
+    fi
+else
+    c1=$3
+fi
+if ((b1==0));then
+    b1=""
+elif [ ${2:0:1} = "+" ] || [ ${2:0:1} = "-" ];then
+    b1="$2x"
+else
+    b1="+$2x"
+fi
+if ((c1==0));then
+    c1=""
+elif [ ${3:0:1} = "+" ] || [ ${3:0:1} = "-" ];then
+    c1="$3"
+else
+    c1="+$3"
+fi
+a1="$1x²"
+if [ -z $1 ];then
+    a1=""
+fi
+if [ -z $2 ];then
+    b1=""
+fi
+if [ -z $3 ];then
+    c1=""
+    if [ -z $1 ] && [ -z $2 ];then
+        c1="0"
+    fi
+fi
+func="y=$a1$b1$c1"
+}
+ahk_r()
+{
+a=$1;b=$2;c=$3
+if [ -z $1 ];then
+    echo -n "a-->";read a
+fi
+if [ -z $2 ];then
+    b=0
+fi
+if [ -z $3 ];then
+    c=0
+fi
+fabc $a $b $c;func;echo "    ↓"
+if [ $a = 0 ];then
+    if [ $b = 0 ];then
+        echo 常值函数不能配方
+    else
+        echo 一次函数不能配方
+    fi
+    return 1
+fi
+h1=$b;h2=$((a*2))
+k1=$((4*a*c-b*b));k2=$((a*4))
+hh=$(a_br $h1 $h2 10)
+if [[ $hh == *.* ]];then
+    hh="$hh..."
+fi
+kk=$(a_br $k1 $k2 10)
+if [[ $kk == *.* ]];then
+    kk="$kk..."
+fi
+yfz $h1 $h2;h="$aa/$bb"
+yfz $k1 $k2;k="$aa/$bb"
+echo "y=$a(x$h)²$k"
+echo "    ↓"
+echo "y=$a(x$hh)²$kk"
+}
+ahk_l()
+{
+if [[ "$1"x != *"."* ]] && [[ "$2"x != *"."* ]] && [[ "$3"x != *"."* ]];then
+    ahk_r $@;return 0
+fi
+a=$1;b=$2;c=$3
+if [ -z $1 ];then
+    echo -n "a-->";read a
+fi
+if [ -z $2 ];then
+    b=0
+fi
+if [ -z $3 ];then
+    c=0
+fi
+fabc $a $b $c;func;echo "    ↓"
+if [ $a = 0 ];then
+    if [ $b = 0 ];then
+        echo 常值函数不能配方
+    else
+        echo 一次函数不能配方
+    fi
+    return 1
+fi
+if [[ "$1"x == *"."* ]];then
+    a=$1
+else
+    a="$1.0"
+fi
+if [[ "$2"x == *"."* ]];then
+    b=$2
+else
+    b="$2.0"
+fi
+if [[ "$3"x == *"."* ]];then
+    c=$3
+else
+    c="$3.0"
+fi
+a2=$(echo "$a"|cut -d "." -f 2)
+lena=${#a2}
+a1=$(echo "$a"|cut -d "." -f 1)
+b2=$(echo "$b"|cut -d "." -f 2)
+lenb=${#b2}
+b1=$(echo "$b"|cut -d "." -f 1)
+c2=$(echo "$c"|cut -d "." -f 2)
+lenc=${#c2}
+c1=$(echo "$c"|cut -d "." -f 1)
+if [ $lena -ge $lenb ];then
+    nba=$lena
+else
+    nba=$lenb
+fi
+if [ $lenc -ge $nba ];then
+    nba=$lenc
+fi
+if [ $lena -eq $nba ];then
+    a="$a1$a2"
+else
+    sa=$((nba-lena))
+    p0 $sa;a=$(echo "$a1$a2$str")
+fi
+if [ $lenb -eq $nba ];then
+    b="$b1$b2"
+else
+    sb=$((nba-lenb))
+    p0 $sb;b=$(echo "$b1$b2$str")
+fi
+if [ $lenc -eq $nba ];then
+    c="$c1$c2"
+else
+    sc=$((nba-lenc))
+    p0 $sc;c=$(echo "$c1$c2$str")
+fi
+ahk_r $a $b $c >/dev/null
+n10=$(pow 10 $nba)
+yfz $a $n10;a="$aa/$bb"
+if [ ${a:0:1} = "+" ];then
+    a="${a:1}"
+fi
+aa=$(a_br $aa $bb $lena)
+if [ ${aa:0:1} = "+" ];then
+    na="${aa:1}"
+fi
+yfz $k1 $((k2*n10));k="$aa/$bb"
+echo "y=$a(x$h)²$k"
+echo "    ↓"
+kk=$(a_br $aa $bb 10)
+if [[ $kk == *.* ]];then
+    kk="$kk..."
+fi
+echo "y=$na(x$hh)²$kk"
+}

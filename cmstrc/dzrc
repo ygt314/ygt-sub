@@ -1,0 +1,24 @@
+dz()
+{
+nbdz=$1;lendz=${#nbdz}
+for i in $(seq 0 $lendz)
+do
+    nbd="${nbdz:0:$i}";nbz="${nbdz:$i}"
+    nvar=$(numint $nbz)
+    if [ "$nvar" = "ture" ];then
+        break
+    fi
+done;errodz=$(pe $nbd)
+if [ "$errodz" != "$nbd不是元素" ];then
+    if [ "$nbz"x = "0"x ];then
+        echo "$nbd是元素,但$nbdz无意义"
+    else
+        eval "pec $nbd" &>/dev/null
+        echo "$nbdz是$pec单质"
+    fi
+elif [ -z $nbdz ];then
+    echo -e "used way:dz [化学式]\neg:dz C12"
+else
+    echo "$nbdz不是单质"
+fi
+}

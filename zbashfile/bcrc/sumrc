@@ -1,0 +1,25 @@
+sum_bc()
+{
+echo "$(date)">>$bcrcf/.sum_history
+str=$1;s1=$2;s2=$3
+if [ -z "$1" ];then
+    str="x"
+fi;if [ -z "$2" ];then
+    s1=1
+fi;if [ -z "$3" ];then
+    s2=100
+fi;ans2=" $s2\n ∑ $str\nx=$s1"
+echo -e "$ans2">>$bcrcf/.sum_history
+s=$((s2-s1));ans=0;x=$s1;cs=$((s/20+1))
+echo "The sum of $str"
+for i in $(seq 0 $s)
+do
+    ans=$(echo "x=$x;$ans+($str)"|bc -l)
+    if ((i%cs==1));then
+        echo -e "\r$x:>$ans\c"
+    fi;x=$((x+1))
+done
+str="The answer is $ans"
+echo -e "\r$str"
+echo "$str.">>$bcrcf/.sum_history
+}

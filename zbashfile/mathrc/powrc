@@ -1,0 +1,13 @@
+pow()
+{
+s1=$1;s2=$2;ans=1;ans2="$1^$2"
+if [[ "$1"x == *.* ]] || [[ "$2"x == *.* ]];then
+    echo "notice:[only interge]";return 0
+fi;ans2="$1$(p_nu $2)"
+for nb in $(seq 0 $s2)
+do
+    if [ $nb -ne 0 ];then
+        ((ans*=s1))
+    fi
+done;ans
+}

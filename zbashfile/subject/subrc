@@ -1,0 +1,16 @@
+cds()
+{
+cd $msub
+case $1 in
+    1)cd 1*;;
+    2)cd 2*;source .mrc;;
+    3)cd 3*;;
+    4)cd 4*;source .prc;;
+    5)cd 5*;source .hrc;;
+    6)cd 6*;;
+    7)cd 7*;;
+    8)cd 8*;;
+    9)cd 9*;;
+    *)ls;echo "use:cds [n]";;
+esac
+}

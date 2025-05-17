@@ -1,0 +1,183 @@
+/*bc:1.07.6,use:bc -l math.bc*/
+/*num*/
+pi=a(1)*4
+e=e(1)
+phi=(sqrt(5)-1)/2
+s2=sqrt(2)
+g=-1
+rad=0
+deg=1
+dd=rad
+define abs(a)
+{
+ans=a;
+if(a<0){ans=-a;}
+return ans;
+}
+define int(a)
+{s=scale;scale=0;ans=a/1;scale=s;return ans;}
+define floor(a)
+{
+ans=int(a);
+if(a<0){ans-=1;}
+return ans;
+}
+define ceil(a)
+{
+ans=int(a)+1;
+if(a<0){ans=int(a);}
+return ans;
+}
+define int1(a)
+{
+ans=ceil(a);
+if(a<0){ans=floor(a);}
+return ans;
+}
+define f_xs(a)
+{ans=abs(a-int(a));return ans;}
+define round(a,s)
+{
+sts=10^s;sds=0.1^s;a_s=a*sts;a_i=int1(a_s);
+if(f_xs(a_s)<0.5){a_i=int(a_s);}
+ans=a_i*sds;
+return ans;
+}
+/*^√log*/
+define pow(a,b)
+{ans=e(l(a)*b);return ans;}
+define root(a,b)
+{ans=e(l(a)/b);return ans;}
+define ln(a)
+{ans=l(a);return ans;}
+define lg(a)
+{ans=l(a)/l(10);return ans;}
+define log(a,b)
+{ans=l(a)/l(b);return ans;}
+/*deg*/
+define d_r(a)
+{ans=a*pi/180;return ans;}
+define r_d(a)
+{ans=a*180/pi;return ans;}
+define d_g(a)
+{ans=a/0.06;return ans;}
+define g_d(a)
+{ans=a*0.06;return ans;}
+define r_g(a)
+{ans=d_g(r_d(a));return ans;}
+define g_r(a)
+{ans=d_r(g_d(a));return ans;}
+define x_r(a)
+{
+ans=a;
+if(dd==1){ans=d_r(a);}
+if(dd==g){ans=g_r(a);}
+return ans;
+}
+define r_x(a)
+{
+ans=a;
+if(dd==1){ans=r_d(a);}
+if(dd==g){ans=r_g(a);}
+return ans;
+}
+/*factorial*/
+define f(a)
+{
+ans=1;
+for(i=1;i<=a;i++)
+{ans*=i;}
+return ans;
+}
+define f1(a)
+{
+ans=1;
+for(i=1;i<=a;i++)
+{ans/=i;}
+return ans;
+}
+define ff(a)
+{
+ft=1;s=scale;scale=0
+if(a%2==0){ft=2;}
+scale=s;ans=1;
+for(i=ft;i<=a;i+=2)
+{ans*=i;}
+return ans;
+}
+define ff1(a)
+{
+ft=1;s=scale;scale=0
+if(a%2==0){ft=2;}
+scale=s;ans=1;
+for(i=ft;i<=a;i+=2)
+{ans/=i;}
+return ans;
+}
+/*trigonometric function*/
+define sin(a)
+{ans=s(x_r(a));return ans;}
+define csc(a)
+{ans=1/s(x_r(a));return ans;}
+define cos(a)
+{ans=c(x_r(a));return ans;}
+define sec(a)
+{ans=1/c(x_r(a));return ans;}
+define tan(a)
+{ans=sin(a)/cos(a);return ans;}
+define cot(a)
+{ans=cos(a)/sin(a);return ans;}
+define asin(a)
+{
+s=10^(-scale);
+r=a(a/sqrt(1-a*a+s));
+return r_x(r);
+}
+define acsc(a)
+{return asin(1/a);}
+define acos(a)
+{
+s=10^(-scale);
+r=abs(a(sqrt(1-a*a)/(a+s)));
+return r_x(r);
+}
+define asec(a)
+{return acos(1/a);}
+define atan(a)
+{return r_x(a(a));}
+define acot(a)
+{return r_x(a(1/a));}
+/*num*/
+/*lim,sum,xfx*/
+define tn(a,n)
+{
+x=0;
+for(i=1;i<=n;i++)
+{x+=i^a;}
+ans=x;return ans;
+}
+define zn(a,n)
+{return tn(-a,n);}
+define sn(a,n)
+{
+x=0;
+for(i=1;i<=n;i++)
+{x+=pow(i,a);}
+ans=x;return ans;
+}
+define z(a)
+{
+x=0;
+if(a>=123456)
+{ans=1;return ans;}
+for(i=1;1/i^a>0&&i<8^6;i++)
+{x+=1/i^a;}
+ans=x;return ans;
+}
+define fbnc(n)
+{
+a=0;b=1;
+for(i=1;i<n;i++)
+{c=a+b;a=b;b=c;}
+return b;
+}

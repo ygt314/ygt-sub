@@ -1,0 +1,63 @@
+sqrt_s()
+{
+ans2=" "
+for i in $(seq 1 ${#1})
+do
+    ans2="${ans2}_"
+done;ans2="$ans2\n√$1"
+}
+sqrt()
+{
+if [ -z $1 ];then
+    echo 'sqrt [n] [s=1]';return 0
+fi;a=$1;aj=0;sqrt_s $a
+if [ "${a:0:1}"x = -x ];then
+    a=${a:1};aj=1
+fi;ss=${#a}
+if ((ss>9));then
+    echo error:a:too large;return 0
+fi;s2=$(((ss+1)/2));s0="10000000000"
+b=0;if ((s2>1));then
+    b="${s0:0:$s2}"
+fi;for i in $(seq $b $a)
+do
+    if ((i*i<=a));then
+        ans=$i
+    else
+        break
+    fi
+done;sq0=$ans;ss=${#i};s=$2
+if [ -z $2 ];then
+    s=6
+fi;if ((s>10-ss));then
+    s=$((10-ss))
+fi;if ((s==0));then
+    ans=$sq0
+elif ((s>0));then
+    f="";i=$sq0
+    nbc=$((20*i))
+    nbb=$nbc
+    nba=$((a-i*i))
+    for k in $(seq 1 $s)
+    do
+        nba=$((nba*100))
+        nbb=$((nbb-1))
+        for j in $(seq 0 9)
+        do
+            nbb=$((nbb+2))
+            nba=$((nba-nbb))
+            if [ $nba -le 0 ];then
+                nba=$((nba+nbb))
+                nbb=$((nbb-2))
+                f="$f$j";break
+            elif [ $j -eq 9 ];then
+                echo 'error:j>9'
+            fi
+        done;nbc=$((nbc*10+j*20))
+        nbb=$nbc
+    done
+    ans="$i.$f"
+fi;if ((aj==1));then
+    ans="${ans}i"
+fi;ans
+}

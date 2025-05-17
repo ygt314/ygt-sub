@@ -1,0 +1,25 @@
+sin_sym()
+{
+ans2=$(echo "from sympy import sin,pi,pprint;pprint(sin($1))"|python)
+}
+sin_py()
+{
+if [ -z $1 ];then
+    echo "sin_py [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    sind_py $1
+elif [ $dd = rad ];then
+    sinr_py $1
+fi
+}
+sind_py()
+{
+ans=$(pym "sin($1,deg)");ans
+sin_sym "($1)*pi/180";ans2
+}
+sinr_py()
+{
+ans=$(pym "sin($1)");ans
+sin_sym "$1";ans2
+}

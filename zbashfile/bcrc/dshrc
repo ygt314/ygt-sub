@@ -1,0 +1,41 @@
+dsh_bc()
+{
+dshb=1
+if [ -z $1 ];then
+    echo -n "dsh_bc:number-->"
+    read num
+else
+    num=$1
+fi
+if [ $num -lt 1 ];then
+    echo "error:the number less than 1,because the number not less than 1 and it's *int*"
+    return 1
+fi
+echo "---begin---">$bcrcf/dsh.txt
+ans=1
+f="1/1"
+echo "1/1=1">>$bcrcf/dsh.txt
+echo "1/1=1"
+sleep 0.2
+if [ $num -eq 1 ];then
+    echo -e "$(date)\n1/1=1">>$bcrcf/.dsh_history
+    echo "---end---">>$bcrcf/dsh.txt
+    return 0
+fi
+for i in $(seq -w 2 $num)
+do
+    clear
+    dshb=$((dshb+1))
+    ans=$(echo "$ans+1/$dshb"|bc -l)
+    f="$f+1/$dshb"
+    echo "$f"
+    echo "=$ans"
+    echo "$i|ans+1/$dshb=$ans">>$bcrcf/dsh.txt
+    read -n 1 -t 0.2 j
+    if [ "$j"x = "q"x ];then
+        break
+    fi
+done
+echo -e "$(date)\n$f\n=$ans">>$bcrcf/.dsh_history
+echo "---end---">>$bcrcf/dsh.txt
+}

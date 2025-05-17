@@ -1,0 +1,55 @@
+xxx9()
+{
+echo 乘法口诀
+for i in $(seq 9 -1 1)
+do
+    str="";for j in $(seq 9 -1 $i)
+    do
+        str="$str $i×$j=$((i*j))"
+    done;echo $str
+done
+}
+xxx1()
+{
+echo 乘法口诀
+for i in $(seq 1 9)
+do
+    str="";for j in $(seq 1 $i)
+    do
+        str="$str $j×$i=$((i*j))"
+    done;echo $str
+done
+}
+xxx()
+{
+xxx1
+}
+list()
+{
+if [ -z $1 ];then
+    echo 'use:list [name]';echo 'You can look it'
+else
+    cat "$mathf/$1.list";echo
+fi
+}
+pl5()
+{
+for i in $(seq 1 5)
+do
+    if ((i==3&&d==0));then
+        echo -n '   0°|'
+    elif ((i==3&&d>100));then
+        echo -n " $d°|"
+    elif ((i==3&&d>0));then
+        echo -n "  $d°|"
+    elif ((i==3&&d<-100));then
+        echo -n "$d°|"
+    elif ((i==3&&d<0));then
+        echo -n " $d°|"
+    else
+        echo -n '     |'
+    fi
+    eval "an2=\${$1$i[$2]}";echo "$an2 |"
+done;echo '------------'
+}
+loadm sinxrc

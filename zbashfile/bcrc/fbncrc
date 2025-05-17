@@ -1,0 +1,39 @@
+fb_dsh()
+{
+fb_dshb=1
+if [ -z $1 ];then
+    echo -n "fib_dsh:number-->"
+    read num
+else
+    num=$1
+fi
+echo "---begin---">$bcrcf/fbdsh.txt
+ans=1
+f="1/1"
+echo "1/1=1">>$bcrcf/fbdsh.txt
+echo "1/1=1"
+if [ $num -eq 1 ];then
+    echo -e "$(date)\n1/1=1">>$bcrcf/.fbdsh_history
+    echo "---end---">>$bcrcf/fbdsh.txt
+    return 0
+fi
+sleep 0.2
+for i in $(seq -w 2 $num)
+do
+    clear
+    fb_dsha=$fb_dshb
+    fb_dshb=$((fb_dsha+fb_dshc))
+    fb_dshc=$fb_dsha
+    ans=$(echo "$ans+1/$fb_dshb"|bc -l)
+    f="$f+1/$fb_dshb"
+    echo "$f"
+    echo "=$ans"
+    echo "$i|ans+1/$fb_dshb=$ans">>$bcrcf/fbdsh.txt
+    read -n 1 -t 0.2 j
+    if [ "$j"x = "q"x ];then
+        break
+    fi
+done
+echo -e "$(date)\n$f\n=$ans">>$bcrcf/.fbdsh_history
+echo "---end---">>$bcrcf/fbdsh.txt
+}

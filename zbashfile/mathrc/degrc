@@ -1,0 +1,22 @@
+d_d()
+{
+if [ ! -z $1 ];then
+    d=$1
+fi;d=$((ans=d));d1=$((d%360));d2=$((d1>0?-1:1))
+d2=$((d1*d1<=180*180?d1:d2*(360+d2*d1)%360))
+if [ "$2"x != qx ];then
+    echo "$d°=$d1°=$d2°"
+fi
+}
+qd_d()
+{
+d_d $1 q;if ((d2>=0&d2<90));then
+    echo i
+elif ((d2>=90&d2<180));then
+    echo ii
+elif ((d2==180|(d2>=-180&d2<-90)));then
+    echo iii
+elif ((d2>=-90&d2<0));then
+    echo iv
+fi
+}

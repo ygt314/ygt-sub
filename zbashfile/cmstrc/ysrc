@@ -1,0 +1,16 @@
+ysb()
+{
+for i in $(seq 0 20)
+do
+    echo "$i--${yse[$i]}--${ysc[$i]}"
+done
+}
+ys()
+{
+nb1=$(($1))
+nb2=$(($2))
+for i in $(seq $nb1 $nb2)
+do
+    echo "$i--${yse[$i]}--${ysc[$i]}"
+done
+}

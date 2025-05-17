@@ -1,0 +1,12 @@
+pym()
+{
+if [ -z $1 ];then
+    python $mapyf/zmath.py
+elif [ "$1" = "-h" ] || [ "$1" = "--help" ];then
+    less $mapyf/pymhelp;echo
+else
+    ans2="$1";echo -e "$(date)\n$1">>$mapyf/.pym_history
+    ans=$(python $mapyf/zm-sh.py "$1" $2)
+    echo $ans;echo "The answer is $ans">>$mapyf/.pym_history
+fi
+}

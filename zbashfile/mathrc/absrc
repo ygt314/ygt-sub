@@ -1,0 +1,23 @@
+abs()
+{
+abs=$1
+if [ -z $abs ];then
+    echo -e "use:abs [number]\neg:abs -6.8"
+else
+    lenabs=${#abs}
+    for i in $(seq 1 $lenabs)
+    do
+        if [ "${abs:0:1}"x = "-"x ] || [ "${abs:0:1}"x = "+"x ];then
+            abs=${abs:1}
+        else
+            break
+        fi
+        if [ -z $abs ];then
+            echo "abs:warm:no number"
+            abs=0
+        fi
+    done
+    echo $abs
+    ans=$abs
+fi
+}

@@ -1,0 +1,5 @@
+astr=$(sh 520)
+for k in $(seq 0 ${#astr})
+do
+    sleep 0.2;echo -n "${astr:$k:1}"
+done

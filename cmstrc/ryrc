@@ -1,0 +1,17 @@
+mrz=1;mry=1;mrzfs=1;rjd=1;scale=3
+m_fs()
+{
+if [ ! -z $1 ];then
+    mrz=$1
+fi
+if [ ! -z $2 ];then
+    mry=$2
+fi
+if [ ! -z $3 ];then
+    scale=$3
+fi
+a_bc $mrz $mry $((scale+1))
+ans=$(printf "≈%.${scale}f\n" "$(ans)")
+myzfs=ans
+ans
+}

@@ -1,0 +1,50 @@
+res_f="$enf/.listen_history"
+l_wf()
+{
+word_file="$enf/$1.w";echo $(date)>$res_f
+if [ -z $1 ];then
+    ls $enf/*.w;echo -n "word_file:>>";read word_file;word_file="$enf/$w_f.w"
+elif [ $1 = -i ];then
+    word_file="$enf/$2.w";str=$(cat $word_file)
+    result=$(python $enf/word_listen.py $str)
+    echo "$result";echo "$result">>"$res_f";return 0
+fi
+j=$(cat $word_file|wc -l);j=$((j+1))
+for k in $(seq 1 $j)
+do
+    lw=$(head -$k $word_file|tail -n 1)
+    result=$(python $enf/word_listen_x.py "$lw")
+    echo "$result";echo "$result">>"$res_f";sleep 0.5
+done
+}
+l_w()
+{
+if [ -z $1 ];then
+    echo -n "word_listen:>>";read lw
+    result=$(python $enf/word_listen.py "$lw")
+elif [ $1 = -i ];then
+    str="$*";str="${str:3}"
+    result=$(python $enf/word_listen.py $str)
+else
+    result=$(python $enf/word_listen.py "$*")
+fi
+echo "$(date)">>"$res_f"
+echo "$result"
+echo "$result">>"$res_f"
+if [ "$lw"x = quitx ] || [ "$lw"x = exitx ];then
+    echo Ending;return 0
+elif [ -z $1 ];then
+    l_w
+fi
+}
+l_wc()
+{
+yn=y
+if [ "$1"x = -ix ];then
+    echo "Clear the listen history of word."
+    echo "Yes,or no?";read -n 1 yn;echo
+fi
+if [ "$yn"x = yx ];then
+    echo "#The listen history of word.">"$res_f"
+fi
+}

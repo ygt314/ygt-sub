@@ -1,0 +1,93 @@
+cnmt()
+{
+y1=$1;y2="$1年"
+if [ -z $1 ];then
+    y1=$(date +%Y);y2=今年
+fi
+if [ $1 -eq 2023 ];then
+    y2=本届
+fi
+echo "日期形式:星期 月 日 时:分:秒 时区 年"
+date1=$(date)
+echo "现在时间:$date1"
+start_date=$(date +%s)
+date2=$(date -d "06180900$y1")
+echo "中考时间:$date2"
+end_date=$(date -d "06180900$y1" +%s)
+date_difference=$((end_date-start_date))
+date_difference2=$((start_date-end_date))
+if [ $date_difference -le 0 ];then
+    date_difference=$date_difference2
+fi
+date_s=$date_difference
+ans_s=$((date_s%60))
+date_m=$((date_s/60))
+ans_m=$((date_m%60))
+date_h=$((date_m/60))
+ans_h=$((date_h%24))
+date_day=$((date_h/24))
+ans_day=$date_day
+ans_date="$ans_day"
+ans_time="$ans_h:$ans_m:$ans_s"
+if [ $date_difference2 -le 0 ];then
+    key=还
+else
+    key=已
+fi
+echo "距$y2中考$key有"
+echo "${ans_date}day$ans_time"
+echo "==[$date_s]second"
+}
+cnmt_d()
+{
+y1=$1;y2=$1
+if [ -z $1 ];then
+    y1=2023;y2=本届
+elif [ $1 = $(date +%Y) ];then
+    y2=今年
+fi
+echo "日期形式:星期 月 日 时:分:秒 时区 年"
+date1=$(date)
+echo "现在时间:$date1"
+start_date=$(date +%m%d0000%Y)
+start_date=$(date -d "$start_date" +%s)
+date2=$(date -d "06180900$y1")
+echo "中考时间:$date2"
+end_date=$(date -d "06180000$y1" +%s)
+date_difference=$((end_date-start_date))
+date_difference2=$((start_date-end_date))
+if [ $date_difference -le 0 ];then
+    date_difference=$date_difference2
+fi
+date_s=$date_difference
+ans_s=$((date_s%60))
+date_m=$((date_s/60))
+ans_m=$((date_m%60))
+date_h=$((date_m/60))
+ans_h=$((date_h%24))
+date_day=$((date_h/24))
+ans_day=$date_day
+if [ $date_difference2 -le 0 ];then
+    key=还
+else
+    key=已
+fi
+echo "距$y2中考$key有"
+echo " [$ans_day]天"
+}
+zc()
+{
+year=2023
+clear&&echo loading…
+while true
+do
+    read -t 0.9 -n 1 a
+    if [ "$a"x = qx ];then
+        clear&&echo 中考加油;break
+    elif [ "$a"x = yx ];then
+        clear&&echo "更改年份"
+        echo -n "y-->";read -t 5 year
+    fi
+    clear&&cnmt $year
+done
+}

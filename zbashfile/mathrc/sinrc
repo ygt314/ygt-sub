@@ -1,0 +1,87 @@
+sin()
+{
+if [ -z $1 ];then
+    echo "sin [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    sind $1
+elif [ $dd = rad ];then
+    sinr $1
+fi
+}
+sind()
+{
+ans2="sin($1°)"
+ans2
+}
+sinr()
+{
+ans2="sin($1)"
+ans2
+}
+sin0()
+{
+ans=0
+ans2=0
+ans -l
+}
+sin15()
+{
+ans=0.2588
+ans2=" _  _\n√6-√2\n-----\n  4"
+ans -l
+}
+sin18()
+{
+echo -e " _\n√5-1\n----\n 4"
+ans2=" _\n√5-1\n----\n 4"
+ans -l
+}
+sin30()
+{
+ans=0.5
+ans2="1\n-\n2"
+ans -l
+}
+sin36()
+{
+echo -e "  _____\n /    _\n√10-2√5\n-------\n   4"
+ans2="  _____\n /    _\n√10-2√5\n-------\n   4"
+ans -l
+}
+sin45()
+{
+ans=0.7071
+ans2=" _\n√2\n--\n2"
+ans -l
+}
+sin54()
+{
+echo -e " _\n√5+1\n----\n 4"
+ans2=" _\n√5+1\n----\n 4"
+ans -l
+}
+sin60()
+{
+ans=0.8660
+ans2=" _\n√3\n--\n2"
+ans -l
+}
+sin72()
+{
+ans=0.9555
+ans2="  _____\n /    _\n√10+2√5\n-------\n   4"
+ans -l
+}
+sin75()
+{
+ans=0.9659
+ans2=" _  _\n√6+√2\n-----\n  4"
+ans -l
+}
+sin90()
+{
+ans=1
+ans2=1
+ans -l
+}

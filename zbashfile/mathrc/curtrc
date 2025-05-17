@@ -1,0 +1,12 @@
+curt_s()
+{
+ans2="  "
+for i in $(seq 1 ${#1})
+do
+    ans2="${ans2}_"
+done;ans2="$ans2\n³√$1"
+}
+curt()
+{
+curt_s $1;ans2
+}

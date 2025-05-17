@@ -1,0 +1,11 @@
+sqrtpy()
+{
+ans=$(echo "print(($1)**0.5)"|python)
+sqrt_s $1;ans -l
+}
+sqrt_py()
+{
+sqrt_s $1;if [ -z $2 ];then
+    ans2
+fi;python $mapyf/sqrt_sh.py $1 $2
+}
