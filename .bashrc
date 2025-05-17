@@ -8,7 +8,6 @@ chmod 777 ~/*.sh
 source ~/.mathrc;cngt_d
 source ~/.cmstrc;source ~/.bcrc
 source ~/.subrc;source ~/.enrc
-source ~/.pwrc;source ~/.mypwrc
 source ~/.pyrc;source ~/startcmdrc
 cdf()
 {
