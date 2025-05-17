@@ -1,0 +1,85 @@
+abc123=(0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z)
+i_10()
+{
+number=$1
+ibase=$2
+ans=0
+if [ -z "$number" ];then
+    number="0"
+fi
+if [ -z "$ibase" ];then
+    ibase=10
+fi
+if [ "$number" = "quit" ];then
+    echo -e "已退出"
+elif [[ "$number" = *"."* ]];then
+    echo -e "不支持"
+else
+    b=${#number}
+    b=$((b-1))
+    for i in $(seq 0 $b)
+    do
+        j=$((b-i))
+        n=${number:$i:1}
+        n=$(abc_123 $n)
+        nbpow=$(pow $ibase $j)
+        ans=$((ans+n*nbpow))
+    done
+fi
+echo "$ans"
+}
+o_10()
+{
+number=$1
+obase=$2
+ans=""
+if [ -z "$number" ];then
+    number=0
+fi
+if [ -z "$obase" ];then
+    obase=10
+fi
+if [ "$number" = "quit" ];then
+    echo -e "已退出"
+elif [[ "$number" = *"."* ]];then
+    echo -e "不支持"
+else
+    n=$number
+    while true
+    do
+        i=$((n%obase))
+        n=$((n/obase))
+        i=$(123_abc $i)
+        ans="$i$ans"
+        if [ $n -eq 0 ];then
+            break
+        fi
+    done
+fi
+echo "$ans"
+}
+i_o()
+{
+ans=$(i_10 $1 $2)
+o_10 $ans $3
+}
+abc_123()
+{
+abc=$1
+for i in $(seq 0 35)
+do
+    if [ "${abc123[$i]}"x = "$1"x ];then
+        ans=$i
+        j=1
+        break
+    else
+        j="不支持"
+    fi
+done
+echo "$ans"
+}
+123_abc()
+{
+abc="${abc123[$1]}"
+echo "$abc"
+}

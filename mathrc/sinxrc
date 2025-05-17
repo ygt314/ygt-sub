@@ -1,0 +1,20 @@
+sinx()
+{
+loadam sin;d=$1
+if [ $(try $1) = 'false' ] && [ $1 -ne 0 ];then
+    return
+elif [ -z $1 ];then
+    echo '  deg|sinα|';echo '------------'
+    for d in ${ds[@]};do
+        sinx $d
+    done;return
+fi;d_d $d>/dev/null
+for i in $(seq 0 ${#ds[@]})
+do
+    if [ "$d" = "${ds[$i]}" ];then
+        pl5 s $i;break
+    elif ((i==8));then
+        echo 'notice:no suppot'
+    fi
+done
+}

@@ -1,0 +1,44 @@
+a_b()
+{
+a=0;b=0;s=0
+if [ ! -z $1 ];then
+    a=$1
+fi;if [ ! -z $2 ];then
+    b=$2
+fi;if [ ! -z $3 ];then
+    s=$3
+fi;if [ $b -eq 0 ];then
+    echo "divide error:Divide by zero.";return 1
+fi;echo "$a÷$b"
+a1=$(abs $a);b1=$(abs $b)
+c1=$((a1/b1));yf1 $a $b
+if [ $a -gt 0 ] && [ $b -lt 0 ];then
+    echo -e "   $aa\n=- ────\n   $bb"
+    ans2="  $aa\n- ────\n  $bb"
+    echo -n "=-$c1"
+    ans="-$c1"
+elif [ $a -lt 0 ] && [ $b -gt 0 ];then
+    echo -e "   $aa\n=- ────\n   $bb"
+    ans2="  $aa\n- ────\n  $bb"
+    echo -n "=-$c1"
+    ans="-$c1"
+else
+    echo -e " $aa\n=────\n $bb"
+    ans2="$aa\n────\n$bb"
+    echo -n "=$c1"
+    ans="$c1"
+fi;if [ $bb -eq 1 ];then
+    s=0
+fi;if [ $s -gt 0 ];then
+    echo -n "."
+    ans="$ans."
+    for j in $(seq 1 $s)
+    do
+        a1=$((a1-b1*c1))
+        a1=$((a1*10))
+        c1=$((a1/b1))
+        echo -n "$c1"
+        ans="$ans$c1"
+    done
+fi;echo
+}

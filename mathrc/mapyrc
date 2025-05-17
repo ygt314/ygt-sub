@@ -1,0 +1,13 @@
+mapyf=~/mapyrc
+smpy()
+{
+source $mapyf/$1
+}
+dmpy()
+{
+smpy $1.data
+}
+smpy sinrc;smpy cosrc
+smpy tanrc;smpy sqrtrc
+smpy pmrc;smpy anglerc
+smpy sumrc;smpy curtrc

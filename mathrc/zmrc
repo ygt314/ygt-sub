@@ -1,0 +1,56 @@
+zm_l()
+{
+str=$1
+echo -e "关键字(赋值时不能命名):i,jt,str,str2,quit\n在>>>后输入数字表达式(输入quit退出)"
+echo -e "计算结果:"
+echo -n "--->"
+for i in $(seq 1 50)
+do
+    str2="|-->$str<--|"
+    if [[ "$str2" == *"="* ]] && [[ "$str2" != *"=="* ]];then
+        if [[ "$str2" == *"!"* ]] && [[ "$str2" == *"<"* ]] && [[ "$str2" == *">"* ]];then
+            echo $(($str))
+            jt=1
+        else        
+            (($str))
+            jt=1
+            echo $str2
+        fi
+    elif [ "$str"x = "quit"x ];then
+        echo -e "已退出"
+        jt=0
+        break
+    else
+        echo $(($str))
+        jt=1
+    fi
+    echo -n ">>>"
+    read str
+done
+if [ "$jt" = "1" ] && [ "$str"x != "quit"x ];then
+    echo -e "休息一下,已自动退出"
+fi
+}
+zm()
+{
+str=$1
+str2="|-->$str<--|"
+if [ -z "$str" ];then
+    math
+elif [ "$str"x = "-l"x ];then
+    zm_l $2
+else
+    if [[ "$str2" == *"="* ]] && [[ "$str2" != *"=="* ]];then
+        if [[ "$str2" == *"!"* ]] && [[ "$str2" == *"<"* ]] && [[ "$str2" == *">"* ]];then
+            ans=$((str));ans
+        else        
+            (($str))
+            echo $str2
+        fi
+    elif [ "$str"x = "quit"x ];then
+        echo "退出命令"
+    else
+        ans=$((str));ans
+    fi
+fi
+}

@@ -1,0 +1,36 @@
+xs_ch()
+{
+ch=(零 一 二 三 四 五 六 七 八 九)
+num=$1;akey=又;zj=0
+if [[ $num != *.* ]];then
+    num="$num.0"
+fi;zstr=$(echo $num|cut -d . -f 1)
+zsbf=$(echo $zstr|grep -o [0-9])
+xstr=$(echo $num|cut -d . -f 2)
+xsbf=$(echo $xstr|grep -o [0-9])
+if ((xstr==0));then
+    xsbf=();akey=""
+fi;case ${num:0:1} in
+    +)str=正;;
+    -)str=负;;
+    *)str="";;
+esac;zsn=${#zstr};for zss in ${zsbf[@]}
+do
+    if [ "$zss"x = 0x ];then
+        zsn=$((zsn-1));if ((zj==0));then
+            str="$str零"
+        fi;zj=1;zsn=$((zsn-1));continue
+    else
+        zj=0
+    fi;case $zsn in
+        1)str="$str${ch[$zss]}";;
+        *)str="$str${ch[$zss]}$(head -$zsn $mathf/.szdwdata1|tail -n 1)";;
+    esac;zsn=$((zsn-1))
+done
+str=$str$akey;xsn=1;for xss in ${xsbf[@]}
+do
+    xsn=$((xsn+1));if [ "$xss"x = 0x ];then
+        continue
+    fi;str="$str${ch[$xss]}$(head -$xsn $mathf/.szdwdata2|tail -n 1)"
+done
+}

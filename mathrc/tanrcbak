@@ -1,0 +1,12 @@
+tan()
+{
+if [ -z $1 ];then
+    list tan
+fi
+}
+cot()
+{
+if [ -z $1 ];then
+    list cot
+fi
+}

@@ -1,0 +1,63 @@
+cos()
+{
+if [ -z $1 ];then
+    echo "cos [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    cosd $1
+elif [ $dd = rad ];then
+    cosr $1
+fi
+}
+cosd()
+{
+ans2="cos($1°)"
+ans2
+}
+cosr()
+{
+ans2="cos($1)"
+ans2
+}
+cos0()
+{
+ans=1
+ans2=1
+ans -l
+}
+cos15()
+{
+ans=0.9659
+ans2=" _  _\n√6+√2\n-----\n  4"
+ans -l
+}
+cos30()
+{
+ans=0.8660
+ans2=" _\n√3\n--\n2"
+ans -l
+}
+cos45()
+{
+ans=0.7071
+ans2=" _\n√2\n--\n2"
+ans -l
+}
+cos60()
+{
+ans=0.5
+ans2="1\n-\n2"
+ans -l
+}
+cos75()
+{
+ans=0.2588
+ans2=" _  _\n√6-√2\n-----\n  4"
+ans -l
+}
+cos90()
+{
+ans=0
+ans2=0
+ans -l
+}

@@ -1,0 +1,63 @@
+tan()
+{
+if [ -z $1 ];then
+    echo "tan [n] [rad|deg]";return 0
+fi;dd=${dd:=rad};dd=${2:-$dd}
+if [ $dd = deg ];then
+    tand $1
+elif [ $dd = rad ];then
+    tanr $1
+fi
+}
+tand()
+{
+ans2="tan($1°)"
+ans2
+}
+tanr()
+{
+ans2="tan($1)"
+ans2
+}
+tan0()
+{
+ans=0
+ans2=0
+ans -l
+}
+tan15()
+{
+ans=0.2679
+ans2="   _\n2-√3"
+ans -l
+}
+tan30()
+{
+ans=0.5773
+ans2=" _\n√3\n--\n3"
+ans -l
+}
+tan45()
+{
+ans=1
+ans2=1
+ans -l
+}
+tan60()
+{
+ans=1.732
+ans2=" _\n√3"
+ans -l
+}
+tan75()
+{
+ans=3.732
+ans2="   _\n2+√3"
+ans -l
+}
+tan90()
+{
+ans="-inf"
+ans2="-∞"
+ans -l
+}

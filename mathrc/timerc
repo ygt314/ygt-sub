@@ -1,0 +1,86 @@
+dss()
+{
+if [ -z $1 ];then
+    s=10
+else
+    s=$1
+fi
+for i in $(seq $s -1 1)
+do
+    clear;echo "倒计时进行中"
+    echo "new--> [$i] / [$s]";read -t 0.97 -n1 a
+    if [ "$a"x = qx ];then
+        break
+    elif [ "$a"x = sx ];then
+        clear;echo "倒计时暂停"
+        echo "new-->[$i]/[$s]";read -n1
+    fi
+done
+clear
+echo "倒计时结束"
+echo "new--> [0] / [$s]"
+echo "时间到"
+}
+djs()
+{
+if [ -z $1 ];then
+    s=10
+else
+    s=$1
+fi
+ealt=$EPOCHREALTIME
+tie="${ealt:2:8}${ealt:11:2}";tie1=$((tie+$s*100))
+while true
+do
+    sleep 0.13;clear
+    ealt=$EPOCHREALTIME
+    tie="${ealt:2:8}${ealt:11:2}";dif1=$((tie1-tie))
+    if [ $dif1 -lt 0 ];then
+        echo "time out!";break
+    fi
+    int=$((dif1/100));intl=${#dif1};intl=$((intl-2))
+    echo "倒计时进行中"
+    echo "new-->[$int.${dif1:$intl}] / [$s]"
+done
+}
+zss()
+{
+s=$1;s1=$s
+if [ -z $1 ];then
+    s=86400;s1=inf
+fi
+for i in $(seq 1 $s)
+do
+    clear;echo "正计时进行中"
+    echo "new--> [$i] / [$s1]";read -t 0.97 -n1 a
+    if [ "$a"x = qx ];then
+        rt=$i;break
+    elif [ "$a"x = sx ];then
+        clear;echo "计时暂停"
+        echo "new-->[$i]/[$s1]";read -n1
+    fi
+done
+clear
+echo "计时结束"
+echo "new--> [$i]"
+}
+zjs()
+{
+s=$1;s1=$s
+if [ -z $1 ];then
+    s=86400;s1=inf
+fi
+s=$((s*100));ealt=$EPOCHREALTIME
+tie1="${ealt:2:8}${ealt:11:2}"
+while true
+do
+    sleep 0.13;clear
+    ealt=$EPOCHREALTIME
+    tie="${ealt:2:8}${ealt:11:2}";dif1=$((tie-tie1))
+    if [ $dif1 -ge $s ];then
+        echo quit;break
+    fi
+    echo "正计时进行中"
+    echo "new-->[$(a_br $dif1 100 2)] / [$s1]"
+done
+}
