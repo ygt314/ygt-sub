@@ -35,8 +35,8 @@ case $rn in
     py)python $2;;
     sh)sh $2;;
     bash)bash $2;;
-    c)clang $2.c -o $mcl/exe/$2.o
-    chmod +x $mcl/exe/$2.o;$mcl/exe/$2.o;;
+    c)gcc $2.c -lm -o $mcl/exe/$2.o
+    cd $mcl/exe;run exe $2.o;cd -;;
     exe)chmod +x $2;./$2;;
     run)echo run [type] [file];;
     *)echo not understand;;
