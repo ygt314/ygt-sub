@@ -16,20 +16,21 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
 
 ```
 .
-├── bcrc/            # Subject-related configurations
-├── cmstrc/          # Subject-related configurations
+├── bcrc/            # BC math sources
+├── cmstrc/          # Chemistry sources
 ├── en/              # English learning resources
-├── enrc/            # English configurations
-├── mapyrc/          # Geography-related configurations
-├── mathrc/          # Mathematics-related configurations
-├── zbashfile/       # Bash script files
+├── enrc/            # English sources
+├── mapyrc/          # Python math sources
+├── mathrc/          # Math sources
+├── zbashfile/       # Bash shell e.g.-env
 ├── zchinese/        # Chinese learning resources
 ├── .bashrc          # Termux environment configuration
 ├── .gitignore       # Git ignore rules
 ├── LICENSE          # EPL-1.0 open source license
 ├── README.md        # Project description (Chinese)
 ├── README.en.md     # Project description (English)
-└── nbter.sh         # Main program script
+├── subter-1.1.1.zip      # Zip package
+└── terset.sh         # Plan your termux for subject
 ```
 
 ## Quick Start
@@ -39,12 +40,18 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    ```bash
    git clone https://gitee.com/ygt314159/subject-ter.git
    ```
+   If you have not 'git',download the zip file in the browser.Then,open it in termux.(choose 'Dir...')
+   ```
+   unzip subter-1.1.1.zip
+   mv subter-1.1.1/* -r ~
+   ```
+   
 3. Run the initialization script:
    ```bash
-   cd subject-ter
-   bash nbter.sh
+   cd
+   bash terset.sh
    ```
-
+    Befor,you need not run terset.sh
 ## License
 
 This project is licensed under the **EPL-1.0** open source license.

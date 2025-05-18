@@ -3,7 +3,6 @@ mpy=$myf/python
 zexe=/sdcard/zexe
 mqpy=/sdcard/qpython/scripts3
 source $myf/.htmlrc
-source $myf/.mypwrc
 source $myf/.pwrc
 source $myf/.subrc
 source $myf/.pyrc

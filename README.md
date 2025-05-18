@@ -1,4 +1,7 @@
-![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray) ![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
+# 学科ter - Termux学科资源集合
+
+![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray)
+![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
 
 ## 项目简介
 
@@ -14,35 +17,45 @@
 
 ```
 .
-├── bcrc/            # 学科相关配置
-├── cmstrc/          # 学科相关配置
+├── bcrc/            # bc数学
+├── cmstrc/          # 化学配置
 ├── en/              # 英语学习资源
 ├── enrc/            # 英语配置
-├── mapyrc/          # 地理相关配置
-├── mathrc/          # 数学相关配置
-├── zbashfile/       # Bash脚本文件
+├── mapyrc/          # py数学
+├── mathrc/          # 数学配置
+├── zbashfile/       # 示例shell环境(用于安全模式)
 ├── zchinese/        # 中文学习资源
 ├── .bashrc          # Termux环境配置
 ├── .gitignore       # Git忽略规则
 ├── LICENSE          # EPL-1.0开源协议
 ├── README.md        # 项目说明(中文)
 ├── README.en.md     # 项目说明(英文)
-└── nbter.sh         # 主程序脚本
+├── subter-1.1.1.zip      # zip压缩打包
+└── terset.sh         # 计划环境脚本
 ```
-
 ## 快速开始
 
 1. 安装Termux应用
 2. 克隆本项目：
    ```bash
-   git clone https://gitee.com/ygt314159/subject-ter.git
+   git clone https://gitee.com/ygt314159/subject-ter.git      
+   ```
+   如果你没有git帐号，在浏览器中下载项目中的zip文件,选择用termux打开并选择'Dir...'转到文件位置
+   ```
+   unzip subter-1.1.1.zip
+   mv subter-1.1.1/* -r ~
    ```
 3. 运行初始化脚本：
    ```bash
-   cd subject-ter
-   bash nbter.sh
+   cd
+   bash terset.sh
    ```
-
+## zbashfile目录
+    在桌面长按termux启用'safe...'，进入安全模式
+    ```bash
+    source zbashfile/.bashrc
+    ```
+    但只能使用系统命令
 ## 许可证
 
 本项目采用 **EPL-1.0** 开源许可证。
