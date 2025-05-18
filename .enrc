@@ -1,0 +1,23 @@
+enf=~/enrc
+men=~/en
+source $enf/r_wrc
+en_c()
+{
+echo clean en_history
+echo "#listen_history">$enf/.listen_history
+}
+litnum()
+{
+litn=$(cat $enf/.listen_history|wc -l)
+echo $((litn/3))
+}
+lithis()
+{
+if [ -z $1 ];then
+    echo use:lithis [n]
+    echo "history_num:$(litnum)"
+else
+    litn=$1
+    head -$((litn*3+1)) $enf/.listen_history|tail -n 3
+fi
+}

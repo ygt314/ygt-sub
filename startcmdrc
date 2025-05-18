@@ -1,0 +1,22 @@
+termux-wake-lock
+echo -e "是否建立http-server\n或执行jupyter notebook?(h/j/n)\n(可回车跳过)"
+read a
+echo "是否更新命令(y/n)(可回车跳过)"
+read b
+if [ "$a"x = "h"x ];then
+	http-server
+elif [ "$a"x = "j"x ];then
+	jupyter notebook
+fi
+if [ "$b"x = "y"x ];then
+	pkg upgrade
+	echo "更新完成"
+fi
+echo "piplist:pypi update list"
+echo "pypi update:pip install --upgrade [pypi]"
+noup()
+{
+npm update
+}
+echo "noup:nodejs update"
+echo "高考倒计时:gc(多次) or cngt(单次)";cngt_d

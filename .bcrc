@@ -1,0 +1,34 @@
+bcrcf=$myf/bcrc;bcf=$bcrcf/bc
+source $bcrcf/sqrtrc
+source $bcrcf/pisrc
+source $bcrcf/fbncrc
+source $bcrcf/dshrc
+source $bcrcf/sumrc
+source $bcrcf/bmrc
+setupbc()
+{
+source $bcf/setup.sh
+}
+bchis()
+{
+name=$1;if [ -z $1 ];then
+    echo "bchis [name] [-l]";return 0
+fi;if [ "$2"x = -lx ];then
+    cat $bcrcf/${name}.txt
+else
+    cat $bcrcf/.${name}_history
+fi
+}
+bc_c()
+{
+echo "Clear history of bc."
+echo "#The history of bcm">$bcrcf/.bcm_history
+echo "#The history of sum_bc">$bcrcf/.sum_history
+echo "#The history of dsh_bc">$bcrcf/.dsh_history
+echo "#The history of fbdsh_bc">$bcrcf/.fbdsh_history
+echo "#The history of pis_bc">$bcrcf/.pis_history
+echo -n "">$bcrcf/dsh.txt
+echo -n "">$bcrcf/fbdsh.txt
+echo "Finish to clear."
+}
+echo bc---calculator of system

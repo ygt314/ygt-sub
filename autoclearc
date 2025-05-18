@@ -1,0 +1,15 @@
+echo auto clean
+echo '1)pip cache';rm -r $myf/.cache/pip/*
+echo '2)npm cache';rm -r $myf/.npm/_cacache/*
+echo -n '3)npm log(y/I/d=N)';read nlcj
+if [ -z $nlcj ];then
+    nlcj=n
+fi;if [ $nlcj = n ] || [ $nlcj = N ];then
+    echo '(cancel)'
+elif [ $nlcj = y ] || [ $nlcj = Y ];then
+    rm $myf/.npm/_logs/*
+else
+    rm $myf/.npm/_logs/* -i
+fi
+echo '4)apt cache';apt clean
+echo 'clean done'
