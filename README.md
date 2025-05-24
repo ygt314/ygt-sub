@@ -40,8 +40,10 @@
    ```bash
    git clone https://gitee.com/ygt314159/subject-ter.git      
    ```
-   如果你没有git帐号，在浏览器中下载项目中的zip文件,选择用termux打开并选择'Dir...'转到文件位置
-   ```
+   如果你没有git帐号，在浏览器中下载项目zip文件,选择用termux打开并选择'Dir...'转到文件位置
+   通过百度网盘分享的文件：
+   [subject-…](https://pan.baidu.com/s/12n1xJgMGeiO_p_k7fVQHnA?pwd=b68v )
+   ```bash
    unzip subter-1.1.1.zip
    mv subter-1.1.1/* -r ~
    ```
@@ -51,11 +53,12 @@
    bash terset.sh
    ```
 ## zbashfile目录
-    在桌面长按termux启用'safe...'，进入安全模式
+使用方法:
+在桌面长按termux启用'safe...'，进入安全模式
     ```bash
     source zbashfile/.bashrc
     ```
-    但只能使用系统命令
+但只能使用系统命令
 ## 许可证
 
 本项目采用 **EPL-1.0** 开源许可证。

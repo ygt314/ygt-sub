@@ -41,6 +41,8 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    git clone https://gitee.com/ygt314159/subject-ter.git
    ```
    If you have not 'git',download the zip file in the browser.Then,open it in termux.(choose 'Dir...')
+   通过百度网盘分享的文件：
+   [subject-…](https://pan.baidu.com/s/12n1xJgMGeiO_p_k7fVQHnA?pwd=b68v )
    ```
    unzip subter-1.1.1.zip
    mv subter-1.1.1/* -r ~
