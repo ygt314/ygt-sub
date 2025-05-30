@@ -1,27 +1,3 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>sin(n*3°)</title>
-    <meta name="description" content="正弦函数latex显示">
-    <style>
-    body {
-        width: 1000px;
-        white-space: normal;
-    }
-    </style>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-	    tex2jax: {
-	        inlineMath: [['$','$'], ['\\(','\\)']],
-	        processEscapes: true
-	    }
-	});
-    </script>
-</head>
-<body>
 分子间作用力 \( F \) 与分子间距 \( r \) 的函数关系通常由 **Lennard-Jones势（L-J势）** 描述，其对应的力函数可通过势能的负梯度得到。以下是详细分析：
 
 ### 1. **Lennard-Jones势能函数**
@@ -72,5 +48,3 @@
 F(r) = 24\epsilon \left[ \frac{2\sigma^{12}}{r^{13}} - \frac{\sigma^6}{r^7} \right]
 \]
 该函数同时涵盖短程斥力和长程引力，是理解气体、液体非理想行 为及凝聚态物理的基础。
-</body>
-</html>

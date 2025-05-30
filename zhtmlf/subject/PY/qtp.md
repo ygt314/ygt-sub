@@ -1,27 +1,3 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>sin(n*3°)</title>
-    <meta name="description" content="正弦函数latex显示">
-    <style>
-    body {
-        width: 1000px;
-        white-space: normal;
-    }
-    </style>
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-	    tex2jax: {
-	        inlineMath: [['$','$'], ['\\(','\\)']],
-	        processEscapes: true
-	    }
-	});
-    </script>
-</head>
-<body>
 理想气体的压强公式可以通过分子动理论推导得出，其核心思想是 将气体的压强视为大量气体分子对容器壁碰撞的宏观表现。以下是 详细的推导过程和最终公式：
 
 ---
@@ -97,5 +73,3 @@ p = \frac{N}{V} k_B T = n k_B T
 - **与状态方程的联系**：当 \( n = \frac{N}{V} \) 时，公式退化为 \( pV = Nk_B T \)，即理想气体状态方程的微观形式。
 
 此公式揭示了压强、温度与分子运动之间的本质联系，是统计力学 的基础之一。
-</body>
-</html>
