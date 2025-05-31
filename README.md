@@ -3,7 +3,7 @@
 ![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray)
 ![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
 
-## 项目简介
+## 📌 项目简介
 
 学科ter是一个为Termux（Android端的Linux终端模拟器）提供的学科相关资源程序集合。Termux允许用户在Android设备上运行完整的Linux环境，本项目则在此基础上提供了多个学科的学习辅助工具和资源。
 
@@ -33,7 +33,7 @@
 ├── subter-1.1.1.zip      # zip压缩打包
 └── terset.sh         # 计划环境脚本
 ```
-## 快速开始
+## 🚀 快速开始
 
 1. 安装Termux应用
 2. 克隆本项目：
@@ -65,6 +65,7 @@
 
 ## 贡献指南
 
+这个项目还处于初期阶段
 欢迎通过Pull Request或Issue参与项目贡献：
 1. Fork本仓库
 2. 创建新分支（Feat_xxx/Fix_xxx）
