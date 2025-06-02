@@ -19,6 +19,7 @@
 .
 ├── bcrc/            # bc数学
 ├── cmstrc/          # 化学配置
+├── cnrc/            # 语文配置
 ├── en/              # 英语学习资源
 ├── enrc/            # 英语配置
 ├── mapyrc/          # py数学
@@ -30,8 +31,8 @@
 ├── LICENSE          # EPL-1.0开源协议
 ├── README.md        # 项目说明(中文)
 ├── README.en.md     # 项目说明(英文)
-├── subter_1.1.3.zip      # 本项目zip压缩打包
-└── terset.sh         # 计划环境脚本
+├── subter_1.1.3.zip # 本项目zip压缩打包
+└── terset.sh        # 计划环境脚本
 ```
 ## 🚀 快速开始
 
