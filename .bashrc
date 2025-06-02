@@ -8,7 +8,8 @@ chmod 777 ~/*.sh
 source ~/.mathrc;cngt_d
 source ~/.cmstrc;source ~/.bcrc
 source ~/.subrc;source ~/.enrc
-source ~/.pyrc;source ~/startcmdrc
+source ~/.pyrc;source ~/.cnrc
+source ~/.htmrc;source ~/startcmdrc
 cdf()
 {
 cd $zbash
@@ -41,10 +42,6 @@ case $rn in
     run)echo run [type] [file];;
     *)echo not understand;;
 esac
-}
-pf()
-{
-~/pf.sh $1
 }
 m4a_mp3()
 {

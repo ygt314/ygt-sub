@@ -1,5 +1,11 @@
 # zhtmlf 介绍
 这是存放学科相关网页和工具和资源（数学计算器、元素查询等）的目录，用于学习场景。这里包含多个学科的网页版工具
+## zhtmlf 下载(更新)
+通过下面操作，执行主目录(~)下ppht.sh
+```bash
+cd
+bash ppht.sh
+```
 ## zhtmlf 目录
 - [English/](English/) - 英语资源
 - [chemistry/](chemistry/) - 化学资源

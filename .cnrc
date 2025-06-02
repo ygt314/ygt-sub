@@ -1,0 +1,40 @@
+cnf=~/cnrc
+mpff=~/zchinese
+source $cnf/pfrc
+ptxt()
+{
+#string,print 1 by 1
+str="$1";ab=$2
+#range
+a=$3;b=$4
+#time,t1>t2[priority]
+t1=$5;t2=$6
+if [ -z $5 ];then
+    t1=0.1;t2=0.1
+elif [ -z $6 ];then
+    t2=0.1
+fi;for n in $(seq $a $b)
+do
+    if [ "${str:$n:1}" = "/" ];then
+        sleep $t1;continue
+    elif [ "${str:$n:1}" = "." ];then
+        echo -n " ";continue
+    fi
+    echo -n "${str:$n:1}"
+    if [ "${str:$n:1}" = "，" ] || [ "${str:$n:1}" = "。" ];then
+        sleep $t1
+    elif [ "${str:$n:1}" = "？" ] || [ "${str:$n:1}" = "！" ];then
+        sleep $t1
+    elif [ $ab -eq 1 ];then
+        sleep $t2
+    fi
+done
+}
+pf()
+{
+if [ -z $1 ];then
+    mf
+else
+    mfe $1
+fi
+}

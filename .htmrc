@@ -1,0 +1,44 @@
+htf=~/zhtmlf
+zma=~/zmath
+zcn=~/zchinese
+https()
+{
+python -m http.server $1
+}
+httpx()
+{
+pp=$1
+if [ -z $1 ];then
+    pp=8080
+fi;http-server -p $1
+}
+hhf()
+{
+cd $htf
+https 2222
+}
+hma()
+{
+cd $zma
+https 1234
+}
+hcn()
+{
+cd $zcn
+https 1111
+}
+hhf_np()
+{
+cd $htf
+httpx 2222
+}
+hma_np()
+{
+cd $zma
+httpx 1234
+}
+hcn_np()
+{
+cd $zcn
+httpx 1111
+}
