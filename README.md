@@ -68,11 +68,11 @@
    本项目已经部署两种方法的**bash函数**:python的server标准库和http-server(nodejs工具)
    (1)python方法函数
    ```bash
-   hht
+   hhf
    ```
    (2)nodejs方法函数
    ```bash
-   hht_np
+   hhf_np
    ```
 ## zbashfile目录
 使用方法:
