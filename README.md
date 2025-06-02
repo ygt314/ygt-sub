@@ -75,6 +75,24 @@
    ```bash
    hhf_np
    ```
+3. html阅读功能
+   cdh函数命令即可启用
+   ```bash
+   cdh
+   purl [url]
+   ```
+   1.sh:本地html
+   ```bash
+   bash 1.sh
+   ```
+   2.sh:purl的交互模式
+   ```bash
+   bash 2.sh
+   ```
+   hl_new.sh实现提取柯南更新信息
+   ```bash
+   bash hl_new.sh
+   ```
 ## zbashfile目录
 使用方法:
 在桌面长按termux启用'failsafe'，进入安全模式
