@@ -1,0 +1,100 @@
+oht()
+{
+j=0;for i in $(seq $n1 $strn)
+do
+    ii=$((i-n1));if [ "${str:$i:1}"x = "<"x ];then
+        stri=${str:$n1:$ii};j=1;break
+    fi
+done;if [ $j = 0 ];then
+    stri=${str:$n1};i=$((n1+1))
+fi;oht1 ${str:$i:8} $1;n1=$i
+}
+oht1()
+{
+if [ ${#stri} -le 1 ];then
+    return 0
+fi;if [ x$2 = x-s ];then
+    if [[ "x$1" == *style* ]];then
+        echo [style];return
+    fi;if [[ "x$1" == *scrip* ]];then
+        echo [javascript];return
+    fi;if [[ "x$stri" == *'if('* ]] || [ "x$stri" == *++* ];then
+        echo [javascript];return
+    fi;if [[ "x$stri" == *--* ]] || [ "x$stri" == *+=* ];then
+        echo [javascript];return
+    fi;echo $stri;return
+fi;echo $stri
+}
+pht()
+{
+str="<nb>";for i in $(pnb "$1")
+do
+    str="$str $i"
+done;strn=${#str}
+n=0;while [ $n -lt $strn ]
+do
+    n1=$((n+1))
+    if [ "${str:$n:1}"x = ">"x ];then
+        oht $2
+    fi;n=$n1
+done
+}
+pnb()
+{
+if [ x$1 = x-i ] && [ -z $2 ];then
+        echo no file name;return
+elif [ x$1 = x-i ] || [ x$2 = x-i ];then
+    sed 's/&nbsp;/_/g' $1 $2
+else
+    sed 's/&nbsp;/_/g' $1
+fi
+}
+purl()
+{
+pu_f=.purl_html;sc=-s;met="purl成功"
+if [ x$2 = x-n ];then
+    sc=-n
+fi;if [ ! -z $1 ];then
+    murl=$1
+fi;if [ -z $murl ];then
+    murl=purl
+    met="use:purl [url]"
+fi;if [ x$3 = xk ];then
+    met=跳过SSL验证,网页可能不正常
+    curl -k $murl -o $pu_f
+else
+    curl $murl -o $pu_f
+fi;clear;pht $pu_f $sc
+echo "($murl)";echo $met
+}
+purl_k()
+{
+pu_f=.purl_html;sc=-s
+echo 你正在忽略SSL验证,输入y启用验证
+echo -n [回车开始]
+read a;a=x$a
+if [ $a = xy ];then
+    purl $1 $2
+elif [ -z $1 ];then
+    purl q s k
+else
+    purl $1 -$2 k
+fi
+}
+dcn()
+{
+j=0;for i in $(echo "$stri"|grep ^)
+do
+    if [ $j = 1 ];then
+        echo -n " "
+    fi;echo -n "$i";j=1
+done;echo
+}
+psht()
+{
+pht sht/$1 $2
+}
+sht_txt()
+{
+psht $1>1.txt
+}
