@@ -7,9 +7,8 @@ python -m http.server $1
 }
 httpx()
 {
-pp=$1
 if [ -z $1 ];then
-    pp=8080
+    http-server;return 0
 fi;http-server -p $1
 }
 hhf()
