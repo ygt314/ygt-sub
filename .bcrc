@@ -5,10 +5,6 @@ source $bcrcf/fbncrc
 source $bcrcf/dshrc
 source $bcrcf/sumrc
 source $bcrcf/bmrc
-setupbc()
-{
-source $bcf/setup.sh
-}
 bchis()
 {
 name=$1;if [ -z $1 ];then

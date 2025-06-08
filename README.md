@@ -31,7 +31,7 @@
 ├── LICENSE          # EPL-1.0开源协议
 ├── README.md        # 项目说明(中文)
 ├── README.en.md     # 项目说明(英文)
-├── subter_1.1.3.zip # 本项目zip压缩打包
+├── subter_1.1.3.tar # 本项目tar压缩打包
 └── terset.sh        # 计划环境脚本
 ```
 ## 🚀 快速开始
@@ -47,11 +47,34 @@
    ```bash
    git clone https://gitee.com/ygt314159/subject-ter.git      
    ```
-如果你没有git帐号，在浏览器中下载本项目subter\_1.1.3.zip文件
-选择用termux打开并选择'Dir...'转到文件位置
-   ```bash
-   unzip subter-1.1.1.zip -d ~
-   ```
+**如果你没有git帐号**
+(1)[浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip)文件，选择用termux打开并选择'Dir...'转到文件位置
+**移动文件**后再解压
+```bash
+mv subter_1.1.3.zip ~/sbt.zip
+```
+[termux中下载]subter\_1.1.3.zip
+```
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.zip
+```
+[解压并清理]
+```bash
+cd;unzip sbt.zip;rm sbt.zip
+```
+如果你没有unzip可以采用方式(2)
+(2)[浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
+**移动文件**后再解压
+```bash
+mv subter_1.1.3.tar ~/sbt.tar
+```
+[termux中下载]subter\_1.1.3.tar
+```bash
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar>sbt.tar
+```
+[解压并清理]
+```bash
+cd;tar -xvf sbt.tar;rm sbt.tar
+```
 4. 运行初始化脚本：
    ```bash
    cd
