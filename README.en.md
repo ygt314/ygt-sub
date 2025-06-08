@@ -29,31 +29,87 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
 ├── LICENSE          # EPL-1.0 open source license
 ├── README.md        # Project description (Chinese)
 ├── README.en.md     # Project description (English)
-├── subter-1.1.1.zip      # Zip package
 └── terset.sh         # Plan your termux for subject
 ```
 
 ## Quick Start
 
 1. Install the Termux app
-2. Clone this project:
+2. Change the domestic mirror source:
    ```bash
-   git clone https://gitee.com/ygt314159/subject-ter.git
+   termux-change-repo
    ```
-   If you have not 'git',download the zip file in the browser.Then,open it in termux.(choose 'Dir...')
-   通过百度网盘分享的文件：
-   [subject-…](https://pan.baidu.com/s/12n1xJgMGeiO_p_k7fVQHnA?pwd=b68v )
-   ```
-   unzip subter-1.1.1.zip
-   mv subter-1.1.1/* -r ~
-   ```
-   
-3. Run the initialization script:
+3. Download project：
+(1)[In Termux]subter\_1.1.3.zip
+```
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.zip
+```
+[Unzip and clean]
+```bash
+cd;unzip sbt.zip;rm sbt.zip
+```
+If you don't have 'unzip', you can use (2)
+(2)[In Termux]subter\_1.1.3.tar
+```bash
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar>sbt.tar
+```
+[Unzip and clean]
+```bash
+cd;tar -xvf sbt.tar;rm sbt.tar
+```
+4. Run the initial script：
    ```bash
    cd
    bash terset.sh
    ```
-    Befor,you need not run terset.sh
+
+## zhtmlf
+
+It in ~/zhtmlf
+1. Download and update
+   You can use the automated script of this project **hhts.sh**
+   ```bash
+   bash hhts.sh
+   ```
+2. set up http server
+   To access the subject webpage, you need to open the zhtmlf directory locally **http server**
+   Two methods have been deployed in this project**(bash function)**:http.server(in python),and http-server(in nodejs)
+   (1)python method function
+   ```bash
+   hhf
+   ```
+   (2)nodejs method function
+   ```bash
+   hhf_np
+   ```
+3. html to txt
+   The 'cdh' function can be enabled
+   ```bash
+   cdh
+   purl [URL]
+   ```
+   1.sh: catch local html
+   ```bash
+   bash 1.sh
+   ```
+   2.sh: you can put URL after '>>>'
+   ```bash
+   bash 2.sh
+   ```
+   hl\_new.sh realizes the extraction of Conan's update information
+   ```bash
+   bash hl_new.sh
+   ```
+
+## zbashfile
+
+Use:
+Long-press Termux app on the desktop to enable 'failsafe'，into 'failsafe' model
+   ```bash
+   source zbashfile/.bashrc
+   ```
+But you can only use your system commands
+
 ## License
 
 This project is licensed under the **EPL-1.0** open source license.
