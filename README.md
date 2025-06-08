@@ -58,8 +58,8 @@
    ```bash
    termux-change-repo
    ```
-   依次选择_Single mirror_>>_Mirror by Tsinghua University TUNA_即可更换国内清华源
-   [清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
+   依次选择 _Single mirror_ >> _Mirror by Tsinghua University TUNA_ 即可更换国内清华源
+   - Termux[清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
 ### 3. 下载本项目(原生版和汉化版操作相同)
 - (1)[浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip)文件，选择用termux打开并选择'Dir...'转到文件位置
 - **移动文件**后再解压
@@ -75,7 +75,7 @@ cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.
 cd;unzip sbt.zip;rm sbt.zip
 ```
 如果你没有unzip可以采用方式(2)(原生版和汉化版操作相同)
-- (2)[浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
+- (2)[浏览器中下载]本项目[subter\_1.1.3.tar](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
 - **移动文件**后再解压
 ```bash
 mv subter_1.1.3.tar ~/sbt.tar
