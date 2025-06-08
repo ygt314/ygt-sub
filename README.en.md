@@ -40,7 +40,7 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    termux-change-repo
    ```
 3. Download project：
-(1)[In Termux]subter\_1.1.3.zip
+### (1)[In Termux]subter\_1.1.3.zip
 ```
 cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.zip
 ```
@@ -49,7 +49,7 @@ cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.
 cd;unzip sbt.zip;rm sbt.zip
 ```
 If you don't have 'unzip', you can use (2)
-(2)[In Termux]subter\_1.1.3.tar
+### (2)[In Termux]subter\_1.1.3.tar
 ```bash
 cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar>sbt.tar
 ```
@@ -73,7 +73,7 @@ It in ~/zhtmlf
    ```
 2. set up http server
    To access the subject webpage, you need to open the zhtmlf directory locally **http server**
-   Two methods have been deployed in this project**(bash function)**:http.server(in python),and http-server(in nodejs)
+   Two methods have been deployed in this project **(bash function)**:http.server(in python),and http-server(in nodejs)
    (1)python method function
    ```bash
    hhf
