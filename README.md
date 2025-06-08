@@ -37,7 +37,7 @@
 ## 🚀 快速开始
 
 下列方法仅适合国内用户
-1. 安装Termux应用
+###1. 安装Termux应用
 **原生版下载**
 - [1] [当快源下载](https://azshareappdk.3322.cc/appfile/com.termux.apk?time=1749375009&key=ffb13415b8e26714891ccf5165273526)
 [当快介绍页面](https://www.downkuai.com/android/140917.html)
@@ -45,24 +45,23 @@
 [2233介绍页面](https://www.32r.com/app/136073.html)
 ------
 **汉化版下载**(ZeroTermux)
-- [1] [官网版下载](https://d.icdown.club/repository/main/ZeroTermux/ZeroTermux-0.118.1.43.apk)
+-[1] [官网版下载](https://d.icdown.club/repository/main/ZeroTermux/ZeroTermux-0.118.1.43.apk)
 [官网下载站](https://d.icdown.club/doc/)
-- [2] [脚本之家源下载](https://yddown4.jb51.net/202503/tools/zerotermux_979076.apk?auth_key=1749375866-e11f859287b98692f10c-0-dd3c542b4fd3dda8a875dd80b7d4e54c01e8da80d98a56a1b9e3964538f7e2ff)
+-[2] [脚本之家源下载](https://yddown4.jb51.net/202503/tools/zerotermux_979076.apk?auth_key=1749375866-e11f859287b98692f10c-0-dd3c542b4fd3dda8a875dd80b7d4e54c01e8da80d98a56a1b9e3964538f7e2ff)
 [脚本之家介绍页面](https://www.jb51.net/softs/979076.html)
-- [3] [新绿源下载](http://x1.ydyspc.com/zerotermuxv0.118.38.1_xlhs.com.apk)
+-[3] [新绿源下载](http://x1.ydyspc.com/zerotermuxv0.118.38.1_xlhs.com.apk)
 [新绿介绍页面](http://m.xlhs.com/app/2710.html)
-2. 更换国内(清华)源
-   如果你下载了汉化版:
+###2. 更换国内(清华)源
+   - 如果你下载了汉化版:
    在软件里侧拉工具箱，点击[换源]并选择[清华源]即可
-------
-   如果你下载了原生版:
+   - 如果你下载了原生版:
    ```bash
    termux-change-repo
    ```
    依次选择_Single mirror_>>_Mirror by Tsinghua University TUNA_即可更换国内清华源
    [清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
-3. 下载本项目(原生版和汉化版操作相同)：
-- (1) [浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip)文件，选择用termux打开并选择'Dir...'转到文件位置
+### 3. 下载本项目(原生版和汉化版操作相同)：
+-(1) [浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip)文件，选择用termux打开并选择'Dir...'转到文件位置＜br>
 **移动文件**后再解压
 ```bash
 mv subter_1.1.3.zip ~/sbt.zip
@@ -76,7 +75,7 @@ cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.
 cd;unzip sbt.zip;rm sbt.zip
 ```
 如果你没有unzip可以采用方式(2)(原生版和汉化版操作相同)
-- (2) [浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
+-(2) [浏览器中下载]本项目[subter\_1.1.3.zip](https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
 **移动文件**后再解压
 ```bash
 mv subter_1.1.3.tar ~/sbt.tar
@@ -89,7 +88,7 @@ cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar>sbt.
 ```bash
 cd;tar -xvf sbt.tar;rm sbt.tar
 ```
-4. 运行初始化脚本(原生版和汉化版操作相同)：
+###4. 运行初始化脚本(原生版和汉化版操作相同)：
    ```bash
    cd
    bash terset.sh
