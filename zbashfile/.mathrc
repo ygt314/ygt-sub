@@ -4,14 +4,13 @@ loadm()
 source $mathf/$1
 }
 loadm a_brc;loadm a_bcrc
-loadm zmrc;loadm mapyrc
+loadm zmrc;loadm fabcrc
 loadm absrc;loadm yfrc
 loadm sinrc;loadm cosrc
 loadm tanrc;loadm powrc
 loadm sqrtrc;loadm curtrc
 loadm logrc;loadm baserc
 loadm numrc;loadm num_chrc
-loadm fabcrc
 loadm cngtrc;loadm cnmtrc
 loadm listrc;loadm timerc
 loadm p24rc;loadm degrc

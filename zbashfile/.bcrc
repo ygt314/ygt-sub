@@ -1,10 +1,9 @@
 bcrcf=$myf/bcrc;bcf=$bcrcf/bc
-source $bcrcf/sqrtrc
-source $bcrcf/pisrc
-source $bcrcf/fbncrc
-source $bcrcf/dshrc
-source $bcrcf/sumrc
-source $bcrcf/bmrc
+source $bcrcf/sqrtrc;source $bcrcf/pisrc
+source $bcrcf/fbncrc;source $bcrcf/dshrc
+source $bcrcf/sumrc;source $bcrcf/bmrc
+source $bcrcf/sinrc;source $bcrcf/tanrc
+source $bcrcf/logrc
 bchis()
 {
 name=$1;if [ -z $1 ];then

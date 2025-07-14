@@ -1,0 +1,34 @@
+log_bc()
+{
+jf $1;base=$(abs $2)
+if ((str==0));then
+    echo num not is 0;return 1
+fi;if ((base==0));then
+    echo base not is 0;return 1
+elif ((base==1));then
+    echo base not is 1;return 1
+fi;bcm "log($str,$base)"
+if ((an%2==1));then
+    echo I:;bcm "pi/ln($base)"
+fi
+}
+ln_bc()
+{
+jf $1
+if [ $str = 0 ];then
+    echo num not is 0;return 1
+fi;bcm "ln($str)"
+if ((an%2==1));then
+    echo I:;bcm pi
+fi
+}
+lg_bc()
+{
+jf $1
+if [ $str = 0 ];then
+    echo num not is 0;return 1
+fi;bcm "lg($str)"
+if ((an%2==1));then
+    echo I:;bcm "pi/ln(10)"
+fi
+}

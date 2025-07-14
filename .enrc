@@ -1,6 +1,6 @@
 enf=~/enrc
 men=~/en
-source $enf/r_wrc
+source $enf/r_wrc;source $enf/xsenrc
 en_c()
 {
 echo clean en_history

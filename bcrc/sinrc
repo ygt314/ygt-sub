@@ -1,0 +1,40 @@
+sin_bc()
+{
+if [ -z $1 ];then
+    echo sin_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;sin($1)"
+}
+asin_bc()
+{
+if [ -z $1 ];then
+    echo asin_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;asin($1)"
+}
+cos_bc()
+{
+if [ -z $1 ];then
+    echo cos_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;cos($1)"
+}
+acos_bc()
+{
+if [ -z $1 ];then
+    echo acos_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;acos($1)"
+}

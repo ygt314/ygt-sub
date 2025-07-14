@@ -1,0 +1,20 @@
+tan_bc()
+{
+if [ -z $1 ];then
+    echo tan_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;tan($1)"
+}
+atan_bc()
+{
+if [ -z $1 ];then
+    echo atan_bc [n] [d/r/g];return 0
+fi;dd=0;if [ x$2 = xd ] || [ x$2 = xdeg ];then
+    dd=1
+elif [ x$2 = xg ];then
+    dd=-1
+fi;bcm "dd=$dd;atan($1)"
+}

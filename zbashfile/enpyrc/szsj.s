@@ -1,2 +1,0 @@
-Here's a brief record of Han Jing's first senior high school day. She arrived at school at 7:00 a.m. and had her first maths class at 8:15. The class was difficult, but the teacher was kind and friendly. She had her lunch at 11:30 with her new friend Tian Hua. After a short break, the class began at 1:45 in the afternoon. By the time she got home, it was already 9:32 p.m.
-#sleep 45

@@ -1,0 +1,92 @@
+pfpe()
+{
+cd $mpff/poem
+find */*.txt|cut -d "/" -f 1
+cd -
+}
+pfme()
+{
+cd $mpff/poem
+if [ -z $1 ];then
+    find *.txt|cut -d "." -f 1
+else
+    find *"$1"*/*.txt|cut -d "." -f 1
+fi;cd -
+}
+find_poem()
+{
+if [ -z "$(find $mpff/poem/*/*"$1"*.txt)" ];then
+    echo none;return 0
+fi;find $mpff/poem/*/*"$1"*.txt
+}
+mfe()
+{
+if [ -z $1 ];then
+    echo -e ":分类:pfpe:古诗:pfme";return 0
+fi;sfile="$(find_poem "$1"|head -1)"
+if [ $sfile = none ];then
+    sfile="$mpff/$1.txt"
+fi;echo "内容如下:"
+j=$(cat "$sfile" |wc -l);j=$((j+1))
+for m in $(seq 1 $j)
+do
+    read -s -n 1 -t 0.5 a &>/dev/null
+    if [ "$a"x = qx ];then
+        echo quit;break
+    fi;strm="$(head -$m "$sfile"|tail -n 1)"
+    k="${#strm}";s=0;ab=0
+    if [ "${strm:0:1}" = "#" ];then
+        s=2;ab=1
+    fi;if [ x$2 = xmx ];then
+        mtxt "$strm" $s $k
+    else
+        ptxt "$strm" $ab $s $k 0.2;echo
+    fi
+done
+echo "--end--"
+}
+mf()
+{
+clear;echo "请在>>>后面输入";mxj=n
+echo -e ":quit:退出:name:获取主页古诗"
+echo ":type:获取分类:mx:开始默写:pf:退出默写"
+for key in $(seq 0 30)
+do
+    echo -n ">>>";read zfile
+    if [ x$zfile = xmx ];then
+        echo 进入默写模式;mxj=y;continue
+    elif [ x$zfile = xpf ];then
+        echo 退出默写模式;mxj=n;continue
+    fi;if [ x$zfile = xname ];then
+        echo 主页古诗词:;pfme
+        echo 请输入古诗词;continue
+    elif [ x$zfile = xtype ];then
+        pfpe;echo -n "type>"
+        read ztyp;pfme "$ztyp"
+        echo 请输入古诗词;continue
+    fi;if [ -z $zfile ];then
+        echo 请输入;continue
+    elif [ "$zfile"x = quitx ];then
+        echo 已退出;break
+    fi;sfile="$(find_poem "$zfile"|head -1)"
+    if [ $sfile = none ];then
+        sfile="$mpff/$zfile.txt"
+    fi;echo "内容如下:"
+    j=$(cat "$sfile" |wc -l);j=$((j+1))
+    for m in $(seq 1 $j)
+    do
+        read -s -n 1 -t 0.5 a &>/dev/null
+        if [ "$a"x = qx ];then
+            echo quit;break
+        fi;strm="$(head -$m "$sfile"|tail -n 1)"
+        k="${#strm}";s=0;ab=0
+        if [ "${strm:0:1}" = "#" ];then
+            s=2;ab=1
+        fi;if [ $mxj = y ];then
+            mtxt "$strm" $s $k
+        else
+            ptxt "$strm" $ab $s $k
+        fi;echo
+    done;echo "--end--"
+done
+}

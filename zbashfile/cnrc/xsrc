@@ -1,0 +1,98 @@
+source ~/cnrc/zjrc
+#function zjj->[var]_nj_med
+hgtu()
+{
+head -$i $file|iconv -f gbk -t utf-8
+}
+tgtu()
+{
+tail -n $s $file|iconv -f gbk -t utf-8
+}
+tit()
+{
+titf
+}
+tith()
+{
+echo -n 文:
+head -1 $file
+}
+tith_gbk()
+{
+echo -n 文:
+i=1;hgtu
+}
+titf()
+{
+echo -n 文:
+echo $file|cut -d . -f 1
+}
+get_zj()
+{
+echo txt:;if [ -z $file ];then
+    ls *.txt;echo opt_txt:;read file
+else
+    echo $file
+fi;title=$(tit$1);echo $title
+echo 判断章节形式;n=9;echo use:/.expr./p
+for i in $(seq 1 $n)
+do
+    ss=$(head -$i $file|tail -n 1)
+    zjj;if [ $nj = 1 ];then
+        echo method:$med;break
+    fi;i=$((i+1))
+    if [ $((i%25)) = 0 ];then
+        echo -e "process:$((i*100/n))%\r\c"
+    fi
+done;if [ $nj = 0 ];then
+    echo [failure]
+    echo method:;read med
+fi;echo 获取章节;n=$(wc -l <$file)
+dl=$((n/1000));st=$((n-dl*1000))
+head -$st $file|sed -n -E "$med"
+for i in $(seq 1000 -1 1)
+do
+    d=$dl;s=$((i*d))
+    tail -n $s $file|head -$d|sed -n -E "$med"
+    echo -e "\r[$((100-i/10))%]\r\c"
+done;echo [已完成]
+}
+get_zj_gbk()
+{
+echo txt:;if [ -z $file ];then
+    ls *.txt;echo opt_txt:;read file
+else
+    echo $file
+fi;title=$(tit$1);echo $title
+echo 判断章节式;n=9
+for i in $(seq 1 $n)
+do
+    ss=$(hgtu|tail -n 1)
+    zjj;if [ $nj = 1 ];then
+        echo method:$med;break
+    fi;i=$((i+1))
+    if [ $((i%25)) = 0 ];then
+        echo -e "process:$((i*100/n))%\r\c"
+    fi
+done;if [ $nj = 0 ];then
+    echo [failure]
+    echo method:;read med
+fi;echo 获取章节;n=$(wc -l <$file)
+dl=$((n/1000));i=$((n-dl*1000))
+hgtu|sed -n -E "$med"
+for i in $(seq 1000 -1 1)
+do
+    d=$dl;s=$((i*d))
+    tgtu|head -$d|sed -n -E "$med"
+    echo -e "\r[$((100-i/10))%]\r\c"
+done;echo [已完成]
+echo 获取成功
+}
+zj_file()
+{
+bs=(zj zj_gbk zj_zz zj_zz_gbk)
+if [ -z $1 ];then
+    echo ${bs[@]}
+    echo use:[way] file;return 0
+fi;bash ${bs[$1]}.sh $2
+}

@@ -1,0 +1,17 @@
+Use:bcm [expr] [scale=20]
+常数(constant):
+pi(3.14),e(2.71),phi(0.618),s2(√2)
+函数(function):
+/*r_x_r*/
+sin,cos,tan
+asin,acos,atan
+[notice]:you can use "dd=[deg(+1)|rad(0)|g(-1)]" to set unit
+/*√^log*/
+sqrt,pow(n,times),root(n,times)
+log(num,base),lg,ln
+/*numint*/
+int,floor,ceil
+round,f_xs
+z(n^c),fbnc(11235)
+/*factorial*/
+f(!),ff(!!)

@@ -1,5 +1,0 @@
-curtpy()
-{
-curt_s $1;ans2
-ans=$(echo "print(($1)**(1/3))"|python);ans
-}

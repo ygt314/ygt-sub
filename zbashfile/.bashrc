@@ -2,7 +2,10 @@ myf=/sdcard/zbashfile
 mpy=$myf/python
 zexe=/sdcard/zexe
 mqpy=/sdcard/qpython/scripts3
+echo 日历:;cal
 source $myf/.htmlrc
+source $myf/.htmrc
+source $myf/.mypwrc
 source $myf/.pwrc
 source $myf/.subrc
 source $myf/.pyrc
@@ -10,8 +13,11 @@ cdf()
 {
 cd $myf
 }
-echo "日历:"
-cal
+cdh()
+{
+cd ~/zhtmlf/html
+source html_txtrc
+}
 qpy()
 {
 ~/bin/python3.sh $@
@@ -20,10 +26,7 @@ pff()
 {
 sh $myf/pff.sh $1
 }
-pf()
-{
-sh $myf/pf.sh $1
-}
+source $myf/.cnrc
 source $myf/.mathrc
 cngt_d
 source $myf/.bcrc

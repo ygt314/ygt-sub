@@ -1,0 +1,51 @@
+nad()
+{
+d=1;if [ $nj = 1 ];then
+    case $j in
+        0)a0=$i;j=1;;
+        1)a1=$i;dd=$((a1-a0));j=0;;
+    esac;if ((dd>9&&j==0));then
+        d=$((dd/5*3))
+    fi
+fi
+}
+jn()
+{
+if [ -z $1 ];then
+    echo 0;return 0
+fi;jn=$1;expr "${jn:0:1}" + 1 &>/dev/null
+if [ $? -eq 0 ];then
+    echo 1
+else
+    echo 0
+fi
+}
+jnd()
+{
+if [ -z $1 ];then
+    echo 0;return 0
+fi;jn=$1;expr "${jn:0:1}" + 1 &>/dev/null
+if [ $? -eq 0 ] && [[ ${jn:0:5} == *.* ]];then
+    echo 1
+else
+    echo 0
+fi
+}
+zjj()
+{
+nj=0;if [[ $ss == 第*章* ]];then
+    nj=1;med='/第.*章 .*/p'
+elif [[ $ss == *第*章* ]];then
+    nj=1;med='/.*第.*章 .*/p'
+elif [[ $ss == 一、* ]];then
+    nj=1;med='/.*、.*/p'
+fi;if [ nj = 1 ];then
+    return 0
+fi;if [[ $ss == *一、* ]];then
+    nj=1;med='/.* .*、.*/p'
+elif [[ $(jnd $ss) == 1 ]];then
+    nj=1;med='/[0-9]+\..*/p'
+elif [[ $(jnd $ss) == 1 ]];then
+    nj=1;med='/[0-9]+ .*/p'
+fi
+}

@@ -8,8 +8,8 @@ python -m http.server $1
 httpx()
 {
 if [ -z $1 ];then
-    http-server;return 0
-fi;http-server -p $1
+    npx http-server;return 0
+fi;npx http-server -p $1
 }
 hhf()
 {

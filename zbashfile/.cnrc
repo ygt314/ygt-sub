@@ -1,0 +1,90 @@
+cnf=~/cnrc
+mpff=~/zchinese
+patxt=$cnf/.page_txt
+source $cnf/pfrc
+source $cnf/xsrc
+mtxt()
+{
+echo 暂时不支持
+}
+ptxt()
+{
+#string,print 1 by 1
+str="$1";ab=$2
+#range
+a=$3;b=$4
+#time,t1>t2[priority]
+t1=$5;t2=$6
+if [ -z $5 ];then
+    t1=0.1;t2=0.1
+elif [ -z $6 ];then
+    t2=0.1
+fi;for n in $(seq $a $b)
+do
+    if [ "${str:$n:1}" = "/" ];then
+        sleep $t1;continue
+    elif [ "${str:$n:1}" = "." ];then
+        echo -n " ";continue
+    fi
+    echo -n "${str:$n:1}"
+    if [ "${str:$n:1}" = "，" ] || [ "${str:$n:1}" = "。" ];then
+        sleep $t1
+    elif [ "${str:$n:1}" = "？" ] || [ "${str:$n:1}" = "！" ];then
+        sleep $t1
+    elif [ $ab -eq 1 ];then
+        sleep $t2
+    fi
+done
+}
+page()
+{
+n=$1;op=$2;ff=$3
+if [ x$1 = xp ];then
+    n=${op:-1};ff=$patxt
+    echo [旧管道处理];op=p
+elif [ x$op = xp ];then
+    cat>$patxt;ff=$patxt
+    echo [新管道处理][line $(wc -l<$ff)]
+elif [ -z $ff ];then
+    echo 'page [[n] f [file]]|[p [n]]'
+    echo '[com]|page [n] p';return
+else
+    echo file:$ff
+fi;li=$(wc -l<$ff);m=$((li/15+1))
+echo [page $n/$m]
+if [ $n -le 0 ];then
+    echo 'error:n must be positive';return 1
+elif [ $m -lt $n ];then
+    echo "n>$m:n too large";return 1
+fi;head -$((n*15)) $ff|tail -n 15
+}
+pages()
+{
+page $1 $2 $3
+for i in $(seq 1 99)
+do
+    echo :+/-/g/q:;read -n 1 j
+    if [ x$j = x- ];then
+        n=$((n-1))
+    elif [ x$j = xg ];then
+        echo -n oto:n=;read n
+    elif [ x$j = xq ];then
+        clear;echo quit;break
+    else
+        n=$((n+1))
+    fi;clear;if [ $op = p ];then
+        page p $n
+    else
+        page $n f $ff
+    fi
+done;echo "page:$op($ff)[$n/$m]"
+echo [休息一下]
+}
+pf()
+{
+if [ -z $1 ];then
+    mf
+else
+    mfe $1 $2
+fi
+}

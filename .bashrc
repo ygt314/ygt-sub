@@ -1,15 +1,14 @@
-PS1="\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\\$ "
 zbash=/sdcard/zbashfile;mp3f=~/mym/mp3
 m4af=~/mym/m4a;myf=$HOME;mcl=$myf/clang
 source ~/autoclearc
 echo "日历:";cal
-chmod 777 ~/*.py
-chmod 777 ~/*.sh
+chmod 777 ~/*.py;chmod 777 ~/*.sh
+source ~/.cnrc;source ~/.htmrc
 source ~/.mathrc;cngt_d
 source ~/.cmstrc;source ~/.bcrc
 source ~/.subrc;source ~/.enrc
-source ~/.pyrc;source ~/.cnrc
-source ~/.htmrc;source ~/startcmdrc
+source ~/.pwrc;source ~/.mypwrc
+source ~/.pyrc;source ~/startcmdrc
 cdf()
 {
 cd $zbash
@@ -75,26 +74,6 @@ do
 done
 if [ ! -z $2 ];then
     eval "$2=$put"
-fi
-}
-input_int()
-{
-int="";put="";echo -n "$1"
-while [ -z $put ]
-do
-    read -s -n 1 put
-    if [ "$put"x = rx ];then
-        echo;if [ -z $int ];then
-            int=r
-        fi;int="${int:0:-1}";echo -n $1$int
-    elif [ "$put"x != qx ] && [ "$put"x != .x ];then
-        int=$int$put;echo -n $put
-    fi;if [ "$put"x != qx ];then
-        put=""
-    fi
-done;echo
-if [ ! -z $2 ];then
-    eval "$2=$int"
 fi
 }
 put()

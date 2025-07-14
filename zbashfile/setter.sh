@@ -1,1 +1,0 @@
-ln -s /sdcard/z* -r ~/

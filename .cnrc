@@ -1,6 +1,93 @@
 cnf=~/cnrc
 mpff=~/zchinese
+patxt=$cnf/.page_txt
 source $cnf/pfrc
+source $cnf/xsrc
+mtxt()
+{
+str="$1"
+a=${2:-0}      # 起始位置（默认0）
+b=${3:-${#str}} # 结束位置（默认字符串长度）
+# 预生成候选字符数组,跳过空格和斜杠
+all_chars=()
+for ((i=0; i<${#str}; i++))
+do
+    char="${str:$i:1}"
+    if ! [[ "$char" =~ [[:space:]] || "$char" == "/" ]]; then
+        all_chars+=("$char")
+    fi
+done;total_chars=${#all_chars[@]}
+declare -a user_inputs;declare -a correct_chars
+for n in $(seq $a $((b-1)))
+do
+    current_char="${str:$n:1}";clear
+    # 显示历史记录（紧凑单行+颜色）
+    echo -e "\e[34m==== 默写历史 ====\e[0m"
+    for ((i=0; i<${#user_inputs[@]}; i++)); do
+        if [ "${user_inputs[$i]}" = "${correct_chars[$i]}" ]; then
+            echo -e " ${correct_chars[$i]} \e[32m✓\e[0m"
+        else
+            echo -e " ${user_inputs[$i]} \e[31m→ ${correct_chars[$i]}\e[0m"
+        fi
+    done
+    echo -e "\e[34m=================\e[0m"
+    # 跳过空格、斜杠和标点符号（直接记录为正确）
+    if [[ "$current_char" =~ [[:space:]/] ]] || [[ "$current_char" =~ [，。？！] ]]; then
+        user_inputs+=("$current_char")
+        correct_chars+=("$current_char")
+        continue
+    fi
+    # 生成选项（动态数量:正确答案+随机干扰项）
+    options=("$current_char")
+    while [ ${#options[@]} -lt $(( ${#all_chars[@]} > 3 ? 4 : ${#all_chars[@]} )) ]
+    do
+        random_char="${all_chars[$((RANDOM % ${#all_chars[@]}))]}"
+        if ! [[ " ${options[@]} " =~ " $random_char " ]] && [ "$random_char" != "$current_char" ]; then
+            options+=("$random_char")
+        fi
+    done;options=($(shuf -e "${options[@]}"))
+    # 交互界面
+    echo -e "\n当前进度: $(( ${#user_inputs[@]} + 1 ))/$total_chars"
+    echo "请选择正确的字符:"
+    for i in {0..3}
+    do
+        [ -n "${options[$i]}" ] && echo "$((i+1)). ${options[$i]}"
+    done
+    # 严格输入验证
+    while true
+    do
+        read -p "你的选择 (1-${#options[@]}): " choice
+        if [[ "$choice" =~ ^[1-${#options[@]}]$ ]]; then
+            selected="${options[$((choice-1))]}"
+            user_inputs+=("$selected")
+            correct_chars+=("$current_char")
+            break
+        else
+            echo -e "\e[31m请输入有效数字！\e[0m"
+        fi
+    done
+    # 错误提示
+    if [ "$selected" != "$current_char" ]; then
+        echo -e "\e[33m提示: 正确字符为 [$current_char]\e[0m"
+        sleep 1
+    fi
+done
+# 结果统计
+clear;echo -e "\e[36m==== 默写完成 ====\e[0m"
+echo "原文: $str";echo -n "你的输入: "
+correct=0 #遍历数组
+for ((i=0; i<${#user_inputs[@]}; i++))
+do
+    if [ "${user_inputs[$i]}" = "${correct_chars[$i]}" ]; then
+        echo -ne "\e[32m${user_inputs[$i]}\e[0m"
+        ((correct++))
+    else
+        echo -ne "\e[31m${user_inputs[$i]}\e[0m"
+    fi
+done
+accuracy=$(( ${#user_inputs[@]} > 0 ? correct*100/${#user_inputs[@]} : 100 ))
+echo -e "\n正确率: \e[35m$accuracy%\e[0m ($correct/${#user_inputs[@]})"
+}
 ptxt()
 {
 #string,print 1 by 1
@@ -30,11 +117,55 @@ do
     fi
 done
 }
+page()
+{
+n=$1;op=$2;ff=$3
+if [ x$1 = xp ];then
+    n=${op:-1};ff=$patxt
+    echo [旧管道处理];op=p
+elif [ x$op = xp ];then
+    cat>$patxt;ff=$patxt
+    echo [新管道处理][line $(wc -l<$ff)]
+elif [ -z $ff ];then
+    echo 'page [[n] f [file]]|[p [n]]'
+    echo '[com]|page [n] p';return
+else
+    echo file:$ff
+fi;li=$(wc -l<$ff);m=$((li/15+1))
+echo [page $n/$m]
+if [ $n -le 0 ];then
+    echo 'error:n must be positive';return 1
+elif [ $m -lt $n ];then
+    echo "n>$m:n too large";return 1
+fi;head -$((n*15)) $ff|tail -n 15
+}
+pages()
+{
+page $1 $2 $3
+for i in $(seq 1 99)
+do
+    echo :+/-/g/q:;read -n 1 j
+    if [ x$j = x- ];then
+        n=$((n-1))
+    elif [ x$j = xg ];then
+        echo -n oto:n=;read n
+    elif [ x$j = xq ];then
+        clear;echo quit;break
+    else
+        n=$((n+1))
+    fi;clear;if [ $op = p ];then
+        page p $n
+    else
+        page $n f $ff
+    fi
+done;echo "page:$op($ff)[$n/$m]"
+echo [休息一下]
+}
 pf()
 {
 if [ -z $1 ];then
     mf
 else
-    mfe $1
+    mfe $1 $2
 fi
 }
