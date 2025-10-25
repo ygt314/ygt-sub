@@ -1,6 +1,0 @@
-mpip="$mpy/piprc"
-source $mpip/uprc;source $mpip/listrc
-pip()
-{
-now_dir=$(pwd);cd /data/user/0/org.qpython.qpy/files/;pip3 $@;cd $now_dir
-}

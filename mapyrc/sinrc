@@ -1,6 +1,6 @@
 sin_sym()
 {
-ans2=$(echo "from sympy import sin,pi,pprint;pprint(sin($1))"|python)
+ans2=$(echo "import sympy as s;s.pprint(s.simplify('sin($1)'))"|python)
 }
 sin_py()
 {

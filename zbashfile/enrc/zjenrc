@@ -1,0 +1,10 @@
+zjj_en()
+{
+nj=0;if [[ $ss == *Chapter* ]];then
+    nj=1;med='/.Chapter [0-9]+.*/p'
+elif [[ $(jnd $ss) == 1 ]];then
+    nj=1;med='/[0-9]+\..*/p'
+elif [[ $(jnd $ss) == 1 ]];then
+    nj=1;med='/[0-9]+ .*/p'
+fi
+}

@@ -4,6 +4,11 @@ contourpy
 ipython
 jsonschema
 jupyter-server
+numpy
+scipy
+sympy
+panda
+manim
 kiwisolver
 lxml
 matplotlib

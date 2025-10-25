@@ -18,9 +18,9 @@ cdh()
 cd ~/zhtmlf/html
 source html_txtrc
 }
-qpy()
+math()
 {
-~/bin/python3.sh $@
+$myf/math.sh $1
 }
 pff()
 {

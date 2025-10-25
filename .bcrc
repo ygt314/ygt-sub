@@ -1,9 +1,28 @@
-bcrcf=$myf/bcrc;bcf=$bcrcf/bc
-source $bcrcf/sqrtrc;source $bcrcf/pisrc
-source $bcrcf/fbncrc;source $bcrcf/dshrc
-source $bcrcf/sumrc;source $bcrcf/bmrc
-source $bcrcf/sinrc;source $bcrcf/tanrc
-source $bcrcf/logrc
+bcrcf=$myf/bcrc
+bc_res=();bc_res_n=0
+res_load_bc()
+{
+source $bcrcf/$1
+}
+loadbc()
+{
+res_load_bc $1
+bc_res[$bc_res_n]=$1
+bc_res_n=$((bc_res_n+1))
+}
+reloadbc()
+{
+echo resource for bc
+for name in ${bc_res[@]}
+do
+    res_load_bc $name;echo [$name]
+done
+}
+loadbc sqrtrc;loadbc pisrc
+loadbc fbncrc;loadbc dshrc
+loadbc sumrc;loadbc bmrc
+loadbc sinrc;loadbc tanrc
+loadbc logrc
 bchis()
 {
 name=$1;if [ -z $1 ];then

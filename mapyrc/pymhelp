@@ -1,6 +1,6 @@
-Use:pym [-h--help]|[the math expression]
+Use:pym [-h--help] [name]|[[the math expression] [scale=12]]
 lt will calculate your expression.
--h --help:  send help message.
+-h --help:  send help message(for [name]).
 Attention:
 1. If there is a "()" in the expression, you need to put the expression in "".
 2. The expression need use the python lange

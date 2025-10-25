@@ -1,7 +1,7 @@
 echo auto clean
 echo '1)pip cache';rm -r $myf/.cache/pip/*
 echo '2)npm cache';rm -r $myf/.npm/_cacache/*
-echo -n '3)npm log(y/I/d=N)';read nlcj
+echo -n '3)npm log(y/I/?=N)';read nlcj
 if [ -z $nlcj ];then
     nlcj=n
 fi;if [ $nlcj = n ] || [ $nlcj = N ];then

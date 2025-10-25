@@ -1,3 +1,8 @@
+'''
+calculate for math
+数学常用计算
+(by YGT)
+'''
 import math as ma
 import cmath as cm
 pi=ma.pi;i=1j;deg='d';rad='r';e=ma.e
@@ -6,16 +11,17 @@ def r_d(r):
     return r/pi*180
 def d_r(d):
     return d/180*pi
-#尝试约化小数部分,但不处理整数,支持复数
 def xsex(n,cale=12):
+    '''尝试约化小数部分,但不处理整数
+    支持复数,但只处理实部'''
     ans=n
     if type(n) != int:
         f='.'+str(cale)+'g'
         ans=eval(format(n,f))
     ans=ans.imag*1j if abs(n.real)<10**(-cale) else ans
     return ans
-#尝试得到实数
 def cn_rn(c,cale=12):
+    '''尝试得到实数'''
     cc=xsex(c,cale)
     ans=cc.real if abs(c.imag)<10**(-cale) else cc
     return ans
@@ -43,6 +49,9 @@ def tan(n,dd='r'):
 def cot(n,dd='r'):
     r=d_r(n) if dd==deg else n
     return 1/cm.tan(r)
+#双曲函数
+sinh=cm.sinh;cosh=cm.cosh;tanh=cm.tanh
+asinh=cm.asinh;acosh=cm.acosh;atanh=cm.atanh
 #反正弦
 def asin(n,dd='r'):
     r=cm.asin(n)
@@ -73,57 +82,38 @@ def acot(n,dd='r'):
     r=cm.atan(1/n)
     d=r_d(r) if dd==deg else r
     return d
+sqrt=cm.sqrt;cbrt=lambda x:x**(1/3)
 lg=cm.log10;ln=cm.log;log=cm.log
-floor=ma.floor;inf=10**12;s=1e-12
+floor=ma.floor;ceil=ma.ceil
+inf=10**12;s=1e-12
 a,b,c,d=-7,-6,-5,-4
 m,n=-3,-2
 p,q=-1,1
 x,y,z=2,3,4
 u,v,w=5,6,7
-ll,mm,rr='l','m','r'
+from myfunc import *
 def num(n):
+    '''n is num?'''
     ans=False
     if type(n)==int or type(n)==float:
         ans=True
     elif type(n)==complex:
         ans=True
     return ans
-def fx(f,n=x):
-    global x
-    x=n
-    return eval(f)
-def bisec(f,a=-100,b=100,s=1e-12):
-    while abs(a-b)>=s:
-        c=(a+b)/2;fa=cn_rn(fx(f,a));fc=cn_rn(fx(f,c))
-        if type(fa)==complex or type(fc)==complex:
-            a=c;continue
-        if fa*fc<0:
-            b=c
-        elif fc==0:
-            a=c;break
-        else:
-            a=c
-    return a
-def lim(f,n=0,lmr=mm):
-    s=1e-12;x1=n-s;x2=n+s
-    if lmr==ll:
-        ans=fx(f,x1)
-    if lmr==mm:
-        ans=(fx(f,x1)+fx(f,x2))/2
-    if lmr==rr:
-        ans=fx(f,x2)
-    return ans
-def xfx(f,x=0,n=100):
-    for i in range(0,n):
-        x=fx(f,x)
-    return x
-def sumx(f,x0=1,x1=100):
+#数列
+def an(f,n=1):
+    '''a_n=f(n),n∈N*'''
+    return eval(f) if n>0 else 0
+def dn(f,n=1):
+    '''d_n=a_(n+1)-a_n,n∈N*'''
+    return an(f,n)-an(f,n-1)
+def sn(f,n=100):
+    '''a_n=f(n):S_n,n∈N*'''
     ans=0
-    for x in range(x0,x1+1):
-        ans+=fx(f,x)
+    for i in range(1,n+1):
+        ans+=an(f,i)
     return ans
-def mpy(sss,cale=12):
-    global ans
-    ans=eval(sss)
-    ans=cn_rn(ans,cale) if num(ans) else ans
-    return ans
+if __name__=="__main__":
+    ems="e**(pi*i)+1"
+    ans=eval(ems)
+    print(ems,"=",ans)

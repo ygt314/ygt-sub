@@ -1,4 +1,4 @@
-/*bc:6.5.0,use:bc -l math.bc*/
+/*bc:1.07.6,use:bc -l math.bc*/
 /*num*/
 pi=a(1)*4
 e=e(1)
@@ -8,6 +8,12 @@ g=-1
 rad=0
 deg=1
 dd=rad
+define abs(a)
+{
+ans=a;
+if(a<0){ans=-a;}
+return ans;
+}
 define int(a)
 {s=scale;scale=0;ans=a/1;scale=s;return ans;}
 define floor(a)

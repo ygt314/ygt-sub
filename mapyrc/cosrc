@@ -1,6 +1,6 @@
 cos_sym()
 {
-ans2=$(echo "from sympy import cos,pi,pprint;pprint(cos($1))"|python)
+ans2=$(echo "import sympy as s;s.pprint(s.simplify('cos($1)'))"|python)
 }
 cos_py()
 {

@@ -2,7 +2,7 @@ tan()
 {
 if [ -z $1 ];then
     echo "tan [n] [rad|deg]";return 0
-fi;dd=${dd:=rad};dd=${2:-$dd}
+fi;dd=${2:-rad}
 if [ $dd = deg ];then
     tand $1
 elif [ $dd = rad ];then
@@ -31,23 +31,11 @@ ans=0.2679
 ans2="   _\n2-√3"
 ans -l
 }
-tan18()
-{
-echo -e "  ______\n /     _\n√50-10√5\n--------\n   10"
-tan 18
-ans2="  ______\n /     _\n√50-10√5\n--------\n   10"
-}
 tan30()
 {
 ans=0.5773
 ans2=" _\n√3\n--\n3"
 ans -l
-}
-tan36()
-{
-echo -e "  ____\n /   _\n√5-2√5"
-tan 36
-ans2="  ____\n /   _\n√5-2√5"
 }
 tan45()
 {
@@ -55,23 +43,11 @@ ans=1
 ans2=1
 ans -l
 }
-tan54()
-{
-echo -e "  ____\n /   _\n√5+2√5"
-tan 54
-ans2="  ____\n /   _\n√5+2√5"
-}
 tan60()
 {
 ans=1.732
 ans2=" _\n√3"
 ans -l
-}
-tan72()
-{
-echo -e "  ______\n /     _\n√50+10√5\n--------\n   10"
-tan 72
-ans2="  ______\n /     _\n√50+10√5\n--------\n   10"
 }
 tan75()
 {

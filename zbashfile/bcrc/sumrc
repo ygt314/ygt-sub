@@ -14,8 +14,8 @@ s=$((s2-s1));ans=0;x=$s1;cs=$((s/20+1))
 echo "The sum of $str"
 for i in $(seq 0 $s)
 do
-    ans=$(echo "x=$x;$ans+($str)"|bc -l)
-    if ((i%cs==1));then
+    ans=$(bcm "x=$x;$ans+($str)")
+    if ((i%cs==0));then
         echo -e "\r$x:>$ans\c"
     fi;x=$((x+1))
 done

@@ -1,4 +1,5 @@
 bchf=$bcrcf/.bcm_history;bmf=$bcrcf/math.bc
+source $bcrcf/angrc
 setcale()
 {
 cale=$1;if [ -z $1 ];then
@@ -10,11 +11,11 @@ bcm()
 if [ -z $1 ];then
     bc -l $bmf;return 0
 elif [ "$1" = "-h" ] || [ "$1" = "--help" ];then
-    cat $bcrcf/bchelp;echo;return 0
+    cat $bcrcf/bchelp;return 0
 fi;ans2="scale=$2;$1";cale=$2
 if [ -z $2 ];then
     ans2="$1"
 fi;echo -e "$(date)\n$ans2">>$bchf
-ans=$(echo "$ans2"|bc -l $bmf)
+ans=$(echo "dd=$dd;$ans2"|bc -l $bmf)
 echo $ans;echo "The answer is $ans">>$bchf
 }

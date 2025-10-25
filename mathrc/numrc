@@ -1,7 +1,7 @@
 numint()
 {
 if [ "$1"x = "-h"x ] || [ "$1"x = "--help"x ];then
-    echo -e "use:num [str|num|...]\neg:numint 5.8"
+    echo -e "use:numint [str|num|...]\neg:numint 5.8"
 else
     expr $1 "+" 10 &>/dev/null
     if [ $? -eq 0 ];then

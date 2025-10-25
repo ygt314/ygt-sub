@@ -1,0 +1,5 @@
+Package    Version Latest Type
+---------- ------- ------ -----
+kiwisolver 1.4.8   1.4.9  sdist
+numpy      2.2.5   2.3.4  sdist
+sympy      1.13.1  1.14.0 wheel

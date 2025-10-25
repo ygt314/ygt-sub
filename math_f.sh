@@ -3,8 +3,7 @@ ans=0
 echo -e "关键字(赋值时不能命名):i,jt,str,str2,quit\n在>>>后输入数字表达式(输入quit退出)"
 for i in $(seq 1 50)
 do
-    echo -n ">>>"
-    read str
+    read -p ">>>" -e str
     str2="|-->$str<--|"
     if [[ "$str2" == *"="* ]] && [[ "$str2" != *"=="* ]];then
         if [[ "$str2" == *"!"* ]] && [[ "$str2" == *"<"* ]] && [[ "$str2" == *">"* ]];then

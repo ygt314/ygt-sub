@@ -1,6 +1,6 @@
 """
 Use:plot2_sh.py f(x) [x] [y] [:]
-version:1.65
+version:1.6.6
 ==========
 It's plot(x, y) for y=f(x)
 May be:y=y+f(x,y)
@@ -14,6 +14,8 @@ import sys
 sys.path.append('mapyrc/')
 from mymath import *
 sv=sys.argv
+if len(sv)==1:
+    print("Use:plot2_sh.py f(x) [x_range] [y_range] [p_str]");exit()
 # function
 def px(n):
     sg='|' if abs(n)>dy/2 else '─→ₓ'
@@ -21,11 +23,13 @@ def px(n):
 def py(n):
     sg='-' if abs(n)>dx/2 else 'y'
     return sg
+def pp(n,m=1,l=1):
+    return (n*m)%l
 def ss(a,b):
     d=xsex((a*a+b*b)**0.5)
     return (a*a/d+b*b/d)*0.6
 # data
-m=-10;n=10 # inf is unlimed-num
+f,m,n,p=sv[1],-10,10,sv[-1] # inf is unlimed-num
 x1,x2,y1,y2=-10,10,-10,10
 vx='x1,x2=';vy='y1,y2=';vl=[vx,vy];vv='';xy=[",x∈",",y∈"]
 if len(sv)>3:
@@ -39,19 +43,15 @@ xl=np.linspace(float(x1),float(x2),80);xx=0
 yl=[0]+np.linspace(float(y2),float(y1),40);yy=-1
 vv+=xy[0]+str([x1,x2])+xy[1]+str([y1,y2])
 # plot set
-if len(sv)==5:
-    p=str(sv[4])
-else:
-    p=str(sv[2]) if len(sv)==3 else ''
-if len(p)==0:
-    p=':'
+pl=len(p)
+if pl==0:
+    p,pl=':',1
 # error
 dx=(xl[3]-xl[2])
 dy=(yl[2]-yl[3])
 ds=dx*dx+dy*dy
 # double x-length
 # plot(x,y)
-f=str(sv[1]) if len(sv)>1 else 'y'
 print('f(x)='+f+vv)
 for y in yl:
     xx=0;yy+=1
@@ -63,7 +63,7 @@ for y in yl:
         elif x*x+y*y<ds/3:
             print(end='O')
         elif abs(y-xsex(eval(f)))<ss(dx,dy):
-            print(end=p)
+            print(end=p[(xx*yy)%pl])
         else:
             print(end=' ')
         xx+=1

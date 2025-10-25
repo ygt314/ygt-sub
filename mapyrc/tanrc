@@ -1,6 +1,6 @@
 tan_sym()
 {
-ans2=$(echo "from sympy import tan,pi,pprint;pprint(tan($1))"|python)
+ans2=$(echo "import sympy as s;s.pprint(s.simplify('tan($1)'))"|python)
 }
 tan_py()
 {

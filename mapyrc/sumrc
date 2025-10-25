@@ -4,9 +4,9 @@ echo "$(date)">>$mapyf/.sum_history
 str=$1;s1=$2;s2=$3
 if [ -z "$1" ];then
     str="x"
-fi;if [ -z "$2" ];then
-    s1=1
 fi;if [ -z "$3" ];then
+    s1=1;s2=$2
+fi;if [ -z "$2" ];then
     s2=100
 fi;ans2=" $s2\n ∑ $str\nx=$s1"
 echo -e "$ans2">>$mapyf/.sum_history
@@ -14,8 +14,8 @@ s=$((s2-s1));ans=0;x=$s1;cs=$((s/25+1))
 echo "The sum of $str"
 for i in $(seq 0 $s)
 do
-    ii=$((i+1));fx $str;ans=$(pym "$ans+$func")
-    if ((ii%cs==1));then
+    fx $str;ans=$(pym "$ans+$func")
+    if ((i%cs==0));then
         echo -e "\r$x:>$ans\c"
     fi;x=$((x+1))
 done

@@ -62,11 +62,11 @@ def coll0(mss,vss,vp=0):
     m1,m2=mss[0],mss[1]
     v1,v2=vss[0],vss[1]
     av1=m1*v1+m2*v2
-    v1=av1/(m1+m2)
+    v11=av1/(m1+m2)
     if vp==0:
-        return [v11,v21]
+        return [v11,v11]
     elif mp_ab(vss,vp):
-        return [v11,v21]
+        return [v11,v11]
     else:
         return [v1,v2]
 def e_coll(mss,vss,e=1,vp=0):

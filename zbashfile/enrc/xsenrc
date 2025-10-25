@@ -1,0 +1,96 @@
+source $enf/zjenrc
+#function zjj_en->[var]_nj_med
+tit_en()
+{
+titf_en
+}
+tith_en()
+{
+echo -n text:
+head -1 $file
+}
+tith_en_gbk()
+{
+echo -n text:
+i=1;hgtu
+}
+tit_en_gbk()
+{
+tit_en
+}
+titf_en()
+{
+echo -n text:
+echo $file|cut -d . -f 1
+}
+zj_en()
+{
+echo txt:;if [ -z $file ];then
+    ls *.txt;echo opt_txt:;read file
+else
+    echo $file
+fi;title=$(tit"$1"_en);echo $title
+echo judging_chapter_form;n=63
+echo use:/.expr./p
+for i in $(seq 1 $n)
+do
+    ss=$(head -$i $file|tail -n 1)
+    zjj_en;if [ $nj = 1 ];then
+        echo method:$med;break
+    fi;i=$((i+1))
+    if [ $((i%9)) = 0 ];then
+        echo -e "process:$((i*100/n))%\r\c"
+    fi
+done;if [ $nj = 0 ];then
+    echo [failure]
+    echo method:;read med
+fi;echo [.Start.];n=$(wc -l <$file)
+dl=$((n/1000));st=$((n-dl*1000))
+head -$st $file|sed -n -E "$med"
+for i in $(seq 1000 -1 1)
+do
+    d=$dl;s=$((i*d))
+    tail -n $s $file|head -$d|sed -n -E "$med"
+    echo -e "\r[$((100-i/10))%]\r\c"
+done;echo [.Done.]
+}
+zj_en_gbk()
+{
+echo txt:;if [ -z $file ];then
+    ls *.txt;echo opt_txt:;read file
+else
+    echo $file
+fi;title=$(tit"$1"_en_gbk);echo $title
+echo judging_chapter_form;n=63
+echo use:/.expr./p
+for i in $(seq 1 $n)
+do
+    ss=$(hgtu|tail -n 1)
+    zjj_en;if [ $nj = 1 ];then
+        echo method:$med;break
+    fi;i=$((i+1))
+    if [ $((i%9)) = 0 ];then
+        echo -e "process:$((i*100/n))%\r\c"
+    fi
+done;if [ $nj = 0 ];then
+    echo [failure]
+    echo method:;read med
+fi;echo [.Start.];n=$(wc -l <$file)
+dl=$((n/1000));i=$((n-dl*1000))
+hgtu|sed -n -E "$med"
+for i in $(seq 1000 -1 1)
+do
+    d=$dl;s=$((i*d))
+    tgtu|head -$d|sed -n -E "$med"
+    echo -e "\r[$((100-i/10))%]\r\c"
+done;echo [.Done.]
+echo [Succeed]
+}
+zjen_file()
+{
+bs=(zjen zjen_zz)
+if [ -z $1 ];then
+    echo ${bs[@]}
+    echo use:[way] file;return 0
+fi;bash ${bs[$1]}.sh $2
+}

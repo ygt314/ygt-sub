@@ -1,5 +1,5 @@
 """
-version:1.6
+version:1.8
 ==========
 It's plot(x, y) for y=f(x)
 May f(x,y)=0:y=y+f(x,y)
@@ -23,6 +23,8 @@ def py(n):
     if abs(n)>dx:
         s='-'
     return s
+def pp(n,m=1,l=1):
+    return (n*m)%l
 def ss(a,b):
     d=xsex((a*a+b*b)**0.5)
     return (a*a/d+b*b/d)*0.6
@@ -35,11 +37,9 @@ for xy in ['x1','x2','y1','y2']:
 xl=np.linspace(x1,x2,80);xx=0
 yl=[0]+np.linspace(y2,y1,40);yy=-1
 # plot set
-p=input("plot:>")
-if len(p)==0:
-    p=':'
-if len(p)>1:
-    p=p[0]
+p=input("plot:>");pl=len(p)
+if pl==0:
+    p,pl=':',1
 # error
 dx=(xl[3]-xl[2])
 dy=(yl[2]-yl[3])
@@ -57,7 +57,7 @@ for y in yl:
         elif x*x+y*y<ds/3:
             print(end='O')
         elif abs(y-xsex(eval(f)))<ss(dx,dy):
-            print(end=p)
+            print(end=p[(xx*yy)%pl])
         else:
             print(end=' ')
         xx+=1

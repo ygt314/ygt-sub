@@ -1,0 +1,60 @@
+setdd()
+{
+dd=${dd:-0}
+if [ x$1 = xd ] || [ x$1 = xdeg ];then
+    dd=1
+elif [ x$1 = xr ] || [ x$1 = xrad ];then
+    dd=0
+elif [ x$1 = xg ];then
+    dd=-1
+fi
+}
+setdeg()
+{
+let dd+=1
+let dd%=2
+if [ $dd = 1 ];then
+    echo deg
+else
+    echo rad
+fi
+}
+xy_part_bc()
+{
+y=${2:-$y}
+x=${1:-$x}
+sx=${y:-0}
+cx=${x:-0}
+if (($(bcm "$sx>10^(-9)")));then
+    if (($(bcm "$cx>10^(-9)")));then
+        ans=i
+    elif (($(bcm "$cx<-10^(-9)")));then
+        ans=ii
+    else
+        ans=2
+    fi
+elif (($(bcm "$sx<-10^(-9)")));then
+    if (($(bcm "$cx<-10^(-9)")));then
+        ans=iii
+    elif (($(bcm "$cx>10^(-9)")));then
+        ans=iv
+    else
+        ans=4
+    fi
+else
+    if (($(bcm "$cx>10^(-9)")));then
+        ans=1
+    elif (($(bcm "$cx<-10^(-9)")));then
+        ans=3
+    else
+        ans=0
+    fi
+fi;ans
+}
+ang_part_bc()
+{
+setdd $2
+y=$(sin_bc $1)
+x=$(cos_bc $1)
+xy_part_bc $x $y
+}

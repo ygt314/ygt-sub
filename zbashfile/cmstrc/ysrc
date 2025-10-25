@@ -1,9 +1,10 @@
 ysb()
 {
-for i in $(seq 0 20)
-do
-    echo "$i--${yse[$i]}--${ysc[$i]}"
-done
+ys 0 36
+}
+ysb0()
+{
+ys 0 20
 }
 ys()
 {

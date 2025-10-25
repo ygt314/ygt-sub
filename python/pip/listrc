@@ -2,7 +2,8 @@ up_txt="$mpip/piplist.txt"
 up_data="$mpip/.update_data"
 datapip()
 {
-cat $up_data
+pipdata
+cat $up_data -n
 }
 uptxt()
 {

@@ -1,0 +1,7 @@
+mpip="$mpy/pip"
+source $mpip/uprc
+source $mpip/listrc
+piplist()
+{
+pip list --outdated
+}

@@ -2,7 +2,7 @@ sin()
 {
 if [ -z $1 ];then
     echo "sin [n] [rad|deg]";return 0
-fi;dd=${dd:=rad};dd=${2:-$dd}
+fi;dd=${2:-rad}
 if [ $dd = deg ];then
     sind $1
 elif [ $dd = rad ];then

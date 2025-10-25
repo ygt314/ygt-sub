@@ -2,7 +2,7 @@ cos()
 {
 if [ -z $1 ];then
     echo "cos [n] [rad|deg]";return 0
-fi;dd=${dd:=rad};dd=${2:-$dd}
+fi;dd=${2:-rad}
 if [ $dd = deg ];then
     cosd $1
 elif [ $dd = rad ];then

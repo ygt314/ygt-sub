@@ -26,9 +26,23 @@ pff()
 {
 ~/pff.sh $1
 }
+run_()
+{
+ps3="$PS3"
+PS3="run_choice:"
+select rn in py sh bash c cd exe
+do
+    if [ ! -z $rn ];then
+        break
+    fi
+done;PS3=$ps3
+}
 run()
 {
 rn=$1;if [ -z $1 ];then
+    run_;read -p file: -e run_f
+    run $rn ${run_f:-run}
+fi;if [ -z $1 ];then
     rn=run
 fi;echo "run_$rn:>$2"
 case $rn in
