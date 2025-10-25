@@ -40,18 +40,18 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    termux-change-repo
    ```
 3. Download project：
-### (1)[In Termux]subter\_1.1.3.zip
+### (1)[In Termux]subter\_1.1.5.zip
 ```
-cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.zip>sbt.zip
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.5.zip>sbt.zip
 ```
 [Unzip and clean]
 ```bash
 cd;unzip sbt.zip;rm sbt.zip
 ```
 If you don't have 'unzip', you can use (2)
-### (2)[In Termux]subter\_1.1.3.tar
+### (2)[In Termux]subter\_1.1.5.tar
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.3.tar>sbt.tar
+cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.5.tar>sbt.tar
 ```
 [Unzip and clean]
 ```bash
