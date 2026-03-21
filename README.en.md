@@ -1,7 +1,9 @@
 # Subject-termux: Termux Subject Resources
 
-![Gitee Stars](https://gitee.com/ygt314159/subject-termux/badge/star.svg?theme=gray)
-![Gitee Forks](https://gitee.com/ygt314159/subject-termux/badge/fork.svg?theme=gray)
+![Gitee Stars](badge/star.svg?theme=gray)
+![Gitee Forks](badge/fork.svg?theme=gray)
+
+[中文](README.md) | [English]
 
 ## Project Introduction
 
