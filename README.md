@@ -1,7 +1,7 @@
 # 学科termux - (zero)Termux学科资源集合
 
-![Gitee Stars](badge/star.svg?theme=gray)
-![Gitee Forks](badge/fork.svg?theme=gray)
+![Gitee Stars](https://gitee.com/ygt314159/subject-termux/badge/star.svg?theme=gray)
+![Gitee Forks](https://gitee.com/ygt314159/subject-termux/badge/fork.svg?theme=gray)
 
 [中文] | [English](README.en.md)
 
@@ -55,6 +55,7 @@
 ------
 **高级汉化版**(Termux-X)
 
+基于zero-termux项目
 - [termux-x官网](https://termux-x.com)
 - [1] [直接下载](https://xheishou.com/update/apk/nethunter/Termux-X-0.118.3.60.1.apk)
 ### 2. 更换国内(清华)源
