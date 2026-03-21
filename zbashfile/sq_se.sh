@@ -1,20 +1,19 @@
-echo -n "a=";read a;aj=0
-if [ "${a:0:1}"x = -x ];then
-    a=${a:1};aj=1
-fi;ss=${#a}
-if ((ss>10));then
-    echo error:a:too large;return 0
-fi;s2=$(((ss+1)/2));s0="10000000000"
-b=0;if ((s2>1));then
-    b="${s0:0:$s2}"
-fi;for i in $(seq $b $a)
+echo -n "a=";read a;
+b=0;if ((a<0));then
+    a=$((-a));b=1
+fi;x=$a;x1=0;x2=$x
+while ((x2-x1>1))
 do
-    if ((i*i<=a));then
-        ans=$i
+    x=$(((x1+x2)/2))
+    if ((x*x>a));then
+        x2=$x
+    elif ((x*x==a));then
+        x1=$x;break
     else
-        break
+        x1=$x
     fi
-done;sq0=$ans;ss=${#i}
+done;echo x=$x1
+sq0=$x1;ss=${#x1}
 echo -n "scale=";read s
 if [ -z $s ];then
     s=1
@@ -46,8 +45,7 @@ elif ((s>0));then
         nbb=$nbc
     done
     ans="$i.$f"
-fi
-if ((aj==1));then
+fi;if ((aj==1));then
     echo "${ans}i"
 else
     echo $ans

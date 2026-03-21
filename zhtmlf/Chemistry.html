@@ -7,6 +7,12 @@
     <meta name="description" content="我的化学网站，包含多种实用工具和资源">
     <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
     <script>
+        function reget()
+        {
+    alert("重置画面");
+    dra_rep(".",0,"resweb");
+    document.getElementById("vares").innerHTML="[网页]";
+        }
         function myget()
         {
     alert(document.getElementById('resweb').src);
@@ -60,7 +66,7 @@
     <p>WebQC网搜索<br><textarea id="varqc" rows=2 cols=40 style="color:#48ACEF"></textarea></p>
     <p>1. 化学式:<button onclick="qcemb('varqc',0,'resweb')">开始</button> <button onclick="qcemb('varqc',1,1)">跳转</button></p>
     <p>2. 方程式:<button onclick="qcequ('varqc',0,'resweb')">开始</button> <button onclick="qcequ('varqc',1,1)">跳转</button></p>
-    网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button><br>
+    网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button>网址 <button onclick="reget()">重置</button>画面<br>
     ────────────────────────────────────────────┐
     <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe>
     <br>────────────────────────────────────────────┘

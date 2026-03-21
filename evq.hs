@@ -1,0 +1,1 @@
+import System.Random; let randomInts = take 3 (randomRs (1,100) (mkStdGen 42)) in let mean = fromIntegral (sum randomInts) / 3 in let variance = sum (map (\x -> (fromIntegral x - mean)^2) randomInts / 3 in (mean, sqrt variance)

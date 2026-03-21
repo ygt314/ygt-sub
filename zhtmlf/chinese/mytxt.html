@@ -4,6 +4,13 @@
     <meta charset="utf-8"> 
     <title>作文阅读</title>
     <script type="text/javascript" src="../myweb.js"></script>
+    <script>
+    function reget()
+    {
+    alert("重置画面");
+    dra_rep(".",0,"resweb");
+    }
+    </script>
     <script type="text/javascript" src="zwwz.js"></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 </head>
@@ -23,7 +30,7 @@
     <p>3. 瑞文: <button onclick="rwzw('varso',0,'resweb')">开始</button> <button onclick="rwzw('varso',1,1)">跳转</button></p>
     <p>4. znbd站内: <button onclick="znbd('varso',0,'resweb')">开始</button> <button onclick="znbd('varso',1,1)">跳转</button></p>
     <p>5. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
-    <p>6. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果: <br>
+    <p>6. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果: <br><button onclick="reget()">重置</button>画面<br>
     ────────────────────────────────────────────┐
     <br><iframe id="resweb" src="" height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe>
     <br>────────────────────────────────────────────┘<br>

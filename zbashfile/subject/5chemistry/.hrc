@@ -24,7 +24,7 @@ do
         heql="$heql+$hxn$hxs"
     fi;jsl="$jsl $hxn"
 done;hcgl="${hcgl:1}";heql="${heql:1}";jsl="${jsl:1}"
-jsr="";for hi in $(echo $he_r|grep -ov "+")
+jsr="";for hi in $(echo $he_r|grep -ov "[+]")
 do
     hxs $hi;hcgr="$hcgr+$hxs";if ((hxn==1));then
         heqr="$heqr+$hxs"
@@ -41,7 +41,7 @@ if [ -z $1 ];then
     echo null;return 0
 fi;if [ $((cxn)) = 0 ];then
     echo The searchable times is 0;return 0
-fi;for eq in $(tail -n $fn $hedf|grep "$1")
+fi;for eq in $(tail -n $fn $hedf|grep "[$1]")
 do
     if ((pei>$cxn));then
         break

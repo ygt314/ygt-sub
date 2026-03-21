@@ -7,6 +7,12 @@
     <meta name="description" content="我的英语网站，包含多种实用工具和资源">
     <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
     <script>
+        function reget()
+        {
+    alert("重置画面");
+    dra_rep(".",0,"resweb");
+    document.getElementById("vares").innerHTML="[网页]";
+        }
         function myget()
         {
     alert(document.getElementById('resweb').src);
@@ -25,7 +31,7 @@
     <p>搜索:<br><textarea id="varso" rows=3 cols=40 style="color:#48ACEF"></textarea></p>
     <p>1. 百度翻译: <button onclick="trans('varso',0,'resweb')">开始</button> <button onclick="trans('varso',1,1)">跳转</button>
     <p>2. 百度: <button onclick="mybai('varso',0,'resweb')">开始</button> <button onclick="mybai('varso',1,1)">跳转</button></p>
-    <p>3. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button><br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘
+    <p>3. 360: <button onclick="my360('varso',0,'resweb')">开始</button> <button onclick="my360('varso',1,1)">跳转</button></p>网页结果:<div id="vares" style="color:#48ACEF">[网址]</div><button onclick="myget()">获取</button>网址 <button onclick="reget()">重置</button>画面<br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="." height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘
     <h3>网站</h3>
     <p>1. <a href="./ygtweb.html">我的主页</a></p>
     <p>2. <a href="http://m.1010jiajiao.com/diandu/book/1731.html">九全电子课本</a></p>

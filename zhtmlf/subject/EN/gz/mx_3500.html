@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高考英语单词分类速记默写系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .dashboard {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .category-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .category-btn {
+            background: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .category-btn:hover {
+            background: #3a40b5;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-btn.active {
+            background: #ff6b6b;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            margin-top: 15px;
+        }
+        
+        .btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 82, 82, 0.4);
+        }
+        
+        .btn-check {
+            background: #4CAF50;
+        }
+        
+        .btn-check:hover {
+            background: #45a049;
+        }
+        
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        th {
+            background: #4e54c8;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #4e54c8;
+            outline: none;
+        }
+        
+        .result {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4e54c8;
+            margin-bottom: 15px;
+        }
+        
+        .correct {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .incorrect {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .category-nav {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>高考英语单词分类速记默写系统</h1>
+            <div class="subtitle">动词转化 + 词缀派生全收录专项训练</div>
+        </header>
+        
+        <div class="dashboard">
+            <h2>分类导航</h2>
+            <div class="category-nav">
+                <button class="category-btn active" data-category="human-nouns">指人名词转化的及物动词</button>
+                <button class="category-btn" data-category="object-nouns">指物具体名词转化的及物动词</button>
+                <button class="category-btn" data-category="abstract-nouns">指物抽象名词转化的及物动词</button>
+                <button class="category-btn" data-category="prefix-adjectives">前缀派生形容词</button>
+                <button class="category-btn" data-category="suffix-able">后缀派生形容词(-able/-ible)</button>
+                <button class="category-btn" data-category="suffix-al">后缀派生形容词(-al)</button>
+                <button class="category-btn" data-category="suffix-cal">后缀派生形容词(-cal/-ial)</button>
+                <button class="category-btn" data-category="suffix-ant">-ant后缀形容词</button>
+                <button class="category-btn" data-category="suffix-ent">-ent后缀形容词</button>
+                <button class="category-btn" data-category="suffix-ate">-ate后缀形容词</button>
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-reset">重置默写</button>
+                <button class="btn btn-check">提交批改</button>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2 class="section-title">指人名词转化的及物动词</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="25%">分类提示</th>
+                        <th width="25%">单词（需默写）</th>
+                        <th width="25%">音标</th>
+                        <th width="25%">词性和词义（中文提示）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>屠夫</td>
+                        <td><input type="text" data-correct="butcher"></td>
+                        <td>/ˈbʊtʃə(r)/</td>
+                        <td>屠宰（动物），残杀（人）</td>
+                    </tr>
+                    <tr>
+                        <td>厨师</td>
+                        <td><input type="text" data-correct="cook"></td>
+                        <td>/kʊk/</td>
+                        <td>烹调，做饭</td>
+                    </tr>
+                    <tr>
+                        <td>主人</td>
+                        <td><input type="text" data-correct="host"></td>
+                        <td>/həʊst/</td>
+                        <td>做主人招待，主持</td>
+                    </tr>
+                    <tr>
+                        <td>法官</td>
+                        <td><input type="text" data-correct="judge"></td>
+                        <td>/dʒʌdʒ/</td>
+                        <td>判断，判定</td>
+                    </tr>
+                    <tr>
+                        <td>大师</td>
+                        <td><input type="text" data-correct="master"></td>
+                        <td>/ˈmɑːstə(r)/</td>
+                        <td>精通，掌握</td>
+                    </tr>
+                    <tr>
+                        <td>间谍</td>
+                        <td><input type="text" data-correct="spy"></td>
+                        <td>/spaɪ/</td>
+                        <td>侦探，刺探</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th width="25%">分类提示</th>
+                        <th width="25%">单词（需默写）</th>
+                        <th width="25%">音标</th>
+                        <th width="25%">词性和词义（中文提示）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>手臂</td>
+                        <td><input type="text" data-correct="arm"></td>
+                        <td>/ɑːm/</td>
+                        <td>装备，武装</td>
+                    </tr>
+                    <tr>
+                        <td>木板/甲板</td>
+                        <td><input type="text" data-correct="board"></td>
+                        <td>/bɔːd/</td>
+                        <td>上(火车/船/飞机)；包饭</td>
+                    </tr>
+                    <tr>
+                        <td>炸弹</td>
+                        <td><input type="text" data-correct="bomb"></td>
+                        <td>/bɒm/</td>
+                        <td>投弹于，轰炸</td>
+                    </tr>
+                    <tr>
+                        <td>书</td>
+                        <td><input type="text" data-correct="book"></td>
+                        <td>/bʊk/</td>
+                        <td>预定，预订(房间/车票等)</td>
+                    </tr>
+                    <tr>
+                        <td>刷子</td>
+                        <td><input type="text" data-correct="brush"></td>
+                        <td>/brʌʃ/</td>
+                        <td>刷，擦</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="result">
+            <div class="score">请完成默写后点击"提交批改"</div>
+            <div class="feedback">
+                <p>正确: <span class="correct">0</span> 个单词</p>
+                <p>错误: <span class="incorrect">0</span> 个单词</p>
+                <p>准确率: <span class="accuracy">0%</span></p>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>使用说明</h3>
+            <ul>
+                <li>从上方分类导航中选择要练习的单词分类</li>
+                <li>在表格中输入栏中填写对应的英文单词</li>
+                <li>完成所有默写后，点击"提交批改"按钮</li>
+                <li>系统会自动批改并在右侧显示正确结果和成绩</li>
+                <li>点击"重置默写"可以清空当前页面所有输入</li>
+                <li>使用不同分类按钮可以切换不同的单词分类</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>高考英语单词分类速记图谱与默写系统 © 2023</p>
+            <p>动词转化+词缀派生全收录专项训练</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 分类导航按钮
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 实际应用中这里会加载对应的分类内容
+                    const category = this.getAttribute('data-category');
+                    document.querySelector('.section-title').textContent = getCategoryName(category);
+                });
+            });
+            
+            // 提交批改按钮
+            const checkBtn = document.querySelector('.btn-check');
+            checkBtn.addEventListener('click', function() {
+                checkAnswers();
+            });
+            
+            // 重置按钮
+            const resetBtn = document.querySelector('.btn-reset');
+            resetBtn.addEventListener('click', function() {
+                resetQuiz();
+            });
+            
+            // 获取分类名称
+            function getCategoryName(category) {
+                const categories = {
+                    'human-nouns': '指人名词转化的及物动词',
+                    'object-nouns': '指物具体名词转化的及物动词',
+                    'abstract-nouns': '指物抽象名词转化的及物动词',
+                    'prefix-adjectives': '前缀派生形容词（否定含义）',
+                    'suffix-able': '后缀派生形容词（-able/-ible）',
+                    'suffix-al': '后缀派生形容词（-al）',
+                    'suffix-cal': '后缀派生形容词（-cal/-ial）',
+                    'suffix-ant': '-ant后缀形容词',
+                    'suffix-ent': '-ent后缀形容词',
+                    'suffix-ate': '-ate后缀形容词'
+                };
+                return categories[category] || '英语单词默写';
+            }
+            
+            // 批改答案
+            function checkAnswers() {
+                const inputs = document.querySelectorAll('input[type="text"]');
+                let correctCount = 0;
+                
+                inputs.forEach(input => {
+                    const userAnswer = input.value.trim().toLowerCase();
+                    const correctAnswer = input.getAttribute('data-correct').toLowerCase();
+                    
+                    // 移除之前的反馈
+                    if (input.nextElementSibling) {
+                        input.nextElementSibling.remove();
+                    }
+                    
+                    if (userAnswer === correctAnswer) {
+                        input.style.borderColor = '#4CAF50';
+                        const correctMark = document.createElement('span');
+                        correctMark.textContent = ' ✓';
+                        correctMark.style.color = '#4CAF50';
+                        correctMark.style.fontWeight = 'bold';
+                        input.parentNode.appendChild(correctMark);
+                        correctCount++;
+                    } else {
+                        input.style.borderColor = '#ff6b6b';
+                        const feedback = document.createElement('span');
+                        feedback.textContent = ` ✘ 正确答案: ${input.getAttribute('data-correct')}`;
+                        feedback.style.color = '#ff6b6b';
+                        feedback.style.marginLeft = '10px';
+                        input.parentNode.appendChild(feedback);
+                    }
+                });
+                
+                // 更新成绩显示
+                const total = inputs.length;
+                const incorrectCount = total - correctCount;
+                const accuracy = Math.round((correctCount / total) * 100);
+                
+                document.querySelector('.correct').textContent = correctCount;
+                document.querySelector('.incorrect').textContent = incorrectCount;
+                document.querySelector('.accuracy').textContent = `${accuracy}%`;
+                
+                // 更新成绩标题
+                let scoreTitle = '';
+                if (accuracy === 100) {
+                    scoreTitle = '完美！全部正确！';
+                } else if (accuracy >= 80) {
+                    scoreTitle = '优秀！做得很好！';
+                } else if (accuracy >= 60) {
+                    scoreTitle = '良好！继续努力！';
+                } else {
+                    scoreTitle = '需要多加练习！';
+                }
+                
+                document.querySelector('.score').textContent = scoreTitle;
+            }
+            
+            // 重置默写
+            function resetQuiz() {
+                const inputs = document.querySelectorAll('input[type="text"]');
+                inputs.forEach(input => {
+                    input.value = '';
+                    input.style.borderColor = '#ddd';
+                    
+                    // 移除反馈
+                    if (input.nextElementSibling) {
+                        input.nextElementSibling.remove();
+                    }
+                });
+                
+                // 重置成绩显示
+                document.querySelector('.score').textContent = '请完成默写后点击"提交批改"';
+                document.querySelector('.correct').textContent = '0';
+                document.querySelector('.incorrect').textContent = '0';
+                document.querySelector('.accuracy').textContent = '0%';
+            }
+        });
+    </script>
+</body>
+</html>

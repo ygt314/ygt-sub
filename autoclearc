@@ -12,4 +12,14 @@ else
     rm $myf/.npm/_logs/* -i
 fi
 echo '4)apt cache';apt clean
+echo '5)go cache';echo ues: go mod tidy
 echo 'clean done'
+auto_c()
+{
+dir=${1:-$HOME}
+for ff in $(find $dir -type f -name *history)
+do
+    rm -i $ff
+done
+}
+echo "you can use auto_c [dir]"

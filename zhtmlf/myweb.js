@@ -44,6 +44,12 @@ function myweb(vw,n,rw)
     varweb=to2b(varweb);
     dra_rep(varweb,n,rw);
 }
+function myweb_opt(v,w,n,rw)
+{
+    var varweb=document.getElementById(v).value+document.getElementById(w).value;//varweb-resweb
+    varweb=to2b(varweb);
+    dra_rep(varweb,n,rw);
+}
 function mybai(vb,n,rw)
 {
     var bai=document.getElementById(vb).value;//varbai-resweb
@@ -96,7 +102,7 @@ function trans(vfb,n,rw)
 {
     var word=document.getElementById(vfb).value;//vfb-rw
     var varweb=`https://fanyi.baidu.com/#en/zh/${word}`;varweb=to2b(varweb);
-    dra_rep1(varweb,n,rw);
+    dra_rep(varweb,n,rw);
 }
 function checal(n,rw)
 {
@@ -156,4 +162,16 @@ function nueq_x(nu,n,rw)
     var word=document.getElementById(nu).value;//qceq-rw
     var varweb=`https://zh.numberempire.com/equationsolver.php?function=${word}&var=x&result_type=false&answers=&_p1=2337`;varweb=to2b(varweb);
     dra_rep1(varweb,n,rw);
+}
+function m3u8_hx(mm,n,rw)
+{
+    var url=document.getElementById(mm).value;//m3u8_url
+    var varweb=`https://m.haixingdmx.com/hdst/player/artplayer/index.html?url=${url}`;
+    dra_rep(varweb,n,rw);
+}
+function hx_dm(hx,n,rw)
+{
+    var word=document.getElementById(mm).value;//dm_word
+    var varweb=`https://m.haixingdmx.com/hdst/player/artplayer/index.html?url=${word}`;
+    dra_rep(varweb,n,rw);
 }

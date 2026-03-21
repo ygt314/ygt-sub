@@ -1,2 +1,3 @@
 mpy="$myf/python"
+mqpy="/sdcard/qpython/scripts3/"
 source $mpy/.piprc

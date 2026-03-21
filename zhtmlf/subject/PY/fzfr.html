@@ -1,0 +1,50 @@
+分子间作用力 \( F \) 与分子间距 \( r \) 的函数关系通常由 **Lennard-Jones势（L-J势）** 描述，其对应的力函数可通过势能的负梯度得到。以下是详细分析：
+
+### 1. **Lennard-Jones势能函数**
+   势能 \( U(r) \) 与分子间距 \( r \) 的关系为：
+   \[
+   U(r) = 4\epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right]
+   \]
+   - \(\epsilon\)：势阱深度（作用强度参数）。
+   - \(\sigma\)：分子间势能为零时的距离。
+
+### 2. **分子间作用力 \( F(r) \) 的推导**
+   力是势能的负梯度（\( F = -\frac{dU}{dr} \)）：
+   \[
+   F(r) = -\frac{d}{dr} \left\{ 4\epsilon \left[ \left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^6 \right] \right\}
+   \]
+   计算导数后得到：
+   \[
+   F(r) = 4\epsilon \left[ \frac{12\sigma^{12}}{r^{13}} - \frac{6\sigma^6}{r^7} \right]
+   \]
+   简化表达式：
+   \[
+   F(r) = 24\epsilon \left[ \frac{2\sigma^{12}}{r^{13}} - \frac{\sigma^6}{r^7} \right]
+   \]
+
+### 3. **力的性质分析**
+   - **斥力（\( r < r_0 \)）**：当 \( r \) 很小时，\( r^{-13} \) 项主导，\( F > 0 \)（斥力）。
+   - **引力（\( r > r_0 \)）**：当 \( r \) 较大时，\( r^{-7} \) 项主导，\( F < 0 \)（引力）。
+   - **平衡点（\( r = r_0 \)）**：力为零时，\( r_0 = 2^{1/6}\sigma \approx 1.122\sigma \)，此处势能最低。
+
+### 4. **简化形式**
+   若定义 \( r_0 = 2^{1/6}\sigma \)，力函数可改写为：
+   \[
+   F(r) = \frac{24\epsilon}{r_0} \left[ \left(\frac{r_0}{r}\right)^{13} - \frac{1}{2} \left(\frac{r_0}{r}\right)^7 \right]
+   \]
+
+### 5. **其他分子间作用力模型**
+   - **库仑力（带电分子）**：\( F \propto \frac{q_1 q_2}{r^2} \)。
+   - **偶极-偶极相互作用**：\( F \propto \frac{1}{r^4} \)（远距离时）。
+   - **氢键**：方向性作用，近似与距离的指数函数相关。
+
+### 图示说明
+![Lennard-Jones力与势能曲线](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Lennard-Jones_Potential.svg/800px-Lennard-Jones_Potential.svg.png)
+（横轴为 \( r \)，纵轴左侧为 \( U(r) \)，右侧为 \( F(r) \) ）
+
+### 总结
+分子间作用力 \( F(r) \) 的通用形式（L-J模型）为：
+\[
+F(r) = 24\epsilon \left[ \frac{2\sigma^{12}}{r^{13}} - \frac{\sigma^6}{r^7} \right]
+\]
+该函数同时涵盖短程斥力和长程引力，是理解气体、液体非理想行 为及凝聚态物理的基础。

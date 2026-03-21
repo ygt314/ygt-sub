@@ -1,0 +1,65 @@
+lmnf=~/lmnrc
+lmndir=~/lmn
+lmnmn=~/downloads/Lamina
+lmnbd=$lmnmn/build
+lmnem=$lmnmn/examples
+lmnca=$lmnf/cache.lm
+lmnan=$lmnf/.cache_ans
+lmnhi=$lmnf/.lmm_his
+lmn_res=();lmn_res_n=0
+loadlmn()
+{
+source $lmnf/${1}rc
+}
+rclmn()
+{
+loadlmn $1
+lmn_res[$lmn_res_n]=$1
+lmn_res_n=$((lmn_res_n+1))
+}
+relmn()
+{
+echo resource for lmn
+for name in ${lmn_res[@]}
+do
+    loadlmn $name;echo [$name]
+done
+}
+rclmn bix;rclmn find_x;rclmn sum
+lmn()
+{
+if [ x$1 = x-h ] || [ x$1 = x-help ];then
+    echo lmn [file.lm];return 0
+fi;$lmnbd/bin/lamina $@
+}
+lmm()
+{
+expr_lmn="print($1);";ans2=$1
+if [ -z "$1" ];then
+    echo "use:lmm 1+1";return 0
+fi;echo -n $expr_lmn>$lmnca
+date >>$lmnhi;echo $expr_lmn>>$lmnhi
+lmn $lmnca>$lmnan
+ans=$(head -2 $lmnan|tail -n 1);ansj=${ans:-0}
+if [ ${ansj:0:1} = E ] || [ ${ansj:0:1} = "<" ];then
+    ans=;echo "[error]">>$lmnhi
+else
+    echo $ans>>$lmnhi;ans
+fi
+}
+lmnhis()
+{
+name=$1;if [ -z $1 ];then
+    echo "lmnhis [name] [-l]";return 0
+fi;if [ "$2"x = -lx ];then
+    cat $lmnf/${name}.txt
+else
+    cat $lmnf/.${name}_his
+fi
+}
+lmn_c()
+{
+echo "Clear history of lmn."
+echo "#The history of lmm">$lmnhi
+echo "Finish to clear."
+}

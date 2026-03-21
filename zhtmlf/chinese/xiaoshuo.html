@@ -9,6 +9,11 @@
     var varweb=document.getElementById('varweb').value;
     document.getElementById('resweb').src=varweb;
     }
+    function reget()
+    {
+    alert("重置画面");
+    document.getElementById('resweb').src=".";
+    }
     function jbd_nxn()
     {
     var num=document.getElementById('num').value;
@@ -35,7 +40,7 @@
     <p>1.那些年我们一起追过的女孩</p> <button onclick="jbd_nxn()">开始</button>
     <p>2.The Fault in Our Stars</p> <button onclick="syxs(0)">开始</button>
     <p>3.Flipped</p> <button onclick="syxs(1)">开始</button>
-    <p>网页结果:</p> ────────────────────────────────────────────┐ <br><iframe id="resweb" src="" height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘<br>
+    <p>网页结果:</p> <button onclick="reget()">重置</button>画面<br>────────────────────────────────────────────┐ <br><iframe id="resweb" src="" height="500" width="700"> 画中画标签:你的浏览器不支持该标签</iframe> <br>────────────────────────────────────────────┘<br>
     <h3>链接</h3>
     <p>1. <a href="http://www.mingzhuxiaoshuo.com/">名著小说网</a> <a href="https://www.xuges.com/">虚阁小说网</a> <a href="https://www.shubang.net/">双语小说</a>
     </p>2. <a href="https://www.xuges.com/gt/jbd/index.htm">九把刀|柯景腾作品集_虚阁网</a> <a href="https://www.xuges.com/gt/jbd/nxn/index.htm">那些年，我们一起追的女孩|九把刀_虚阁网</a>

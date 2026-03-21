@@ -3,12 +3,12 @@ ph()
 {
 h3o=$1;if [ -z $1 ];then
     echo "use:ph [H+]";return 0
-fi;j=$(echo "print($h3o<=0)"|python)
+fi;j=$(bcm "$h3o<=0")
 if [ $j = True ];then
     echo "error:$h3o<=0--->the concentration must more than 0 mol/L"
     return 1
 else
-    h3o=$1;ph=$(pym "-lg($h3o)" 14)
+    h3o=$1;ph=$(bcm "-lg($h3o)" 14)
     echo pH=$ph;return 0
 fi
 }
@@ -16,12 +16,12 @@ poh()
 {
 oh_=$1;if [ -z $1 ];then
     echo "use:poh [OH-]";return 0
-fi;j=$(echo "print($oh_<=0)"|python)
-if [ $j = True ];then
+fi;j=$(bcm "$oh_<=0")
+if [ $j = 1 ];then
     echo "error:$oh_<=0--->the concentration must more than 0 mol/L"
     return 1
 else
-    oh_=$1;poh=$(pym "-lg($oh_)" 14)
+    oh_=$1;poh=$(bcm "-lg($oh_)" 14)
     echo pOH=$poh;return 0
 fi
 }
@@ -29,27 +29,27 @@ ph_c()
 {
 if [ ! -z $1 ];then
     ph=$1
-fi;h3o=$(pym "10**(-$ph)" 14)
+fi;h3o=$(bcm "1/10^($ph)")
 echo "c(H+)=$h3o"
 }
 poh_c()
 {
 if [ ! -z $1 ];then
     poh=$1
-fi;oh_=$(pym "10**(-$poh)" 14)
+fi;oh_=$(bcm "1/10^($poh)")
 echo "c(OH-)=$oh_"
 }
 ph_poh()
 {
 if [ ! -z $1 ];then
     ph=$1
-fi;poh=$(pym 14-$ph 14)
+fi;poh=$(bcm 14-$ph)
 echo pOH=$poh
 }
 poh_ph()
 {
 if [ ! -z $1 ];then
     poh=$1
-fi;ph=$(pym 14-$poh 14)
+fi;ph=$(bcm 14-$poh)
 echo pH=$ph
 }

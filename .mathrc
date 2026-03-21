@@ -158,7 +158,7 @@ echo -e "$ans2"
 }
 func()
 {
-echo $func
+echo "$func"
 }
 ran()
 {
@@ -188,11 +188,12 @@ fi;if [ -z $x ];then
     x=0
 fi;func="";for i in $(seq 0 $((${#f}-1)))
 do
-    s="${f:$i:1}";if [ "$s"x = xx ];then
+    s="${f:$i:1}";if [ x$s = xx ];then
         func="$func($x)"
     else
         func="$func$s"
     fi
 done
 }
+source .lmnrc
 echo 数学之门已开启

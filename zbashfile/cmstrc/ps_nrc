@@ -1,11 +1,4 @@
 echo "hxs [hxs]发现化学式之美"
-# enadd()
-# for
-# do
-# elen()
-# for
-# do
-# done
 addele()
 {
 case $1 in

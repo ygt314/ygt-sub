@@ -20,5 +20,5 @@ if [ $vj = 1 ];then
         cd ~/zhtmlf
     else
         mkdir zhtmlf;cd ~/zhtmlf
-    fi;unzip -o zhf.zip
+    fi;unzip -o zhf.zip && rm zhf.zip
 fi

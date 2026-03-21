@@ -81,6 +81,12 @@ else
     purl $1 -$2 k
 fi
 }
+purl_h()
+{
+sc=-s;if [ x$1 = x-n ];then
+    sc=-n
+fi;pht .purl_html $sc
+}
 dcn()
 {
 j=0;for i in $(echo "$stri"|grep ^)

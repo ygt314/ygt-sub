@@ -119,7 +119,7 @@ done
 }
 page()
 {
-n=$1;op=$2;ff=$3
+n=$1;op=$2;ff=$3;co=$4
 if [ x$1 = xp ];then
     n=${op:-1};ff=$patxt
     echo [旧管道处理];op=p
@@ -127,8 +127,8 @@ elif [ x$op = xp ];then
     cat>$patxt;ff=$patxt
     echo [新管道处理][line $(wc -l<$ff)]
 elif [ -z $ff ];then
-    echo 'page [[n] f [file]]|[p [n]]'
-    echo '[com]|page [n] p';return
+    echo 'page [(n) f (file) [code]]|[p (n) [+ [code]]]'
+    echo '[com]|page (n) p';return
 else
     echo file:$ff
 fi;li=$(wc -l<$ff);m=$((li/15+1))
@@ -137,11 +137,15 @@ if [ $n -le 0 ];then
     echo 'error:n must be positive';return 1
 elif [ $m -lt $n ];then
     echo "n>$m:n too large";return 1
-fi;head -$((n*15)) $ff|tail -n 15
+fi;if [ -z $4 ];then
+    head -$((n*15)) $ff|tail -n 15
+else
+    head -$((n*15)) $ff|tail -n 15|iconv -f $co -t utf-8
+fi
 }
 pages()
 {
-page $1 $2 $3
+page $1 $2 $3 $4
 for i in $(seq 1 99)
 do
     echo :+/-/g/q:;read -n 1 j
@@ -154,9 +158,9 @@ do
     else
         n=$((n+1))
     fi;clear;if [ $op = p ];then
-        page p $n
+        page p $n + $co
     else
-        page $n f $ff
+        page $n f $ff $co
     fi
 done;echo "page:$op($ff)[$n/$m]"
 echo [休息一下]
