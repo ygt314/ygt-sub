@@ -1,7 +1,7 @@
 # 学科termux - (zero)Termux学科资源集合
 
-![Gitee Stars](https://gitee.com/ygt314159/subject-termuxmux/badge/star.svg?theme=gray)
-![Gitee Forks](https://gitee.com/ygt314159/subject-termuxmux/badge/fork.svg?theme=gray)
+![Gitee Stars](https://gitee.com/ygt314159/subject-termux/badge/star.svg?theme=gray)
+![Gitee Forks](https://gitee.com/ygt314159/subject-termux/badge/fork.svg?theme=gray)
 
 ## 📌 项目简介
 
