@@ -1,6 +1,7 @@
-# Subject-ter: Termux Subject Resources
+# Subject-termux: Termux Subject Resources
 
-![Gitee Stars](https://gitee.com/ygt314159/subject-ter/badge/star.svg?theme=gray) ![Gitee Forks](https://gitee.com/ygt314159/subject-ter/badge/fork.svg?theme=gray)
+![Gitee Stars](https://gitee.com/ygt314159/subject-termuxmux/badge/star.svg?theme=gray)
+![Gitee Forks](https://gitee.com/ygt314159/subject-termuxmux/badge/fork.svg?theme=gray)
 
 ## Project Introduction
 
@@ -16,20 +17,21 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
 
 ```
 .
-├── bcrc/            # BC math sources
-├── cmstrc/          # Chemistry sources
-├── en/              # English learning resources
-├── enrc/            # English sources
-├── mapyrc/          # Python math sources
-├── mathrc/          # Math sources
-├── zbashfile/       # Bash shell e.g.-env
-├── zchinese/        # Chinese learning resources
-├── .bashrc          # Termux environment configuration
-├── .gitignore       # Git ignore rules
-├── LICENSE          # EPL-1.0 open source license
-├── README.md        # Project description (Chinese)
-├── README.en.md     # Project description (English)
-└── terset.sh         # Plan your termux for subject
+├── bcrc/            # bc
+├── cmstrc/          # chemistry
+├── cnrc/            # chinese
+├── en/              # English study
+├── enrc/            # English
+├── mapyrc/          # python-math
+├── mathrc/          # math
+├── zbashfile/       # examination of system shell (uesd to the safe mode)
+├── zchinese/        # Chinese study
+├── .bashrc          # Termux resource
+├── .gitignore       # Git-ignore
+├── LICENSE          # EPL-1.0 open source protocol
+├── README.md        # README(CN)
+├── README.en.md     # README(EN)
+└── terset.sh        # the script to plan environment
 ```
 
 ## Quick Start
@@ -40,18 +42,18 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    termux-change-repo
    ```
 3. Download project：
-### (1)[In Termux]subter\_1.1.5.zip
+### (1)[In Termux]subter\_1.1.8.zip
 ```
-cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.5.zip>sbt.zip
+cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>sbt.zip
 ```
 [Unzip and clean]
 ```bash
 cd;unzip sbt.zip;rm sbt.zip
 ```
 If you don't have 'unzip', you can use (2)
-### (2)[In Termux]subter\_1.1.5.tar
+### (2)[In Termux]subter\_1.1.8.tar
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-ter/raw/master/subter_1.1.5.tar>sbt.tar
+cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.tar>sbt.tar
 ```
 [Unzip and clean]
 ```bash
