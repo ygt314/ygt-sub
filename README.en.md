@@ -45,7 +45,7 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
    ```
 3. Download project：
 ### (1)[In Termux]subter\_1.1.8.zip
-```
+```bash
 cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>sbt.zip
 ```
 [Unzip and clean]

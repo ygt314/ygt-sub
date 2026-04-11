@@ -57,6 +57,7 @@
 
 基于zero-termux项目
 - [termux-x官网](https://termux-x.com)
+- [Termux-X手册](https://termux-x.com/guide/introduction-overview)
 - [1] [直接下载](https://xheishou.com/update/apk/nethunter/Termux-X-0.118.3.60.1.apk)
 ### 2. 更换国内(清华)源
    - 如果你下载了汉化版:
@@ -66,16 +67,11 @@
    ```bash
    termux-change-repo
    ```
-   依次选择 _Single mirror_ >> _Mirror by Tsinghua University TUNA_ 即可更换国内清华源
+   依次点击选择 _Single mirror_(单镜像，位于第二项) >> _Mirror by Tsinghua University TUNA_ (若没有看到，请上下滑动页面)即可更换国内清华源
    - Termux[清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
 ### 3. 下载本项目(原生版和汉化版操作相同)
-- (1)[浏览器中下载]本项目[subter\_1.1.8.zip](https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip)文件，选择用termux打开并选择'Dir...'转到文件位置
-- **移动文件**后再解压
-```bash
-mv subter_1.1.8.zip ~/sbt.zip
-```
 [termux中下载]subter\_1.1.8.zip(汉化版操作相同)
-```
+```bash
 cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>sbt.zip
 ```
 [解压并清理]
@@ -83,11 +79,6 @@ cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>s
 cd;unzip sbt.zip;rm sbt.zip
 ```
 如果你没有unzip可以采用方式(2)(原生版和汉化版操作相同)
-- (2)[浏览器中下载]本项目[subter\_1.1.8.tar](https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.tar)文件，选择用termux打开并选择'Dir...'转到文件位置
-- **移动文件**后再解压
-```bash
-mv subter_1.1.8.tar ~/sbt.tar
-```
 [termux中下载]subter\_1.1.8.tar(汉化版操作相同)
 ```bash
 cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.tar>sbt.tar
@@ -165,5 +156,6 @@ cd;tar -xvf sbt.tar;rm sbt.tar
 
 - [Termux官网](https://termux.com/)
 - [ZeroTermux官网下载站](https://d.icdown.club/doc/)
+- [Termux-X官网](https://termux-x.com/)
 - [Gitee帮助文档](https://gitee.com/help)
 - [开源协议说明](https://www.eclipse.org/legal/epl-v10.html)
