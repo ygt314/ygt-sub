@@ -1,0 +1,11 @@
+packaging==26.0
+Pygments==2.20.0
+pyparsing==3.3.2
+PyPyNum==1.18.0
+python-dateutil==2.9.0.post0
+regex==2026.4.4
+rich==14.3.3
+setuptools==82.0.0
+sidetrack==2.0.1
+six==1.17.0
+sympy==1.14.0

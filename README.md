@@ -67,7 +67,7 @@
    ```bash
    termux-change-repo
    ```
-   依次点击选择 _Single mirror_(单镜像，位于第二项) >> _Mirror by Tsinghua University TUNA_ (若没有看到，请上下滑动页面)即可更换国内清华源
+   依次点击(或空格)选择 _Single mirror_(单镜像，位于第二项) >> _Mirror by Tsinghua University TUNA_ (若没有看到，请按↑或↓翻页)即可更换国内清华源
    - Termux[清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
 ### 3. 下载本项目(原生版和汉化版操作相同)
 [termux中下载]subter\_1.1.8.zip(汉化版操作相同)
@@ -117,6 +117,7 @@ cd;tar -xvf sbt.tar;rm sbt.tar
    ```bash
    cdh
    purl [http链接]
+   pht [html文件]
    ```
    1.sh:本地html
    ```bash

@@ -1,4 +1,4 @@
-# Subject-termux: Termux Subject Resources
+=====# Subject-termux: Termux Subject Resources
 
 ![Gitee Stars](https://gitee.com/ygt314159/subject-termux/badge/star.svg?theme=gray)
 ![Gitee Forks](https://gitee.com/ygt314159/subject-termux/badge/fork.svg?theme=gray)
@@ -91,6 +91,7 @@ It in ~/zhtmlf
    ```bash
    cdh
    purl [URL]
+   pht [FILE]
    ```
    1.sh: catch local html
    ```bash
