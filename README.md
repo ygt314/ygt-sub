@@ -60,85 +60,102 @@
 - [Termux-X手册](https://termux-x.com/guide/introduction-overview)
 - [1] [直接下载](https://xheishou.com/update/apk/nethunter/Termux-X-0.118.3.60.1.apk)
 ### 2. 更换国内(清华)源
-   - 如果你下载了汉化版:
-   在软件里侧拉工具箱，点击[切换源]并选择[清华源]即可临时换源。但关闭APP会失效，需要重新操作
-   如果你要获得永久支持，请按原生版操作
-   - 如果你下载了原生版(汉化版同样可以):
-   ```bash
-   termux-change-repo
-   ```
-   依次点击(或空格)选择 _Single mirror_(单镜像，位于第二项) >> _Mirror by Tsinghua University TUNA_ (若没有看到，请按↑或↓翻页)即可更换国内清华源
-   - Termux[清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
-### 3. 下载本项目(原生版和汉化版操作相同)
-[termux中下载]subter\_1.1.8.zip(汉化版操作相同)
+- 如果你下载了汉化版:
+在软件里侧拉工具箱，点击[切换源]并选择[清华源]即可临时换源。但关闭APP会失效，需要重新操作
+如果你要获得永久支持，请按原生版操作
+- 如果你下载了原生版(汉化版同样可以):
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>sbt.zip
+termux-change-repo
+```
+依次点击(或空格)选择 _Single mirror_(单镜像，位于第二项) >> _Mirror by Tsinghua University TUNA_ (若没有看到，请按↑或↓翻页)即可更换国内清华源
+- Termux[清华大学镜像站帮助](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
+### 3. 布署本项目(原生版和汉化版操作相同)
+[安装curl]本项目依赖curl，先在Termux中执行
+```bash
+apt install -y curl
+```
+如果没有执行，下面脚本部分功能会失效
+
+[自动化脚本布署]请在Termux中执行
+```bash
+curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
+```
+#### 备用布署方案
+[termux中下载]subter\_1.1.9.zip(汉化版操作相同)
+```bash
+cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.9.zip>sbt.zip
 ```
 [解压并清理]
 ```bash
 cd;unzip sbt.zip;rm sbt.zip
 ```
 如果你没有unzip可以采用方式(2)(原生版和汉化版操作相同)
-[termux中下载]subter\_1.1.8.tar(汉化版操作相同)
+
+[termux中下载]subter\_1.1.9.tar(汉化版操作相同)
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.tar>sbt.tar
+cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.9.tar>sbt.tar
 ```
 [解压并清理]
 ```bash
 cd;tar -xvf sbt.tar;rm sbt.tar
 ```
-### 4.运行初始化脚本(原生版和汉化版操作相同)
-   ```bash
-   cd
-   bash terset.sh
-   ```
+### 4.初始化脚本(原生版和汉化版操作相同)
+项目布署脚本会自动进行初始化
+如果你误用了apt remove命令或网络问题而终止，可以重新执行
+```bash
+cd
+bash terset.sh
+```
 
 ## 学科网页目录
 
 本项目已经确定其位置:~/zhtmlf(原生版和汉化版相同)
 ### 1. 下载更新
-   本项目已经部署自动化脚本**hhts.sh**
-   ```bash
-   bash hhts.sh
-   ```
+本项目已经部署自动化脚本**hhts.sh**
+如果你刚刚执行了项目布署(install.sh)脚本，hhts.sh会被自动执行一次
+
+需要定期执行hhts.sh来更新
+```bash
+bash hhts.sh
+```
 ### 2. 建立http服务
-   访问学科网页需要你在本地开启zhtmlf目录的**http服务**
-   本项目已经部署两种方法的**bash函数**:python的server标准库和http-server(nodejs工具)
-   - (1)python方法函数
-   ```bash
-   hhf
-   ```
-   - (2)nodejs方法函数
-   ```bash
-   hhf_np
-   ```
+访问学科网页需要你在本地开启zhtmlf目录的**http服务**
+本项目已经部署两种方法的**bash函数**:python的server标准库和http-server(nodejs工具)
+- (1)python方法函数
+```bash
+hhf
+```
+- (2)nodejs方法函数
+```bash
+hhf_np
+```
 ### 3. html阅读功能
-   cdh函数命令即可启用
-   ```bash
-   cdh
-   purl [http链接]
-   pht [html文件]
-   ```
-   1.sh:本地html
-   ```bash
-   bash 1.sh
-   ```
-   2.sh:purl的交互模式
-   ```bash
-   bash 2.sh
-   ```
-   hl\_new.sh实现提取柯南更新信息
-   ```bash
-   bash hl_new.sh
-   ```
+cdh函数命令即可启用
+```bash
+cdh
+purl [http链接]
+pht [html文件]
+```
+1.sh:本地html
+```bash
+bash 1.sh
+```
+2.sh:purl的交互模式
+```bash
+bash 2.sh
+```
+hl\_new.sh实现提取柯南更新信息
+```bash
+bash hl_new.sh
+```
 
 ## zbashfile目录
 
 使用方法:
 在桌面长按termux启用'failsafe'(汉化版为'故障安全')，进入安全模式
-   ```bash
-   source zbashfile/.bashrc
-   ```
+```bash
+source zbashfile/.bashrc
+```
 但只能使用系统命令
 
 ## 许可证

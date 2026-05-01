@@ -1,5 +1,5 @@
 vvf=~/.htmrc;vj=0
-mymas=https://gitee.com/ygt314159/subject-ter/raw/master
+mymas=https://gitee.com/ygt314159/subject-termux/raw/master
 #识别版本
 if [ -e $vvf ];then
     zvz=$(head -1 $vvf)

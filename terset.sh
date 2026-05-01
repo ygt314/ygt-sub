@@ -8,12 +8,10 @@ getpg getconf screenfetch
 #getconf LONG_BIT查看系统位数
 getpg busybox termux-tools
 na=tree;getpg $na
-na=天气狗;getpg wego
 hello='C(gcc已内置)'
 na=clang;getpg $na
 hello='Shell math'
 na=BC;getpg bc
-na=mma;getpg mathomatic
 na=gnuplot;getpg $na
 hello=en-speak
 na=speak;getpg espeak
@@ -60,6 +58,5 @@ na=浏览器;getpg curl w3m
 echo 使用node命令开始js
 #管理包用npm,启用包用npx
 echo node_pg:npx,npm
-echo [http-server,mapscii,he...]
 echo [准备包];npm update;echo [已完成]
 #ping内置

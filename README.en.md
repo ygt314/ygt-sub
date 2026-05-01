@@ -40,32 +40,13 @@ Subject-ter is a collection of subject-related resource programs for Termux, a L
 
 1. Install the Termux app
 2. Change the domestic mirror source:
-   ```bash
-   termux-change-repo
-   ```
-3. Download project：
-### (1)[In Termux]subter\_1.1.8.zip
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.zip>sbt.zip
+termux-change-repo
 ```
-[Unzip and clean]
+3. Download and init project：
 ```bash
-cd;unzip sbt.zip;rm sbt.zip
+curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
 ```
-If you don't have 'unzip', you can use (2)
-### (2)[In Termux]subter\_1.1.8.tar
-```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.8.tar>sbt.tar
-```
-[Unzip and clean]
-```bash
-cd;tar -xvf sbt.tar;rm sbt.tar
-```
-4. Run the initial script：
-   ```bash
-   cd
-   bash terset.sh
-   ```
 
 ## zhtmlf
 
