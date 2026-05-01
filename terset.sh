@@ -35,7 +35,7 @@ na=mc;getpg $na
 hello=文件处理
 na=Vim;getpg vim
 na=zip;getpg zip unzip gzip
-na=doc;getpg pandoc grep gawk mandoc
+na=doc;getpg pandoc grep gawk mandoc glow
 na=play;getpg sox mpv mpg123
 na=jpg;getpg openjpeg
 na=音频处理;getpg ffmpeg
@@ -43,6 +43,7 @@ hello='git(ee,hub)';na=Git
 getpg git
 hello=AI智能
 na=本地;getpg ollama tgpt
+echo ollama需下载模型，tgpt自带模型
 # tgpt自带模型，也可用API
 hello=网络
 na=SSL;echo openssl:python已依赖

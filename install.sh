@@ -25,11 +25,11 @@ if [ $? != 0 ];then
     echo 即将使用系统tar
 fi;echo 下载并布署项目
 if [ $zip_j = 1 ];then
-    curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.9.zip > sbt.zip
+    curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.0.zip > sbt.zip
     cd;unzip sbt.zip
     rm sbt.zip
 else
-    curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.1.9.tar>sbt.tar
+    curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.0.tar>sbt.tar
     cd;tar -xvf sbt.tar
     rm sbt.tar
 fi;cd;echo 执行ppht.sh
