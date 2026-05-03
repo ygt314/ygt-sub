@@ -24,7 +24,6 @@ let comic_name = new Array();
 // 歌曲信息数组
 let track_names = ["METAMORPHOSIS - INTERWORLD",
 "Murder In My Mind (Slowed + Reverb)",
-"Murder in My Mind (Explicit).m4a",
 "周杰伦 - 本草纲目",
 "周深 - 大鱼",
 "温亮亮 - 相信我们会创造奇迹",
