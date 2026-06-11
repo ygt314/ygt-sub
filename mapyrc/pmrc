@@ -6,15 +6,20 @@ elif [ "$1" = "-h" ] || [ "$1" = "--help" ];then
     pym_help $2
 else
     ans2="$1";echo -e "$(date)\n$1">>$mapyf/.pym_history
-    ans=$(python $mapyf/zm-sh.py "$1" $2)
+    ans=$(python $mapyf/zm-sh.py --suppress-pypynum "$1" $2)
     echo $ans;echo "The answer is $ans">>$mapyf/.pym_history
 fi
 }
 pym_help()
 {
 if [ -z "$1" ];then
-    less $mapyf/pymhelp;echo
+    less $mapyf/pymhelp
+    echo 'more help>>>pym_help_md'
 else
-    pym "help($1)"|less
+    python $mapyf/zm-sh.py -h $1
 fi
+}
+pym_help_md()
+{
+vi -R $mapyf/pymhelp.md
 }

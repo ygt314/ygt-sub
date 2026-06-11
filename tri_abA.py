@@ -1,6 +1,6 @@
 from sys import path
 path.append('mapyrc/')
-from tri_solve_mp import *
+from tri_solve import *
 a,b,A=input("a,b,A°:>").split(",")
 print(f"△ABC,a={a},b={b},A={A}°")
 a,b,A=float(a),float(b),float(A)

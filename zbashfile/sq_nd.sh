@@ -45,7 +45,7 @@ elif ((s>0));then
         nbb=$nbc
     done
     ans="$i.$f"
-fi;if ((aj==1));then
+fi;if ((b==1));then
     echo "${ans}i"
 else
     echo $ans
