@@ -141,3 +141,7 @@ cython_debug/
 *.rule
 # my project_analysis
 project_analysis.md
+# my package
+zhtmlf.zip
+player.zip
+fnchess*.zip
