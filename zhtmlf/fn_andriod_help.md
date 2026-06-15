@@ -7,19 +7,19 @@
 ### 安卓本地使用方法之百度网盘下载
 
 1. 百度网盘中下载函数棋zip压缩包，以up发布的下载方式为准
-2. 使用MT管理器(免费)解压:
-在百度网盘下载目录`/sdcard/Download/BaiduNetdisk/`找到`函数棋1.0.0.zip`文件，长按它选择`解压到...`，选择解压到当前目录确定解压即可<br>
+2. 使用MT管理器(不登录也免费)解压:
+在百度网盘下载目录`/sdcard/Download/BaiduNetdisk/`找到`函数棋1.0.0.zip`文件，长按它选择`解压到...`，选择解压到当前目录，确定解压即可<br>
 可以顺手找到入口网页文件的位置，长按它选择查看属性，点击可复制位置和文件名，方便浏览器访问<br>
-点击观看[解压缩教程](demo_1.mp4)
+点击下载观看[解压缩教程](demo_1.mp4)
 3. 浏览器访问`file:///sdcard/Download/BaiduNetdisk/函数棋1.0.0/index.html`即可(请确保浏览器的所有文件访问权限已开)<br>
-点击观看[浏览器访问教程](demo_2.mp4)
+点击下载观看[浏览器访问教程](demo_2.mp4)
 
 ### 安卓本地使用方法之浏览器下载
 
 1. 浏览器访问[自助tag](https://gitee.com/ygt314159/subject-termux/releases/tag/1.0.0)发布页(本页也可以直接)点击[fnchess_1.0.0](https://gitee.com/ygt314159/subject-termux/releases/download/1.0.0/fnchess_1.0.0.zip)下载
-2. 使用MT管理器(免费)解压:
-在下载目录`/sdcard/Download/`找到`fnchess_1.0.0.zip`文件，长按它选择`解压到...`，选择解压到当前目录确定解压即可<br>
+2. 使用MT管理器(不登录也免费)解压:
+在下载目录`/sdcard/Download/`找到`fnchess_1.0.0.zip`文件，长按它选择`解压到...`，选择解压到当前目录，确定解压即可<br>
 可以顺手找到入口网页文件的位置，长按它选择查看属性，点击可复制位置和文件名，方便浏览器访问<br>
-点击观看[解压缩教程](demo_3.mp4)
+点击下载观看[解压缩教程](demo_3.mp4)
 3. 浏览器访问`file:///sdcard/Download/fnchess_1.0.0/`即可(请确保浏览器的所有文件访问权限已开)<br>
-点击观看[浏览器访问教程](demo_4.mp4)
+点击下载观看[浏览器访问教程](demo_4.mp4)
