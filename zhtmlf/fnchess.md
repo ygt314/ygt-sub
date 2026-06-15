@@ -6,10 +6,7 @@
 
 ## 安卓本地使用方法(无需服务器)
 
-1. 浏览器访问[tag](https://gitee.com/ygt314159/subject-termux/releases/tag/1.0.0)发布页(本页可以直接)点击[fnchess_1.0.0](https://gitee.com/ygt314159/subject-termux/releases/download/1.0.0/fnchess_1.0.0.zip)下载
-2. 使用MT管理器(免费)解压:
-在下载目录`/sdcard/Download/`找到`fnchess_1.0.0.zip`文件，长按它选择`解压到...`，确定解压即可
-3. 浏览器访问`file:///sdcard/Download/fnchess_1.0.0`即可(请确保浏览器所有文件访问权限已开)
+请见[安卓本地使用帮助](fn_andriod_help.md)
 
 ## 下载与使用(需要局域网服务器)
 
