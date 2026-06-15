@@ -4,7 +4,14 @@
 
 函数棋是一款融合数学函数与策略对战的益智游戏。玩家通过构造数学函数表达式，使其图像穿过目标格子来得分，同时需要避开禁止区。表达式越简短，得分越高。
 
-## 下载与使用
+## 安卓本地使用方法(无需服务器)
+
+1. 浏览器访问[tag](https://gitee.com/ygt314159/subject-termux/releases/tag/1.0.0)发布页(本页可以直接)点击[fnchess_1.0.0](https://gitee.com/ygt314159/subject-termux/releases/download/1.0.0/fnchess_1.0.0.zip)下载
+2. 使用MT管理器(免费)解压:
+在下载目录`/sdcard/Download/`找到`fnchess_1.0.0.zip`文件，长按它选择`解压到...`，确定解压即可
+3. 浏览器访问`file:///sdcard/Download/fnchess_1.0.0`即可(请确保浏览器所有文件访问权限已开)
+
+## 下载与使用(需要局域网服务器)
 
 学科ter项目(本项目)最新版本(v1.2.2)已自动布署<br>
 启动局域网服务器使用`hhf`命令，浏览器访问`127.0.0.1:2222/函数棋1.0.0`就能玩<br>
@@ -19,7 +26,7 @@ apt install -y python curl zip unzip
 
 2. 为方便游戏下载，可利用本项目快捷通道，在Termux中粘贴~~输入(bushi~~并回车执行下面curl下载命令，直到echo输出下载完成
 ```bash
-cd;echo 下载函数棋;curl -L https://gitee.com/ygt314159/subject-termux/releases/download/v0.0.1/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
+cd;echo 下载函数棋;curl -L https://gitee.com/ygt314159/subject-termux/releases/download/v1.0.0/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
 ```
 
 3. 解压游戏压缩包:
