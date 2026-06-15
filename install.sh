@@ -26,11 +26,11 @@ if [ $? != 0 ];then
 fi;echo 下载并布署项目
 file_v="subter_1.2.2"
 if [ $zip_j = 1 ];then
-    curl https://gitee.com/ygt314159/subject-termux/raw/master/$file_v.zip > sbt.zip
+    curl -L https://gitee.com/ygt314159/subject-termux/raw/master/$file_v.zip > sbt.zip
     cd;unzip sbt.zip
     rm sbt.zip
 else
-    curl https://gitee.com/ygt314159/subject-termux/raw/master/$file_v.tar>sbt.tar
+    curl -L https://gitee.com/ygt314159/subject-termux/raw/master/$file_v.tar>sbt.tar
     cd;tar -xvf sbt.tar
     rm sbt.tar
 fi;cd;echo 执行ppht.sh

@@ -121,9 +121,9 @@ apt install -y curl
 curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
 ```
 #### 备用布署方案
-[termux中下载]subter\_1.2.1.zip(汉化版操作相同)
+[termux中下载]subter\_1.2.2.zip(汉化版操作相同)
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.1.zip>sbt.zip
+cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.zip>sbt.zip
 ```
 [解压并清理]
 ```bash
@@ -131,9 +131,9 @@ cd;unzip sbt.zip;rm sbt.zip
 ```
 如果你没有unzip可以采用方式(2)(原生版和汉化版操作相同)
 
-[termux中下载]subter\_1.2.1.tar(汉化版操作相同)
+[termux中下载]subter\_1.2.2.tar(汉化版操作相同)
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.1.tar>sbt.tar
+cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.tar>sbt.tar
 ```
 [解压并清理]
 ```bash

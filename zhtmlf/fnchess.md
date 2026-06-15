@@ -1,12 +1,13 @@
 # 函数棋 (FnChess)
 
 ## 【游戏简介】
+
 函数棋是一款融合数学函数与策略对战的益智游戏。玩家通过构造数学函数表达式，使其图像穿过目标格子来得分，同时需要避开禁止区。表达式越简短，得分越高。
 
 ## 下载与使用
 
 学科ter项目(本项目)最新版本(v1.2.2)已自动布署<br>
-启动局域网服务器使用`hhf`命令，浏览器访问`127.0.0.1:2222/fnchess`就能玩<br>
+启动局域网服务器使用`hhf`命令，浏览器访问`127.0.0.1:2222/函数棋1.0.0`就能玩<br>
 **注意**:
 如果没有接触过本项目要单独下载:<br>
 0. 汉化版Termux下载:点击[Termux-X](termux-x.com)进入官网
@@ -18,19 +19,21 @@ apt install -y python curl zip unzip
 
 2. 为方便游戏下载，可利用本项目快捷通道，在Termux中粘贴~~输入(bushi~~并回车执行下面curl下载命令，直到echo输出下载完成
 ```bash
-cd;curl https://gitee.com/ygt314159/subject-termux/raw/master/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
+cd;echo 下载函数棋;curl -L https://gitee.com/ygt314159/subject-termux/releases/download/v0.0.1/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
 ```
 
 3. 解压游戏压缩包:
 在Termux中粘贴~~输入(bushi~~并回车执行下面unzip解压命令，直到echo输出解压完成
 ```bash
-cd;unzip fncs.zip -d 函数棋1.0.0;echo 解压完成
+cd
+[ -e 函数棋1.0.0 ] && echo 删除旧版本 && rm -rf 函数棋1.0.0
+echo 安装新版本;unzip fncs.zip -d 函数棋1.0.0;echo 安装完成
 ```
 
 4. 启动局域网游戏服务器:
 在Termux中粘贴~~输入(bushi~~并回车执行下面python局域网服务器启动命令
 ```bash
-python -m http.server 8080
+cd;python -m http.server 8080
 ```
 
 5. 浏览器访问函数棋:
