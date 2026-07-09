@@ -127,6 +127,12 @@ function woal(wa,n,rw)
     var varweb=`https://www.wolframalpha.com/input?i=${word}`;varweb=to2b(varweb);
     dra_rep1(varweb,n,rw);
 }
+function deepseek(ds,n,rw)
+{
+    var word=document.getElementById(ds).value;//ds-rw
+    var varweb=`https://chat.deepseek.com/?q=${word}`;varweb=to2b(varweb);
+    dra_rep(varweb,n,rw);
+}
 function qcemb(qc,n,rw)
 {
     var word=document.getElementById(qc).value;//qcem-rw
