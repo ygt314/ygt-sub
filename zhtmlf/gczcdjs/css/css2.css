@@ -1,0 +1,27 @@
+.djs {
+    width: 400px;height: 500px;
+    text-align: center;
+    display: inline-block;
+    color: #0000ff;
+    position: fixed;
+    top: 0%;
+    z-index: 100;
+    left: 50%;
+}
+.sz {
+    color: #ff0000 !important;
+    font-size: 50px !important;
+    margin: 0px 5px 0px 5px;
+}
+.zkdjs font, .gkdjs font {
+    font-size: 30px;
+}
+jljl {
+    color: #ff8800;
+}
+jlzc {
+    color: #ff0000;
+}
+jlgc {
+    color: #ff0000;
+}

@@ -20,9 +20,9 @@ curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
 
 | 类别 | 工具 | 说明 |
 |:----|:----|:-----|
-| 🧮 **数学** | `pym` 命令 | Python 数学计算器，支持三角函数、复数、符号运算 |
+| 🧮 **数学** | `pym` 命令 | Python 数学计算器，支持三角函数、复数、代数式数值验证 |
 | | `bcm` / `bc -l math.bc` | GNU bc 任意精度数学库（三角函数/对数/阶乘/求和）|
-| | `math` 命令 / Shell 工具 | Shell 整数/小数计算器 + `ran`/`deta`/`fx` 函数 |
+| | `zm [-l]` 命令 / Shell 工具 | Shell 整数/小数计算器 + `ran`/`deta`/`fx` 函数 |
 | | `bash find_x.sh` / `cputest-pi.sh` | 函数寻根 / CPU 圆周率性能测试 |
 | | `python3 an_sn1.py` | 数列求和公式推导 |
 | | `python3 tri_abA.py` | 三角形（边边角）求解 |
@@ -157,7 +157,7 @@ bash terset.sh
 
 ### pym — 交互式数学计算器（核心工具）
 
-`pym` 是本项目的核心数学工具，基于 Python + sympy/symengine 实现，支持在终端中直接进行数学计算。
+`pym` 是本项目的核心数学工具，基于 Python + cmath实现，支持在终端中直接进行数学计算。
 
 ```bash
 pym "表达式" [小数位数]
@@ -165,9 +165,8 @@ pym "表达式" [小数位数]
 pym "sin(pi/3)"          # 三角函数  → 0.866025403784439
 pym "sqrt(2)" 5          # 根号保留5位小数 → 1.41421
 pym "log(100,10)"        # 对数      → 2
-pym "1+2i"               # 复数支持   → (1+2j)
-pym "set x = 5"          # 变量赋值
-pym "x**2 + 2*x + 1"     # 使用变量   → 36
+pym "1+2*i"               # 复数支持   → (1+2j)
+pym "x**2 + 2*x + 1"     # 使用内部变量
 ```
 
 **支持的功能**：三角函数（sin/cos/tan/cot/sec/csc, 支持弧度/角度）、反三角函数、双曲函数、指数对数、取整、复数运算、常数（pi/e/phi/s2/gama）、角度转换（d_r/r_d）。
@@ -190,8 +189,8 @@ ln(100)          # 自然对数
 ### Shell 数学
 
 ```bash
-math                 # 启动整数计算器 (math_s.sh)
-math_f              # 启动小数计算器 (math_f.sh，基于 bc -l)
+zm                # 启动整数计算器 (math_s.sh)
+zm -l             # 启动小数计算器 (math_f.sh，基于 bc -l)
 ran [n]             # 生成 0~(n-1) 随机数
 deta a b c          # 一元二次方程判别式 Δ=b^2-4ac
 fx "x^2+1" 3        # 将函数 f(x) 中的 x 替换为 3
@@ -299,7 +298,7 @@ python3 plot2_sh.py "x*x" "-5:5" "0:25"
 # 命令行参数版，格式：函数 x_min:x_max y_min:y_max
 ```
 
-支持 `y=f(x)` 和隐函数 `f(x,y)=0`。
+支持 (y=)`f(x)` 和隐函数 (y=)`y+f(x,y)`(`y`是占位符)。
 
 ## 🛠️ 常用工具
 
@@ -374,16 +373,10 @@ tgpt -s "安装nginx"          # Shell 命令模式（自动生成并执行）
 bash ppht.sh
 ```
 ### 2. 建立http服务
-访问学科网页需要你在本地开启zhtmlf目录的**http服务**
+访问学科网页需要你在本地开启zhtmlf目录的**http服务**<br>
 本项目已经部署两种方法的**bash函数**:python的server标准库和http-server(nodejs工具)
-- (1)python方法函数
-```bash
-hhf
-```
-- (2)nodejs方法函数
-```bash
-hhf_np
-```
+- (1)python方法函数:`hhf`
+- (2)nodejs方法函数:`hhf_np`
 ### 3. html阅读功能
 cdh函数命令即可启用
 ```bash

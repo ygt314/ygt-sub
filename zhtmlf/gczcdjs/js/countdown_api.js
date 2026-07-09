@@ -31,22 +31,24 @@ gaokaohrsold=e_gaokaohrsold%24;
 zhongkaohrsold=e_zhongkaohrsold%24;
 gaokaodaysold=(e_gaokaohrsold-gaokaohrsold)/24;
 zhongkaodaysold=(e_zhongkaohrsold-zhongkaohrsold)/24;
-if(gaokaosectimeold<=-226800)//高考结束后两天恢复高考显示
-{gkcountdown.innerHTML="<div class=gkdjs><font><jljl>距离"+key1+"</jljl><jlgc>高考</jlgc></font><br><font class=sz>"+gaokaodaysold+"</font><font>天</font><br>"+gaokaohrsold+"小时"+gaokaominsold+"分"+gaokaoseconds+"秒"+"</div>";
-} else if(gaokaosectimeold<=-115200)
-{gkcountdown.innerHTML="<div class=gkdjs><font color=#f8c8a4>高考已结束</font><br/>预祝同学们金榜题名！</div>";
-} else if(gaokaosectimeold<=0)
-{gkcountdown.innerHTML="<div class=gkdjs><font color=#f8c8a4>高考进行中</font><br/>各位同学加油！</div>";
-} else //显示倒计时
-{gkcountdown.innerHTML="<div class=gkdjs><font><jljl>距离"+key1+"</jljl><jlgc>高考</jlgc></font><br><font class=sz>"+gaokaodaysold+"</font><font>天</font><br>"+gaokaohrsold+"小时"+gaokaominsold+"分"+gaokaoseconds+"秒"+"</div>";}
-if(zhongkaosectimeold<=-226800)//中考结束后两天恢复中考显示
-{zkcountdown.innerHTML="<div class=zkdjs><font><jljl>距离"+key2+"</jljl><jlzc>中考</jlzc></font><br><font class=sz>"+zhongkaodaysold+"</font><font>天</font><br>"+zhongkaohrsold+"小时"+zhongkaominsold+"分"+zhongkaoseconds+"秒"+"</div>";
-} else if(zhongkaosectimeold<=-115200)
+if(gaokaosectimeold<=-600000)
+{gkcountdown.innerHTML="<div class=gkdjs><font><jljl>距离"+key1+"</jljl><jlgc>高考已有</jlgc></font><br><font class=sz>"+(-gaokaodaysold)+"</font><font>天</font><br>"+(-gaokaohrsold)+"小时"+(-gaokaominsold)+"分"+(-gaokaoseconds)+"秒</div>";}
+else if(gaokaosectimeold<=-270000)
+{gkcountdown.innerHTML="<div class=gkdjs><font color=#f8c8a4>高考已结束</font><br/>预祝同学们金榜题名！</div>";}
+else if(gaokaosectimeold<=0)
+{gkcountdown.innerHTML="<div class=gkdjs><font color=#f8c8a4>高考进行中</font><br/>各位同学加油！</div>";}
+else //显示倒计时，允许七天后显示负数
+{gkcountdown.innerHTML="<div class=gkdjs><font><jljl>距离"+key1+"</jljl><jlgc>高考还有</jlgc></font><br><font class=sz>"+gaokaodaysold+"</font><font>天</font><br>"+gaokaohrsold+"小时"+gaokaominsold+"分"+gaokaoseconds+"秒"+"</div>";}
+if(zhongkaosectimeold<=-600000)
+{
+zkcountdown.innerHTML="<div class=zkdjs><font><jljl>距离"+key2+"</jljl><jlzc>中考已有</jlzc></font><br><font class=sz>"+(-zhongkaodaysold)+"</font><font>天</font><br>"+(-zhongkaohrsold)+"小时"+(-zhongkaominsold)+"分"+(-zhongkaoseconds)+"秒"+"</div>";
+}
+else if(zhongkaosectimeold<=-270000)
 {zkcountdown.innerHTML="<div class=zkdjs><font color=#f8c8a4>中考已结束</font><br/>预祝同学们金榜题名！</div>";
 } else if(zhongkaosectimeold<=0)
 {zkcountdown.innerHTML="<div class=zkdjs><font color=#f8c8a4>中考进行中</font><br/>各位同学加油！</div>";
 } else //显示倒计时
-{zkcountdown.innerHTML="<div class=zkdjs><font><jljl>距离"+key2+"</jljl><jlzc>中考</jlzc></font><br><font class=sz>"+zhongkaodaysold+"</font><font>天</font><br>"+zhongkaohrsold+"小时"+zhongkaominsold+"分"+zhongkaoseconds+"秒"+"</div>";}
+{zkcountdown.innerHTML="<div class=zkdjs><font><jljl>距离"+key2+"</jljl><jlzc>中考还有</jlzc></font><br><font class=sz>"+zhongkaodaysold+"</font><font>天</font><br>"+zhongkaohrsold+"小时"+zhongkaominsold+"分"+zhongkaoseconds+"秒"+"</div>";}
 }
 var search=location.search.substr(1).split('&');
 var len=search.length+0,y1=0,y2=0;
