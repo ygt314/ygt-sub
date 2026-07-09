@@ -144,4 +144,8 @@ project_analysis.md
 # my package
 zhtmlf.zip
 player.zip
+player/
 fnchess*.zip
+fnchess*/
+# notice
+NOTICE.md
