@@ -15,7 +15,7 @@ down_mu()
 {
 cd ~/zhtmlf/music;echo 下载play音乐播放器
 curl -L $myres/player.zip > player.zip;echo 下载完成
-[ -e player ] && echo 删除旧版本 && rm -rf player
+[ -e player ] && echo 删除旧版本 && rm -rf player/
 echo 安装新版本;unzip player.zip -d player
 cd;echo 安装完成
 }
@@ -24,8 +24,8 @@ down_fn()
 {
 cd ~/zhtmlf;echo 下载函数棋
 curl -L $myres/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
-[ -e 函数棋1.0.0 ] && echo 删除旧版本 && rm -rf 函数棋1.0.0
-echo 安装新版本;unzip fncs.zip -d 函数棋1.0.0
+[ -e fnchess ] && echo 删除旧版本 && rm -rf fnchess/
+echo 安装新版本;unzip fncs.zip -d fnchess
 cd;echo 安装完成
 }
 #识别版本

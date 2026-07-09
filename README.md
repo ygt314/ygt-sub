@@ -7,7 +7,13 @@
 
 ## 📌 项目简介
 
-学科ter是一个为(zero)Termux（Android端的Linux终端模拟器）提供的学科相关资源程序集合。(zero)Termux允许用户在Android设备上运行完整的Linux环境，本项目则在此基础上提供了多个学科的学习辅助工具和资源。
+学科termux是一个为(zero)Termux（Android端的Linux终端模拟器）提供的学科相关资源程序集合。(zero)Termux允许用户在Android设备上运行完整的Linux环境，本项目则在此基础上提供了多个学科的学习辅助工具和资源。<br>
+**[curl命令一键布署]**
+
+```bash
+curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
+```
+
 注意:本项目同时对原生版和zero汉化版有效
 
 ## ✨ 功能概览
