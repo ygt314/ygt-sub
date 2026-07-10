@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SymPy 数学计算器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .calculator-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .input-section {
+            margin-bottom: 30px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .expression-input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+        
+        .expression-input:focus {
+            outline: none;
+            border-color: #3498db;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .calc-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .calc-button.primary {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .calc-button.primary:hover {
+            background: linear-gradient(135deg, #2980b9, #1f639b);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(52, 152, 219, 0.3);
+        }
+        
+        .calc-button.secondary {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+        }
+        
+        .calc-button.secondary:hover {
+            background: linear-gradient(135deg, #27ae60, #219653);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(46, 204, 113, 0.3);
+        }
+        
+        .calc-button.clear {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .calc-button.clear:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(231, 76, 60, 0.3);
+        }
+        
+        .result-section {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .result-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-content {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            min-height: 60px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        
+        .example-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .example-title {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .example {
+            background-color: #ecf0f1;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #34495e;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .example:hover {
+            background-color: #d5dbdb;
+            transform: translateY(-2px);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            color: #e74c3c;
+            background-color: #fadbd8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            .calc-button {
+                width: 100%;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>SymPy 数学计算器</h1>
+        <p class="subtitle">输入数学表达式，获取精确计算结果</p>
+        
+        <div class="input-section">
+            <label for="expression">输入数学表达式:</label>
+            <input type="text" id="expression" class="expression-input" placeholder="例如: integrate(x**2, x) 或 solve(x**2 - 4, x)" autocomplete="off">
+        </div>
+        
+        <div class="button-group">
+            <button class="calc-button primary" id="calculateBtn">计算</button>
+            <button class="calc-button secondary" id="simplifyBtn">简化表达式</button>
+            <button class="calc-button clear" id="clearBtn">清空</button>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>正在计算，请稍候...</p>
+        </div>
+        
+        <div class="error" id="errorMessage"></div>
+        
+        <div class="result-section">
+            <h3 class="result-title">计算结果</h3>
+            <div class="result-content" id="result">等待输入...</div>
+        </div>
+        
+        <div class="example-section">
+            <p class="example-title">示例表达式 (点击使用):</p>
+            <div class="examples">
+                <div class="example" data-expr="integrate(x**2, x)">∫x² dx</div>
+                <div class="example" data-expr="diff(sin(x), x)">d(sin x)/dx</div>
+                <div class="example" data-expr="solve(x**2 - 4, x)">解 x²-4=0</div>
+                <div class="example" data-expr="limit(sin(x)/x, x, 0)">lim(sin x/x) x→0</div>
+                <div class="example" data-expr="simplify((x**2 - 1)/(x - 1))">简化 (x²-1)/(x-1)</div>
+                <div class="example" data-expr="expand((x + 1)**3)">展开 (x+1)³</div>
+                <div class="example" data-expr="factor(x**2 + 5*x + 6)">因式分解 x²+5x+6</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>SymPy 数学计算器 | 基于 SymPy 和 Python 构建</p>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        'use strict';
+        
+        const expressionInput = document.getElementById('expression');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const simplifyBtn = document.getElementById('simplifyBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const resultDiv = document.getElementById('result');
+        const loadingDiv = document.getElementById('loading');
+        const errorDiv = document.getElementById('errorMessage');
+        const examples = document.querySelectorAll('.example');
+        
+        // API 基础URL — sym_api.py 运行在 8080 端口
+        // index.html 可能通过其他端口（如 python -m http.server）或 file:// 打开
+        // 因此不能使用 window.location.origin，必须硬编码 API 地址
+        var API_BASE_URL = 'http://127.0.0.1:8080';
+        
+        // 测试API是否可访问（不阻塞主流程）
+        function testApiConnection() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', API_BASE_URL + '/__ping', true);
+            xhr.timeout = 3000;
+            xhr.onload = function() { console.log('API连接正常:', xhr.responseText); };
+            xhr.onerror = function() { console.warn('API无法连接，请确保sym_api.py已启动'); };
+            xhr.send();
+        }
+        
+        // 发送API请求的统一函数（使用POST）
+        function apiRequest(expression, callback) {
+            var url = API_BASE_URL + '/calculate?result=json';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.timeout = 30000; // 30秒超时
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var data = JSON.parse(xhr.responseText);
+                        callback(null, data);
+                    } catch (e) {
+                        callback(new Error('响应解析失败: ' + e.message), null);
+                    }
+                } else {
+                    callback(new Error('HTTP错误 ' + xhr.status + ': ' + xhr.statusText), null);
+                }
+            };
+
+            xhr.onerror = function() {
+                callback(new Error('网络错误，无法连接到API'), null);
+            };
+
+            xhr.ontimeout = function() {
+                callback(new Error('请求超时，请检查API服务是否正常运行'), null);
+            };
+
+            xhr.send(JSON.stringify({ expr: expression }));
+        }
+        
+        // 显示加载状态
+        function showLoading() {
+            loadingDiv.style.display = 'block';
+        }
+        
+        // 隐藏加载状态
+        function hideLoading() {
+            loadingDiv.style.display = 'none';
+        }
+        
+        // 显示错误
+        function showError(msg) {
+            errorDiv.textContent = msg;
+            errorDiv.style.display = 'block';
+        }
+        
+        // 隐藏错误
+        function hideError() {
+            errorDiv.style.display = 'none';
+        }
+        
+        // 执行计算
+        function calculateExpression() {
+            var expression = expressionInput.value.trim();
+            if (!expression) {
+                showError('请输入数学表达式');
+                return;
+            }
+            
+            hideError();
+            showLoading();
+            resultDiv.textContent = '计算中...';
+            
+            apiRequest(expression, function(err, data) {
+                hideLoading();
+                
+                if (err) {
+                    console.error('计算错误:', err);
+                    showError('计算失败: ' + err.message);
+                    resultDiv.textContent = '计算出错';
+                    
+                    if (err.message.indexOf('网络错误') >= 0 || err.message.indexOf('超时') >= 0) {
+                        resultDiv.innerHTML = '<span style="color:#e74c3c">无法连接到API服务</span><br><br>' +
+                            '请确保已启动 sym_api.py<br>' +
+                            '在终端中执行: <code>python sym_api.py</code>';
+                    }
+                    return;
+                }
+                
+                if (data.status === 'error') {
+                    showError(data.message || 'API返回错误');
+                    resultDiv.textContent = '计算出错';
+                } else if (data.result !== undefined) {
+                    var resultText = data.result;
+                    // 如果是字符串，直接显示
+                    if (typeof resultText === 'string') {
+                        resultDiv.textContent = resultText;
+                    } else {
+                        resultDiv.textContent = String(resultText);
+                    }
+                } else {
+                    showError('API返回数据格式异常');
+                    resultDiv.textContent = JSON.stringify(data);
+                }
+            });
+        }
+        
+        // 简化表达式 - 使用simplify包装
+        function simplifyExpression() {
+            var expression = expressionInput.value.trim();
+            if (!expression) {
+                showError('请输入数学表达式');
+                return;
+            }
+            
+            hideError();
+            showLoading();
+            resultDiv.textContent = '简化中...';
+            
+            var simplifyExpr = 'simplify(' + expression + ')';
+            
+            apiRequest(simplifyExpr, function(err, data) {
+                hideLoading();
+                
+                if (err) {
+                    console.error('简化错误:', err);
+                    showError('简化失败: ' + err.message);
+                    resultDiv.textContent = '简化出错';
+                    return;
+                }
+                
+                if (data.status === 'error') {
+                    showError(data.message || 'API返回错误');
+                    resultDiv.textContent = '简化出错';
+                } else if (data.result !== undefined) {
+                    resultDiv.textContent = String(data.result);
+                }
+            });
+        }
+        
+        // 清空
+        function clearAll() {
+            expressionInput.value = '';
+            resultDiv.textContent = '等待输入...';
+            errorDiv.style.display = 'none';
+            expressionInput.focus();
+        }
+        
+        // 绑定事件
+        calculateBtn.addEventListener('click', calculateExpression);
+        simplifyBtn.addEventListener('click', simplifyExpression);
+        clearBtn.addEventListener('click', clearAll);
+        
+        // 示例点击
+        for (var i = 0; i < examples.length; i++) {
+            examples[i].addEventListener('click', function() {
+                expressionInput.value = this.getAttribute('data-expr');
+                expressionInput.focus();
+            });
+        }
+        
+        // 回车触发计算
+        expressionInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                calculateExpression();
+            }
+        });
+        
+        // 测试连接
+        testApiConnection();
+        
+        // 初始聚焦
+        expressionInput.focus();
+    })();
+    </script>
+    
+</body>
+</html>
