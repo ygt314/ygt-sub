@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>位置:../语文网站</title>
     <meta name="description" content="我的语文网站，包含多种实用工具和资源">
-    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <link href="gczcdjs/css/css2.css" rel="stylesheet" type="text/css">
     <script>
         function reget()
         {
@@ -17,6 +17,10 @@
         {
     alert(document.getElementById('resweb').src);
     getweb("resweb","vares");
+        }
+        if(location.href.indexOf('?') === -1)
+        {
+        location.replace("Chinese.html?t=1"); //添加占位参数
         }
     </script>
 </head>
@@ -46,7 +50,7 @@
     <p>2. <a href="./chinese/minzu.html">名著</a></p>
     <p>3. <a href="./chinese/xiaoshuo.html">小说</a></p>
     <p>4. <a href="./chinese/mytxt.html">作文</a></p>
-    <p>5. <a href="./subject/cn/index.html">语文资料</a></p>
+    <p>5. <a href="./subject/CN/index.html">语文资料</a></p>
     <h3>其它科目</h3>
     <p>1. <a href="./Math.html">数学</a></p>
     <p>2. <a href="./Chemistry.html">化学</a></p>
@@ -55,7 +59,7 @@
     <p>5. <a href="./History.html">历史</a></p>
     <script type="text/javascript" src="myweb.js" defer></script>
     <script type="text/javascript" src="myplay.js" defer></script>
-    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script src="gczcdjs/js/countdown_api.js" type="text/javascript" defer></script>
     <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8" defer></script>
 </body>
 </html>

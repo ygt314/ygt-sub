@@ -66,7 +66,7 @@ function myvk(vk,n,rw)
 {
     var vk=document.getElementById(vk).value;//vk-rw
     var varweb=`https://www.kuaishou.com/search/video?searchKey=${vk}`;varweb=to2b(varweb);
-    dra_rep(varweb,n,rw);
+    dra_rep1(varweb,n,rw);
 }
 function mydou(vd,n,rw)
 {
@@ -119,19 +119,13 @@ function meta(mt,n,rw)
 {
     var word=document.getElementById(mt).value;//mt-rw
     var varweb=`https://metaso.cn/?q=${word}`;varweb=to2b(varweb);
-    dra_rep(varweb,n,rw);
+    dra_rep1(varweb,n,rw);
 }
 function woal(wa,n,rw)
 {
     var word=document.getElementById(wa).value;//wo-rw
     var varweb=`https://www.wolframalpha.com/input?i=${word}`;varweb=to2b(varweb);
     dra_rep1(varweb,n,rw);
-}
-function deepseek(ds,n,rw)
-{
-    var word=document.getElementById(ds).value;//ds-rw
-    var varweb=`https://chat.deepseek.com/?q=${word}`;varweb=to2b(varweb);
-    dra_rep(varweb,n,rw);
 }
 function qcemb(qc,n,rw)
 {
@@ -177,7 +171,19 @@ function m3u8_hx(mm,n,rw)
 }
 function hx_dm(hx,n,rw)
 {
-    var word=document.getElementById(mm).value;//dm_word
+    var word=document.getElementById(hx).value;//dm_word
     var varweb=`https://m.haixingdmx.com/hdst/player/artplayer/index.html?url=${word}`;
+    dra_rep(varweb,n,rw);
+}
+function cn_pdf(cn,n,rw)
+{
+var so=document.getElementById(cn).value;//zh-tex
+    var varweb=`https://bb.basic.smartedu.cn/copy/pdf/viewer.html?file=${so}`;varweb=to2b(varweb);
+    dra_rep(varweb,n,rw);
+}
+function zh_tex(zh,n,rw)
+{
+    var so=document.getElementById(zh).value;//zh-tex
+    var varweb=`https://www.zhihu.com/equation?tex=${so}`;varweb=to2b(varweb);
     dra_rep(varweb,n,rw);
 }

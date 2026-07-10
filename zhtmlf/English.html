@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>位置:../英语网站</title>
     <meta name="description" content="我的英语网站，包含多种实用工具和资源">
-    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <link href="gczcdjs/css/css2.css" rel="stylesheet" type="text/css">
     <script>
         function reget()
         {
@@ -17,6 +17,10 @@
         {
     alert(document.getElementById('resweb').src);
     getweb("resweb","vares");
+        }
+        if(location.href.indexOf('?') === -1)
+        {
+        location.replace("English.html?t=1"); //添加占位参数
         }
     </script>
 </head>
@@ -35,15 +39,14 @@
     <h3>网站</h3>
     <p>1. <a href="./YGTWEB.html">我的主页</a></p>
     <p>2. <a href="http://m.1010jiajiao.com/diandu/book/1731.html">九全电子课本</a></p>
-    <p>3. <a href="https://bb.basic.smartedu.cn/copy/pdf/viewer.html?file=https://v2.ykt.cbern.com.cn/65/document/bd1c4408237d4c6b985b07d6455dc04f/pdf.pdf">高一必修一电子课本</a></p>
-    <h3><a href="./subject/en">英语资料</a></h3>
+    <h3><a href="./subject/EN">英语资料</a></h3>
     <h3>其它科目</h3>
     <p>1. <a href="./Chinese.html">语文</a></p>
     <p>2. <a href="./Math.html">数学</a></p>
     <p>3. <a href="./Chemistry.html">化学</a></p>
     <p>4. <a href="./M_and_C.html">数化</a></p>
     <p>5. <a href="./History.html">历史</a></p>
-    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script src="gczcdjs/js/countdown_api.js" type="text/javascript" defer></script>
     <script type="text/javascript" src="myweb.js" defer></script>
 </body>
 </html>

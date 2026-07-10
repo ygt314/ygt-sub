@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>位置:../化学网站</title>
     <meta name="description" content="我的化学网站，包含多种实用工具和资源">
-    <link href="gczcdjs/css/css.css" rel="stylesheet" type="text/css">
+    <link href="gczcdjs/css/css2.css" rel="stylesheet" type="text/css">
     <script>
         function reget()
         {
@@ -17,6 +17,10 @@
         {
     alert(document.getElementById('resweb').src);
     getweb("resweb","vares");
+        }
+        if(location.href.indexOf('?') === -1)
+        {
+        location.replace("Chemistry.html?t=1"); //添加占位参数
         }
     </script>
 </head>
@@ -72,12 +76,12 @@
     <br>────────────────────────────────────────────┘
     <h3>网站</h3>
     <p>1. <a href="YGTWEB.html">我的主页</a></p>
-    <p>2. <a href="subject/ch/">化学资料</a></p>
-    <p>3. <a href="subject/ch/mind.html">化学思维导图</a></p>
+    <p>2. <a href="subject/CH/">化学资料</a></p>
+    <p>3. <a href="subject/CH/mind.html">化学思维导图</a></p>
     <p>4. <a href="http://m.1010jiajiao.com/diandu/book/1743.html">九上电子课本</a></p>
     <p>5. <a href="http://m.1010jiajiao.com/diandu/book/2258.html">九下电子课本</a></p>
-    <p>6. <a href="subject/ch/mind_m.html">初中化学思维导图</a></p>
-    <p>7. <a href="subject/ch/mind_h.html">高中化学思维导图</a></p>
+    <p>6. <a href="subject/CH/mind_m.html">初中化学思维导图</a></p>
+    <p>7. <a href="subject/CH/mind_h.html">高中化学思维导图</a></p>
     <p>8. <a href="https://hx.nobook.com/index.html#/console/templates">NB化学实验</a></p>
     <h3>其它科目</h3>
     <p>1. <a href="Chinese.html">语文</a></p>
@@ -89,7 +93,7 @@
     <script type="text/javascript" src="yscx.js" defer></script>
     <script type="text/javascript" src="hhwb.js" defer></script>
     <script type="text/javascript" src="hhwcx.js" defer></script>
-    <script src="gczcdjs/js/countdown.js" type="text/javascript" defer></script>
+    <script src="gczcdjs/js/countdown_api.js" type="text/javascript" defer></script>
     <script type="text/javascript" src="myweb.js" defer></script>
 </body>
 </html>

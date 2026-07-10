@@ -11,7 +11,7 @@
 ## 下载与使用(需要局域网服务器)
 
 学科ter项目(本项目)最新版本(v1.2.2)已自动布署<br>
-启动局域网服务器使用`hhf`命令，浏览器访问`127.0.0.1:2222/函数棋1.0.0`就能玩<br>
+启动局域网服务器使用`hhf`命令，浏览器访问`127.0.0.1:2222/fnchess`就能玩<br>
 **注意**:
 如果没有接触过本项目要单独下载:<br>
 0. 汉化版Termux下载:点击[Termux-X](termux-x.com)进入官网
@@ -30,8 +30,8 @@ cd;echo 下载函数棋;curl -L https://gitee.com/ygt314159/subject-termux/relea
 在Termux中粘贴~~输入(bushi~~并回车执行下面unzip解压命令，直到echo输出解压完成
 ```bash
 cd
-[ -e 函数棋1.0.0 ] && echo 删除旧版本 && rm -rf 函数棋1.0.0
-echo 安装新版本;unzip fncs.zip -d 函数棋1.0.0;echo 安装完成
+[ -e fnchess ] && echo 删除旧版本 && rm -rf fnchess
+echo 安装新版本;unzip fncs.zip -d fnchess;echo 安装完成
 ```
 
 4. 启动局域网游戏服务器:
@@ -41,7 +41,7 @@ cd;python -m http.server 8080
 ```
 
 5. 浏览器访问函数棋:
-打开浏览器，网址栏输入`127.0.0.1:8080/函数棋1.0.0`即可访问函数棋
+打开浏览器，网址栏输入`127.0.0.1:8080/fnchess`即可访问函数棋
 
 ## 游戏规则
 
