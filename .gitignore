@@ -149,3 +149,5 @@ fnchess*.zip
 fnchess*/
 # notice
 NOTICE.md
+# zhtmlf 独有文件压缩包
+tools/zhtmlf-extra.tar.gz

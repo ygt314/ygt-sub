@@ -35,5 +35,11 @@ else
     cd && tar -xf sbt.tar && rm sbt.tar
 fi
 
+# 解压 zhtmlf 独有文件 (脚本/工具等)
+if [ -f tools/zhtmlf-extra.tar.gz ];then
+    echo "解压 zhtmlf 附加工具..."
+    tar -xzf tools/zhtmlf-extra.tar.gz -C zhtmlf/
+fi
+
 cd && echo "执行ppht.sh" && bash ppht.sh
 cd && echo "即将运行初始化脚本" && bash terset.sh
