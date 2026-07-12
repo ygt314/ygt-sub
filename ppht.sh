@@ -5,7 +5,7 @@ myre=https://gitee.com/ygt314159/subject-termux/releases/download/
 down_zh()
 {
 cd;echo 下载zhtmlf
-curl -L $myres/zhtmlf.zip > zhtmlf.zip;echo 下载完成
+curl -L $myres/zhtmlf_termux.zip > zhtmlf.zip;echo 下载完成
 [ -e zhtmlf ] && echo 删除旧版本 && rm -rf zhtmlf
 echo 安装新版本;unzip zhtmlf.zip -d zhtmlf
 cd;echo 安装完成

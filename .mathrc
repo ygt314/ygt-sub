@@ -195,5 +195,4 @@ do
     fi
 done
 }
-source .lmnrc
 echo 数学之门已开启

@@ -4,8 +4,8 @@ if [ $? != 0 ];then
     echo "[警告]:没有curl，使用系统curl..."
     function curl() { /system/bin/curl $@; }
 fi
-
-file_v="subter_1.2.2"
+tag_http="https://gitee.com/ygt314159/subject-termux/releases/download/1.0.1"
+file_v="subter_1.2.3"
 fmt=""
 
 # 检测可用工具: unzip优先→tar→系统tar
@@ -28,18 +28,11 @@ fi
 
 echo "下载并布署项目 ($fmt)"
 if [ "$fmt" = "zip" ];then
-    curl -L "https://gitee.com/ygt314159/subject-termux/raw/master/${file_v}.zip" -o sbt.zip
+    curl -L "$tag_http/${file_v}.zip" -o sbt.zip
     cd && unzip -o sbt.zip && rm sbt.zip
 else
-    curl -L "https://gitee.com/ygt314159/subject-termux/raw/master/${file_v}.tar" -o sbt.tar
+    curl -L "$tag_http/${file_v}.tar" -o sbt.tar
     cd && tar -xf sbt.tar && rm sbt.tar
 fi
-
-# 解压 zhtmlf 独有文件 (脚本/工具等)
-if [ -f tools/zhtmlf-extra.tar.gz ];then
-    echo "解压 zhtmlf 附加工具..."
-    tar -xzf tools/zhtmlf-extra.tar.gz -C zhtmlf/
-fi
-
-cd && echo "执行ppht.sh" && bash ppht.sh
 cd && echo "即将运行初始化脚本" && bash terset.sh
+cd && echo "执行ppht.sh" && bash ppht.sh

@@ -6,8 +6,7 @@ chmod 777 ~/*.py;chmod 777 ~/*.sh
 source ~/.cnrc;source ~/.htmrc
 source ~/.mathrc;cngt_d
 source ~/.cmstrc;source ~/.bcrc
-source ~/.subrc;source ~/.enrc
-source ~/.pwrc;source ~/.mypwrc
+source ~/.enrc
 source ~/.pyrc;source ~/startcmdrc
 cdf()
 {

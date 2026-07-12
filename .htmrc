@@ -1,7 +1,6 @@
-htm_v=1.5.5
-vn=v1.0.0
+htm_v=1.5.6
+vn=1.0.1
 htf=~/zhtmlf
-zma=~/zmath
 zcn=~/zchinese
 https()
 {
@@ -18,11 +17,6 @@ hhf()
 cd $htf
 https 2222
 }
-hma()
-{
-cd $zma
-https 1234
-}
 hcn()
 {
 cd $zcn
@@ -32,11 +26,6 @@ hhf_np()
 {
 cd $htf
 httpx 2222
-}
-hma_np()
-{
-cd $zma
-httpx 1234
 }
 hcn_np()
 {

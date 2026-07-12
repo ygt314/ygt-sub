@@ -7,9 +7,14 @@ jupyter-server
 numpy
 scipy
 sympy
+mpmath
 panda
 manim
 kiwisolver
 lxml
 matplotlib
 pip
+tokenizers
+hf-xet
+pydantic-core
+pydantic_core
