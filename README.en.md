@@ -92,18 +92,11 @@ The following methods are suitable for users in China.
 - [2] [Download from 2233](https://azshareappr.3322.cc/appfile/com.termux.apk?time=1749375149&key=2a544bd7a618cb58395cd0ef7db8238e)
 [2233 page](https://www.32r.com/app/136073.html)
 ------
-**Chinese Localized Version** (ZeroTermux)
+**Chinese Localized Version** (ZeroTermux / Termux-X)
 
 - [ZeroTermux official](https://zerotermux.dev/)
 - [1] [Direct download](https://d.icdown.club/repository/main/ZeroTermux/ZeroTermux-0.118.54.apk)
 [Download site](https://d.icdown.club/doc/)
-------
-**Advanced Localized Version** (Termux-X)
-
-Based on ZeroTermux project.
-- [Termux-X official](https://termux-x.com)
-- [Termux-X Manual](https://termux-x.com/guide/introduction-overview)
-- [1] [Direct download](https://xheishou.com/update/apk/nethunter/Termux-X-0.118.3.60.1.apk)
 
 ### 2. Switch to a Domestic Mirror (Tsinghua Mirrors)
 - If you have the localized version (ZeroTermux/Termux-X):
