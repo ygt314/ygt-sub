@@ -50,11 +50,15 @@ Note: This project works with both the original version and the ZeroTermux Chine
 ├── enrc/            # English config
 ├── mapyrc/          # python math (core pym backend)
 ├── mathrc/          # math config
+├── mymath/          # python math module
+├── tests/           # test scripts
 ├── zbashfile/       # safe-mode shell environment ([docs](zbashfile/README.md))
 ├── zchinese/        # Chinese study resources
 ├── zhtmlf/          # subject web resources ([docs](zhtmlf/README.md))
 ├── .bashrc          # Termux environment config
 ├── .gitignore       # Git-ignore rules
+├── install.sh       # deployment script
+├── terset.sh        # environment setup script
 ├── LICENSE          # EPL-1.0 open source license
 ├── README.md        # README (CN)
 ├── README.en.md     # README (EN)
@@ -77,14 +81,85 @@ Each subdirectory may contain its own documentation with more detailed informati
 
 ## 🚀 Quick Start
 
-1. Install the Termux app
-2. Change the domestic mirror source:
+The following methods are suitable for users in China.
+
+### 1. Install the Termux App
+
+**Original Version**
+
+- [1] [Download from DownKuai](https://azshareappdk.3322.cc/appfile/com.termux.apk?time=1749375009&key=ffb13415b8e26714891ccf5165273526)
+[DownKuai page](https://www.downkuai.com/android/140917.html)
+- [2] [Download from 2233](https://azshareappr.3322.cc/appfile/com.termux.apk?time=1749375149&key=2a544bd7a618cb58395cd0ef7db8238e)
+[2233 page](https://www.32r.com/app/136073.html)
+------
+**Chinese Localized Version** (ZeroTermux)
+
+- [ZeroTermux official](https://zerotermux.dev/)
+- [1] [Direct download](https://d.icdown.club/repository/main/ZeroTermux/ZeroTermux-0.118.54.apk)
+[Download site](https://d.icdown.club/doc/)
+------
+**Advanced Localized Version** (Termux-X)
+
+Based on ZeroTermux project.
+- [Termux-X official](https://termux-x.com)
+- [Termux-X Manual](https://termux-x.com/guide/introduction-overview)
+- [1] [Direct download](https://xheishou.com/update/apk/nethunter/Termux-X-0.118.3.60.1.apk)
+
+### 2. Switch to a Domestic Mirror (Tsinghua Mirrors)
+- If you have the localized version (ZeroTermux/Termux-X):
+  Open the side toolbox → [Switch Source] → select [Tsinghua Mirrors] for temporary use.
+  Note: this only works for the current session; you'll need to repeat after restarting the app.
+  For persistent mirror support, follow the original version steps below.
+
+- If you have the original version (also works for localized versions):
 ```bash
 termux-change-repo
 ```
-3. Deploy the project:
+Select _Single mirror_ (second option) → _Mirror by Tsinghua University TUNA_
+to switch permanently.
+- Termux [Tsinghua Mirrors help](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
+
+### 3. Deploy the Project
+
+[Install curl] This project depends on curl.
+```bash
+apt install -y curl
+```
+
+[Automated deployment] Run in Termux:
 ```bash
 curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
+```
+
+The install script will automatically download and deploy the project.
+
+#### Alternative Deployment Methods
+
+[Download subter_1.2.2.zip in Termux]
+```bash
+cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.zip>sbt.zip
+```
+[Unzip and clean up]
+```bash
+cd;unzip sbt.zip;rm sbt.zip
+```
+
+[Download subter_1.2.2.tar in Termux]
+```bash
+cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.tar>sbt.tar
+```
+[Extract and clean up]
+```bash
+cd;tar -xvf sbt.tar;rm sbt.tar
+```
+
+### 4. Initialization Script
+
+The deployment script runs initialization automatically.
+If interrupted (e.g., apt remove or network issue), run manually:
+```bash
+cd
+bash terset.sh
 ```
 
 ## 🧮 Math Tools
@@ -108,10 +183,16 @@ pym "x**2 + 2*x + 1"     # Use variable → 36
 
 ### bcm — bc Arbitrary Precision Calculator
 
+Based on GNU bc math library, supports high-precision computation.
+
 ```bash
 bc -l bcrc/math.bc       # Or use the bcm wrapper
 
 sin(pi/4)                # Sine, auto angle handling
+cos(0.5)                 # Cosine
+f(10)                    # 10! = 3628800
+fbnc(20)                 # Fibonacci sequence 20th term
+ln(100)                  # Natural log
 f(10)                    # 10! = 3628800
 fbnc(20)                 # Fibonacci sequence 20th term
 ln(100)                  # Natural log
@@ -298,17 +379,29 @@ bash ppht.sh
 Access subject web pages via local HTTP server in the zhtmlf directory:
 - Python method: `hhf`
 - Node.js method: `hhf_np`
-### 3. HTML Reading
+### 3. HTML Reading (CLI Tools)
+
+Bash CLI tools are now bundled in the [zhtmlf/html/bash/](zhtmlf/html/bash/) directory:
+
 ```bash
-cdh
+# Source the HTML parsing library
+source ./zhtmlf/html/bash/html_txtrc
+
+# Interactive HTML file viewer
+bash ./zhtmlf/html/bash/1.sh
+
+# URL download + HTML viewer
+bash ./zhtmlf/html/bash/2.sh
+
+# Novel download tool
+bash ./zhtmlf/html/bash/hl_new.sh
+
+# Use functions directly
 purl [URL]               # Fetch and display web page
 pht [FILE]               # Display local HTML file
 ```
-```bash
-bash 1.sh                # Display local HTML
-bash 2.sh                # Interactive URL input
-bash hl_new.sh           # Extract Conan update info
-```
+
+Windows PowerShell equivalents are also available at [zhtmlf/html/powershell/](zhtmlf/html/powershell/).
 
 ## 🛡️ zbashfile Directory
 
