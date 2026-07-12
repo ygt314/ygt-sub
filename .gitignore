@@ -141,13 +141,15 @@ cython_debug/
 *.rule
 # my project_analysis
 project_analysis.md
-# my package
-zhtmlf.zip
-player.zip
+# package files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# player
 player/
-fnchess*.zip
 fnchess*/
+
 # notice
 NOTICE.md
-# zhtmlf 独有文件压缩包
-tools/zhtmlf-extra.tar.gz
