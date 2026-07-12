@@ -81,78 +81,27 @@ Each subdirectory may contain its own documentation with more detailed informati
 
 ## 🚀 Quick Start
 
-The following methods are suitable for users in China.
+### 1. Install Termux
 
-### 1. Install the Termux App
+Get it from [F-Droid](https://f-droid.org/packages/com.termux/) or [GitHub Releases](https://github.com/termux/termux-app/releases).
 
-**Original Version**
+### 2. Deploy the Project
 
-- [1] [Download from DownKuai](https://azshareappdk.3322.cc/appfile/com.termux.apk?time=1749375009&key=ffb13415b8e26714891ccf5165273526)
-[DownKuai page](https://www.downkuai.com/android/140917.html)
-- [2] [Download from 2233](https://azshareappr.3322.cc/appfile/com.termux.apk?time=1749375149&key=2a544bd7a618cb58395cd0ef7db8238e)
-[2233 page](https://www.32r.com/app/136073.html)
-------
-**Chinese Localized Version** (ZeroTermux / Termux-X)
-
-- [ZeroTermux official](https://zerotermux.dev/)
-- [1] [Direct download](https://d.icdown.club/repository/main/ZeroTermux/ZeroTermux-0.118.54.apk)
-[Download site](https://d.icdown.club/doc/)
-
-### 2. Switch to a Domestic Mirror (Tsinghua Mirrors)
-- If you have the localized version (ZeroTermux/Termux-X):
-  Open the side toolbox → [Switch Source] → select [Tsinghua Mirrors] for temporary use.
-  Note: this only works for the current session; you'll need to repeat after restarting the app.
-  For persistent mirror support, follow the original version steps below.
-
-- If you have the original version (also works for localized versions):
 ```bash
-termux-change-repo
-```
-Select _Single mirror_ (second option) → _Mirror by Tsinghua University TUNA_
-to switch permanently.
-- Termux [Tsinghua Mirrors help](https://mirrors.tuna.tsinghua.edu.cn/help/termux/)
+# Install curl first (if missing)
+pkg install -y curl
 
-### 3. Deploy the Project
-
-[Install curl] This project depends on curl.
-```bash
-apt install -y curl
+# One-click deployment
+curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh | bash
 ```
 
-[Automated deployment] Run in Termux:
-```bash
-curl -fsSL https://gitee.com/ygt314159/subject-termux/raw/master/install.sh|bash
-```
+The script will automatically download and set up all tools.
 
-The install script will automatically download and deploy the project.
+### 3. Initialization (if needed)
 
-#### Alternative Deployment Methods
-
-[Download subter_1.2.2.zip in Termux]
+If the deployment was interrupted:
 ```bash
-cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.zip>sbt.zip
-```
-[Unzip and clean up]
-```bash
-cd;unzip sbt.zip;rm sbt.zip
-```
-
-[Download subter_1.2.2.tar in Termux]
-```bash
-cd;curl -L https://gitee.com/ygt314159/subject-termux/raw/master/subter_1.2.2.tar>sbt.tar
-```
-[Extract and clean up]
-```bash
-cd;tar -xvf sbt.tar;rm sbt.tar
-```
-
-### 4. Initialization Script
-
-The deployment script runs initialization automatically.
-If interrupted (e.g., apt remove or network issue), run manually:
-```bash
-cd
-bash terset.sh
+cd && bash terset.sh
 ```
 
 ## 🧮 Math Tools
