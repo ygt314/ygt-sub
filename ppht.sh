@@ -1,6 +1,6 @@
 vvf=~/.htmrc;vj=0
 mymas=https://gitee.com/ygt314159/subject-termux/raw/master
-myre=https://gitee.com/ygt314159/subject-termux/releases/download/
+myre=https://gitee.com/ygt314159/subject-html/releases/download
 #下载zhtmlf
 down_zh()
 {
