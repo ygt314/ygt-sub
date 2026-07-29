@@ -7,7 +7,7 @@ down_zh()
 cd;echo 下载zhtmlf
 curl -L $myres/zhtmlf_termux.zip > zhtmlf.zip;echo 下载完成
 [ -e zhtmlf ] && echo 删除旧版本 && rm -rf zhtmlf
-echo 安装新版本;unzip zhtmlf.zip -d zhtmlf
+echo 安装新版本;unzip zhtmlf.zip
 cd;echo 安装完成
 }
 #下载play音乐播放器
@@ -23,7 +23,7 @@ cd;echo 安装完成
 down_fn()
 {
 cd ~/zhtmlf;echo 下载函数棋
-curl -L $myres/zhtmlf/fnchess_1.0.0.zip > fncs.zip;echo 下载完成
+curl -L $myres/fnchess.zip > fncs.zip;echo 下载完成
 [ -e fnchess ] && echo 删除旧版本 && rm -rf fnchess/
 echo 安装新版本;unzip fncs.zip -d fnchess
 cd;echo 安装完成

@@ -1,11 +1,11 @@
+file_v="subter_1.2.4"
 echo "学科termux布署"
 curl -V > /dev/null 2>&1
 if [ $? != 0 ];then
     echo "[警告]:没有curl，使用系统curl..."
     function curl() { /system/bin/curl $@; }
 fi
-tag_http="https://gitee.com/ygt314159/subject-termux/releases/download/1.0.1"
-file_v="subter_1.2.3"
+tag_http="https://gitee.com/ygt314159/subject-termux/releases/download/1.0.2"
 fmt=""
 
 # 检测可用工具: unzip优先→tar→系统tar
